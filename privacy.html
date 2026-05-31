@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy &mdash; Premier Wellness Telehealth</title>
+<meta name="description" content="How Premier Wellness Telehealth collects, uses, and protects information through our website." />
+
+<!-- Canonical: update to absolute URL once domain is live -->
+<link rel="canonical" href="./privacy.html" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#1F3A5F" />
+
+<link rel="icon" type="image/png" href="./assets/favicon.png" />
+<link rel="apple-touch-icon" href="./assets/favicon.png" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Premier Wellness Telehealth" />
+<meta property="og:title" content="Privacy Policy — Premier Wellness Telehealth" />
+<meta property="og:description" content="How Premier Wellness Telehealth collects, uses, and protects information through our website." />
+<meta property="og:image" content="./assets/logo.png" />
+<meta property="og:locale" content="en_US" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Privacy Policy — Premier Wellness Telehealth" />
+<meta name="twitter:description" content="How Premier Wellness Telehealth collects, uses, and protects information through our website." />
+<meta name="twitter:image" content="./assets/logo.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#1F3A5F; --navy-deep:#122845; --navy-soft:#2B4E7A;
+  --gold:#B08D3E; --gold-soft:#C9A95C;
+  --cream:#FAF6EB; --cream-warm:#F3EEDF;
+  --ink:#1A2330; --muted:#5A6878; --line:#E6DFCB;
+  --shadow: 0 10px 40px -12px rgba(31,58,95,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope', sans-serif; color:var(--ink); background:#FFFCF5; line-height:1.65; -webkit-font-smoothing:antialiased;}
+.serif{font-family:'Cormorant Garamond', serif}
+a{color:var(--navy); text-decoration:none; border-bottom:1px solid rgba(176,141,62,.3); transition:color .2s, border-color .2s}
+a:hover{color:var(--gold); border-color:var(--gold)}
+img{max-width:100%; display:block}
+.container{max-width:1240px; margin:0 auto; padding:0 28px}
+
+/* Skip link — visible only on focus for keyboard users */
+.skip-link{
+  position:absolute; left:-9999px; top:0; z-index:1000;
+  background:var(--navy-deep); color:#fff;
+  padding:12px 18px; text-decoration:none; font-weight:600;
+  border-radius:0 0 8px 0;
+}
+.skip-link:focus{ left:0; outline:2px solid var(--gold); outline-offset:2px; }
+
+/* ====== Announce + Nav (same as index) ====== */
+.announce{background:var(--navy-deep); color:#F0E6CC; font-size:13px; letter-spacing:.08em; text-transform:uppercase; text-align:center; padding:10px 20px; font-weight:500;}
+.announce span{color:var(--gold-soft); margin:0 8px}
+nav.main{position:sticky; top:0; z-index:100; background:rgba(255,252,245,.92); backdrop-filter:saturate(180%) blur(14px); -webkit-backdrop-filter:saturate(180%) blur(14px); border-bottom:1px solid rgba(176,141,62,.18);}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; padding:16px 0; gap:32px;}
+.brand{display:flex; align-items:center; gap:12px; border:none}
+.brand:hover{color:var(--navy)}
+.brand img{height:48px; width:auto}
+.brand-text{display:flex; flex-direction:column; line-height:1}
+.brand-text .b1{font-family:'Cormorant Garamond', serif; font-size:18px; font-weight:600; color:var(--navy); letter-spacing:.04em}
+.brand-text .b2{font-size:9.5px; letter-spacing:.22em; color:var(--gold); text-transform:uppercase; margin-top:3px; font-weight:600}
+.nav-links{display:flex; gap:34px; align-items:center}
+.nav-links a{font-size:14.5px; font-weight:500; color:var(--navy); position:relative; padding:6px 0; border:none;}
+.nav-links a:hover{color:var(--gold)}
+.btn{display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:2px; font-size:14px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; transition:all .25s ease; border:none; font-family:inherit;}
+.btn-primary{background:var(--gold); color:#fff; box-shadow:0 4px 14px rgba(176,141,62,.35);}
+.btn-primary:hover{background:var(--navy); transform:translateY(-2px);}
+.btn-outline{background:transparent; color:var(--navy); border:1.5px solid var(--navy);}
+.btn-outline:hover{background:var(--navy); color:#fff}
+.menu-toggle{display:none; background:none; border:none; color:var(--navy); cursor:pointer}
+
+/* ====== Page banner ====== */
+.page-banner{
+  background:linear-gradient(180deg, #FFFCF5 0%, var(--cream) 100%);
+  padding:80px 0 60px; position:relative; overflow:hidden;
+}
+.page-banner::before{
+  content:''; position:absolute; top:-100px; right:-80px; width:340px; height:340px; border-radius:50%;
+  background:radial-gradient(circle, rgba(176,141,62,.15), transparent 70%);
+}
+.page-banner .eyebrow{font-size:12px; font-weight:600; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; position:relative;}
+.page-banner .eyebrow::before{content:''; display:inline-block; width:28px; height:1.5px; background:var(--gold); vertical-align:middle; margin-right:12px;}
+.page-banner h1{font-family:'Cormorant Garamond', serif; font-weight:500; font-size:clamp(38px, 5vw, 62px); line-height:1.05; color:var(--navy); letter-spacing:-.01em; max-width:780px; position:relative;}
+.page-banner h1 em{font-style:italic; color:var(--gold)}
+.page-banner .updated{font-size:14px; color:var(--muted); margin-top:18px; position:relative;}
+
+/* ====== Wave ====== */
+.wave-divider{width:100%; height:80px; display:block; margin-top:-20px; position:relative; z-index:2;}
+
+/* ====== Draft warning callout ====== */
+.draft-warning{
+  background:#FFF4D6; border-left:4px solid #C9882B; border-radius:4px;
+  padding:22px 28px; margin:40px 0;
+  display:flex; gap:16px; align-items:flex-start;
+}
+.draft-warning .ico{flex-shrink:0; color:#8B5E1A; margin-top:2px}
+.draft-warning .body{flex:1}
+.draft-warning .body strong{display:block; color:#5B3F12; font-size:15px; margin-bottom:4px; font-weight:700; letter-spacing:.04em; text-transform:uppercase}
+.draft-warning .body p{color:#5B3F12; font-size:14.5px; line-height:1.55}
+
+/* ====== Prose layout ====== */
+.prose-wrap{padding:60px 0 100px}
+.prose-grid{display:grid; grid-template-columns:240px 1fr; gap:80px; align-items:start; max-width:1080px; margin:0 auto;}
+.toc{position:sticky; top:100px; font-size:14px;}
+.toc h4{font-family:'Cormorant Garamond', serif; font-size:14px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; font-weight:600;}
+.toc ol{list-style:none; counter-reset:toc; border-left:1.5px solid var(--line); padding-left:14px}
+.toc li{counter-increment:toc; padding:6px 0; position:relative;}
+.toc li::before{
+  content:counter(toc, decimal-leading-zero);
+  position:absolute; left:-26px; color:var(--gold); font-size:11px; font-weight:600; top:8px;
+  background:#FFFCF5; padding:0 4px;
+}
+.toc a{color:var(--muted); font-size:13.5px; border:none; line-height:1.4; display:inline-block;}
+.toc a:hover{color:var(--navy)}
+
+.prose{max-width:680px; font-size:16px; color:var(--ink); line-height:1.75;}
+.prose h2{font-family:'Cormorant Garamond', serif; color:var(--navy); font-size:32px; font-weight:600; letter-spacing:-.005em; margin:48px 0 16px; line-height:1.15; scroll-margin-top:100px;}
+.prose h2:first-child{margin-top:0}
+.prose h2 .num{color:var(--gold); font-size:18px; display:block; letter-spacing:.18em; text-transform:uppercase; font-family:'Manrope', sans-serif; font-weight:600; margin-bottom:8px;}
+.prose h3{font-family:'Cormorant Garamond', serif; color:var(--navy); font-size:22px; font-weight:600; margin:28px 0 10px;}
+.prose p{margin-bottom:16px}
+.prose ul, .prose ol{margin:8px 0 20px 24px}
+.prose li{margin-bottom:8px; padding-left:6px}
+.prose li::marker{color:var(--gold)}
+.prose strong{color:var(--navy); font-weight:700}
+.prose em{font-style:italic}
+.prose .callout{
+  background:var(--cream-warm); border-left:3px solid var(--gold);
+  padding:18px 22px; margin:24px 0; border-radius:0 4px 4px 0;
+  font-size:15.5px;
+}
+.prose .callout strong{display:block; margin-bottom:6px}
+.prose .emergency{
+  background:#FBEAE0; border-left:3px solid #C0392B;
+  padding:18px 22px; margin:24px 0; border-radius:0 4px 4px 0;
+  font-size:15.5px; color:#5C1F14;
+}
+.prose .emergency strong{display:block; margin-bottom:6px; color:#7A2818; letter-spacing:.04em; text-transform:uppercase; font-size:13px}
+.prose a{color:var(--navy); border-bottom:1px solid var(--gold)}
+.prose table{width:100%; border-collapse:collapse; margin:20px 0; font-size:15px;}
+.prose table th, .prose table td{padding:12px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+.prose table th{background:var(--cream); color:var(--navy); font-weight:600; font-size:13px; letter-spacing:.06em; text-transform:uppercase;}
+
+/* ====== Bottom CTA ====== */
+.bottom-cta{background:var(--cream); padding:60px 0; text-align:center; border-top:1px solid var(--line);}
+.bottom-cta h3{font-family:'Cormorant Garamond', serif; font-size:32px; color:var(--navy); font-weight:600; margin-bottom:12px;}
+.bottom-cta p{color:var(--muted); margin-bottom:28px; max-width:520px; margin-left:auto; margin-right:auto}
+.bottom-cta .btn-row{display:inline-flex; gap:14px; flex-wrap:wrap; justify-content:center}
+
+/* ====== Footer (mirror of index) ====== */
+footer{background:var(--navy-deep); color:rgba(245,239,223,.7); padding:70px 0 30px; font-size:14.5px;}
+.foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px; margin-bottom:50px;}
+.foot-brand img{height:60px; margin-bottom:16px; filter:brightness(1.1)}
+.foot-brand .tag{font-family:'Cormorant Garamond', serif; font-style:italic; font-size:16px; color:var(--gold-soft); margin-bottom:14px;}
+.foot-brand p{line-height:1.7; max-width:300px}
+.foot-col h4{font-family:'Cormorant Garamond', serif; font-size:18px; color:#fff; margin-bottom:16px; font-weight:600;}
+.foot-col ul{list-style:none}
+.foot-col li{padding:5px 0}
+.foot-col a{color:rgba(245,239,223,.7); border:none}
+.foot-col a:hover{color:var(--gold-soft)}
+.foot-col .row{display:flex; gap:10px; align-items:flex-start; padding:5px 0}
+.foot-col .row svg{flex-shrink:0; color:var(--gold-soft); margin-top:3px}
+.foot-bottom{border-top:1px solid rgba(176,141,62,.18); padding-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px; font-size:13px; color:rgba(245,239,223,.5);}
+.foot-bottom a{color:rgba(245,239,223,.7); border:none}
+.foot-bottom a:hover{color:var(--gold-soft)}
+
+@media (max-width: 980px){
+  .nav-links{position:fixed; top:0; right:-100%; width:280px; height:100vh; background:#fff; flex-direction:column; padding:90px 30px 30px; gap:24px; align-items:flex-start; box-shadow:var(--shadow); transition:right .3s ease;}
+  .nav-links.open{right:0}
+  .menu-toggle{display:block}
+  .prose-grid{grid-template-columns:1fr; gap:40px}
+  .toc{position:static; padding:20px 24px; background:var(--cream); border-radius:6px;}
+  .foot-grid{grid-template-columns:1fr 1fr; gap:40px}
+}
+@media (max-width: 560px){
+  .container{padding:0 20px}
+  .prose-wrap{padding:40px 0 70px}
+  .foot-grid{grid-template-columns:1fr}
+  .announce{font-size:11px; letter-spacing:.06em}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="announce">
+  Now accepting new patients in <span>•</span> Florida <span>•</span> Arizona <span>•</span> Washington
+</div>
+<nav class="main">
+  <div class="container nav-inner">
+    <a href="./index.html" class="brand">
+      <img src="./assets/logo.png" alt="Premier Wellness Telehealth" width="48" height="48" />
+      <div class="brand-text">
+        <span class="b1">Premier Wellness</span>
+        <span class="b2">Telehealth</span>
+      </div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="./index.html#services">Services</a>
+      <a href="./index.html#how">How It Works</a>
+      <a href="./index.html#about">About</a>
+      <a href="./index.html#membership">Membership</a>
+      <a href="./index.html#faq">FAQs</a>
+      <a href="./index.html#contact">Contact</a>
+      <a href="./index.html" class="btn btn-primary">Book Appointment</a>
+    </div>
+    <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<header class="page-banner" id="main">
+  <div class="container">
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy <em>Policy</em></h1>
+    <div class="updated">Effective date: <strong>[ to be set on publication ]</strong> &nbsp;&middot;&nbsp; Last updated: [ date ]</div>
+  </div>
+</header>
+
+<svg class="wave-divider" viewBox="0 0 1440 80" preserveAspectRatio="none">
+  <path d="M0,40 C240,70 480,10 720,30 C960,55 1200,15 1440,40 L1440,80 L0,80 Z" fill="#B08D3E" opacity=".22"/>
+  <path d="M0,55 C240,75 480,25 720,50 C960,75 1200,30 1440,55 L1440,80 L0,80 Z" fill="#1F3A5F"/>
+</svg>
+
+<section class="prose-wrap">
+  <div class="container">
+    <div class="prose-grid">
+      <aside class="toc">
+        <h4>On this page</h4>
+        <ol><li><a href="#overview">Overview</a></li><li><a href="#collect">Information We Collect</a></li><li><a href="#use">How We Use Information</a></li><li><a href="#share">How We Share Information</a></li><li><a href="#booking">Booking and the EMR</a></li><li><a href="#phi">Protected Health Information</a></li><li><a href="#cookies">Cookies and Analytics</a></li><li><a href="#rights">Your Rights</a></li><li><a href="#children">Children’s Privacy</a></li><li><a href="#security">Security</a></li><li><a href="#changes">Changes to This Policy</a></li><li><a href="#contact">Contact Us</a></li></ol>
+      </aside>
+      <article class="prose">
+        
+<div class="draft-warning">
+  <svg class="ico" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+  <div class="body">
+    <strong>Draft template — attorney review required</strong>
+    <p>This document is a starting point only. Before publishing, have it reviewed by a healthcare attorney licensed in your state. It is not legal advice and is not a substitute for tailored counsel.</p>
+  </div>
+</div>
+
+        <h2 id="overview"><span class="num">Section 01</span>Overview</h2>
+<p>Premier Wellness Telehealth, LLC (&ldquo;<strong>Premier Wellness</strong>,&rdquo; &ldquo;<strong>we</strong>,&rdquo; or &ldquo;<strong>us</strong>&rdquo;) respects your privacy. This Privacy Policy describes what information we collect through this website (<strong>premierwellnesstelehealth.com</strong>), how we use it, and the choices you have.</p><p>This policy applies only to information collected through our public website. It does <strong>not</strong> cover information you provide once you become a patient and use our scheduling and clinical platform &mdash; that information is handled under our <a href='./hipaa.html'>Notice of Privacy Practices (HIPAA)</a> and the privacy practices of our electronic medical record provider.</p>
+<h2 id="collect"><span class="num">Section 02</span>Information We Collect</h2>
+<p>Through this website, we collect very little information about you. Specifically:</p><h3>Information you give us</h3><p>If you email us or use a contact form, we receive whatever information you choose to share &mdash; typically your name, email address, and the content of your message. <strong>Please do not include any details about your health, symptoms, conditions, or medical history when contacting us through the website or by general email.</strong> Those conversations belong inside our secure clinical platform.</p><h3>Information collected automatically</h3><p>Like most websites, our hosting provider and analytics tools may automatically collect basic technical information when you visit, such as:</p><ul><li>Your IP address and approximate geographic region</li><li>Browser and device type</li><li>Pages you visit and the time and date of your visit</li><li>The website you came from, if any</li></ul><p>This information is used to keep the site secure, troubleshoot issues, and understand how visitors use the site in aggregate.</p>
+<h2 id="use"><span class="num">Section 03</span>How We Use Information</h2>
+<p>We use the information we collect to:</p><ul><li>Respond to your inquiries and provide requested information</li><li>Operate, maintain, and improve the website</li><li>Detect, prevent, and address technical or security issues</li><li>Comply with legal obligations</li></ul><p>We do not sell your personal information, and we do not use it for advertising or marketing to third parties.</p>
+<h2 id="share"><span class="num">Section 04</span>How We Share Information</h2>
+<p>We share limited information only with service providers that help us run this website &mdash; for example, our hosting provider, our email provider, and (if used) an analytics provider. These providers may only use the information to provide their services to us.</p><p>We may also disclose information if required by law, in response to a valid legal process, or to protect the rights, property, or safety of Premier Wellness, our patients, or others.</p>
+<h2 id="booking"><span class="num">Section 05</span>Booking and the EMR</h2>
+<p>When you click a &ldquo;Book Appointment&rdquo; button or otherwise schedule a visit, you are redirected to our electronic medical record (EMR) provider&rsquo;s booking page. The EMR provider operates that page; information you submit there is governed by the EMR&rsquo;s privacy practices and our Business Associate Agreement (BAA) with them, not by this Privacy Policy.</p><div class='callout'><strong>Plain summary:</strong>The marketing website you are reading does not collect any health information. Once you click &ldquo;Book,&rdquo; you leave this site, and protected health information you provide is governed by HIPAA.</div>
+<h2 id="phi"><span class="num">Section 06</span>Protected Health Information</h2>
+<p>Protected Health Information (PHI) is handled separately from website data under federal HIPAA rules. For details on how we use and protect your PHI, please read our <a href='./hipaa.html'>Notice of Privacy Practices</a>.</p>
+<h2 id="cookies"><span class="num">Section 07</span>Cookies and Analytics</h2>
+<p>This website may use a small number of cookies and similar technologies to remember your preferences and understand how the site is used. If we use a web-analytics service, we configure it not to track personally identifiable information.</p><p>You can disable cookies in your browser settings. Doing so will not prevent you from using the site, but some features may not work as expected.</p><p>We do not currently use advertising or social-media tracking pixels on this website.</p>
+<h2 id="rights"><span class="num">Section 08</span>Your Rights</h2>
+<p>Depending on where you live, you may have rights with respect to your personal information &mdash; including the right to know what we collect, request a copy, request correction, or request deletion. To exercise any of these rights, contact us using the information at the bottom of this page.</p><p>Residents of certain states (including Florida, California, and Washington) may have additional rights under state privacy laws. We honor verifiable consumer requests from residents of those states to the extent required by law.</p>
+<h2 id="children"><span class="num">Section 09</span>Children’s Privacy</h2>
+<p>This website is intended for adults. We do not knowingly collect information from children under 13. If you believe a child has provided us with information, please contact us and we will delete it.</p>
+<h2 id="security"><span class="num">Section 10</span>Security</h2>
+<p>We take reasonable measures to protect information collected through this website, including encryption in transit (HTTPS) and access controls on our administrative tools. No website, however, can be guaranteed to be 100% secure, and we cannot guarantee the security of information transmitted to or from the site.</p>
+<h2 id="changes"><span class="num">Section 11</span>Changes to This Policy</h2>
+<p>We may update this Privacy Policy from time to time. When we do, we will update the &ldquo;Last updated&rdquo; date at the top of this page. Material changes will be noted prominently on the site. Please review this policy periodically.</p>
+<h2 id="contact"><span class="num">Section 12</span>Contact Us</h2>
+<p>If you have questions or requests regarding this Privacy Policy or your information, please contact us at:</p><p><strong>Premier Wellness Telehealth, LLC</strong><br/>Email: <a href='mailto:premierwellnesstelehealthllc@gmail.com'>premierwellnesstelehealthllc@gmail.com</a><br/>Mailing address: [ to be added ]</p>
+
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="bottom-cta">
+  <div class="container">
+    <h3>Questions?</h3>
+    <p>If anything in this notice is unclear, please reach out — we&rsquo;re happy to walk through it with you.</p>
+    <div class="btn-row">
+      <a href="./index.html#contact" class="btn btn-outline">Contact Us</a>
+      <a href="./index.html" class="btn btn-primary">Back to Home</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="./assets/logo.png" alt="Premier Wellness Telehealth" width="80" height="80" loading="lazy" />
+        <div class="tag">Compassionate Care. Personalized for You.</div>
+        <p>Convenient virtual healthcare for adults across Florida, Arizona, and Washington.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="./index.html#services">Services</a></li>
+          <li><a href="./index.html#how">How It Works</a></li>
+          <li><a href="./index.html#about">About</a></li>
+          <li><a href="./index.html#membership">Membership</a></li>
+          <li><a href="./index.html#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Hours</h4>
+        <div class="row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div>
+            <div>Tuesday &ndash; Thursday</div>
+            <div style="color:#fff; margin-top:2px">9:00 AM &ndash; 5:00 PM</div>
+            <div style="font-size:13px; margin-top:8px; font-style:italic; opacity:.7">Other hours by appointment</div>
+          </div>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <div class="row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div><a href="mailto:premierwellnesstelehealthllc@gmail.com" style="word-break:break-all">premierwellness<br/>telehealthllc@gmail.com</a></div>
+        </div>
+        <div class="row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>Serving FL, AZ, WA<br/><span style="font-size:13px; opacity:.7">State telehealth regulations apply</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>&copy; <span id="yr"></span> Premier Wellness Telehealth, LLC &middot; All rights reserved.</div>
+      <div><a href="./privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="./terms.html">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="./hipaa.html">HIPAA Notice</a></div>
+    </div>
+  </div>
+</footer>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', ()=>{
+  document.getElementById('navLinks').classList.remove('open');
+}));
+</script>
+
+</body>
+</html>
