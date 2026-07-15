@@ -1,6 +1,12 @@
 # Internal AI collaboration notes — kept locally, not pushed
 CLAUDE.md
 
+# Local scratch: client reference mockups
+tmp/
+
+# One-off local build tools (not needed on the deployed site)
+build_v2_legal.py
+
 .DS_Store
 ._*
 .AppleDouble
