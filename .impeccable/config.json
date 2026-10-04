@@ -1,0 +1,62 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/assets/css/components/prose.css"
+        ],
+        "createdAt": "2026-10-04T21:14:10.047Z",
+        "reason": "Callout/emergency/draft-notice blocks carried verbatim from the client-approved v2 redesign; paired with border-radius 0 4px 4px 0 so the flat edge meets the rule."
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/assets/css/sections/founder.css"
+        ],
+        "createdAt": "2026-10-04T21:14:10.065Z",
+        "reason": "Testimonial pull-quote rule from the client-approved v2 redesign (index-v2.html .founder-quote)."
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/assets/css/sections/pricing.css"
+        ],
+        "createdAt": "2026-10-04T21:14:15.247Z",
+        "reason": "Reuses the client-approved v2 callout device (gold left rule + border-radius 0 4px 4px 0) for intro/notes/emergency blocks, matching .prose .callout."
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/assets/css/sections/service-category.css"
+        ],
+        "createdAt": "2026-10-04T21:14:15.264Z",
+        "reason": "Reuses the client-approved v2 callout device (gold left rule + border-radius 0 4px 4px 0) for intro/notes/emergency blocks, matching .prose .callout."
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/assets/css/sections/legal-hub.css"
+        ],
+        "createdAt": "2026-10-04T21:14:15.280Z",
+        "reason": "Reuses the client-approved v2 callout device (gold left rule + border-radius 0 4px 4px 0) for intro/notes/emergency blocks, matching .prose .callout."
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/assets/css/components/bottom-cta.css"
+        ],
+        "createdAt": "2026-10-04T21:14:15.295Z",
+        "reason": "Reuses the client-approved v2 callout device (gold left rule + border-radius 0 4px 4px 0) for intro/notes/emergency blocks, matching .prose .callout."
+      }
+    ]
+  }
+}

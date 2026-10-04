@@ -31,7 +31,6 @@
 .visit-card {
   background: var(--cream-warm);
   border: 1px solid var(--line);
-  border-top: 3px solid var(--gold);
   border-radius: 2px;
   padding: 40px 36px;
   display: flex;

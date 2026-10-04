@@ -1,0 +1,50 @@
+---
+layout: layouts/base.njk
+permalink: /faq/
+title: Frequently Asked Questions
+description: Clear answers about insurance, states served, pricing, booking, conditions treated, and when telehealth is not appropriate.
+---
+<main id="main">
+  <header class="page-banner">
+    <div class="container">
+      <div class="eyebrow">Patient Resources</div>
+      <h1>Frequently asked <em>questions</em></h1>
+      <p class="lede">
+        Clear answers to help you know what to expect before scheduling a virtual
+        visit.
+      </p>
+    </div>
+  </header>
+
+  {% include "partials/wave-divider.njk" %}
+
+  <section class="faq">
+    <div class="container">
+      <div class="faq-list">
+        {%- for item in collections.faqs %}
+        <details class="faq-item">
+          <summary>
+            {{ item.data.question }}
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-body">
+            {{ item.templateContent | safe }}
+          </div>
+        </details>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-cta">
+    <div class="container">
+      <div class="emergency-banner">
+        <strong>Medical emergency</strong>
+        If you are experiencing a medical emergency or potentially life-threatening
+        symptoms, call 911 or go to the nearest emergency department.
+      </div>
+    </div>
+  </section>
+
+  {% include "sections/cta-strip.njk" %}
+</main>

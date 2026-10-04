@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Notice of Privacy Practices",
+    "url": "/legal/hipaa/",
+    "status": "available",
+    "summary": "How protected health information may be used and disclosed, and your rights."
+  },
+  {
+    "title": "Privacy Policy",
+    "url": "/legal/privacy/",
+    "status": "available",
+    "summary": "What this website collects, how it is used, and what it does not collect."
+  },
+  {
+    "title": "Terms of Service",
+    "url": "/legal/terms/",
+    "status": "available",
+    "summary": "Terms governing your use of this website and our telehealth services."
+  },
+  {
+    "title": "Telehealth Informed Consent",
+    "url": "",
+    "status": "pending",
+    "summary": "Consent to receive care by telehealth, including its limits."
+  },
+  {
+    "title": "Self-Pay & Pricing Policy",
+    "url": "",
+    "status": "pending",
+    "summary": "Fees, payment timing, and financial responsibility."
+  },
+  {
+    "title": "Cancellation, No-Show & Refund Policy",
+    "url": "",
+    "status": "pending",
+    "summary": "Notice requirements, fees, and refund handling."
+  },
+  {
+    "title": "Patient Rights & Responsibilities",
+    "url": "",
+    "status": "pending",
+    "summary": "What you can expect from us, and what we ask of you."
+  },
+  {
+    "title": "Accessibility & Nondiscrimination",
+    "url": "",
+    "status": "pending",
+    "summary": "Requesting communication assistance and reporting access barriers."
+  },
+  {
+    "title": "Contact Information",
+    "url": "/legal/#contact",
+    "status": "available",
+    "summary": "How to reach the practice with questions about these policies."
+  }
+]

@@ -54,6 +54,76 @@ export default function (eleventyConfig) {
   );
 
   // ---------------------------------------------------------------
+  // Legal documents: numbering and contents, from one source
+  //
+  // Section numbers and the table of contents are both derived from the
+  // rendered <h2>s, so they cannot drift apart. The previous hand-authored
+  // markup had exactly that bug: the HIPAA notice carried ten headings but
+  // only nine "Section NN" labels, leaving every heading one behind its
+  // contents row.
+  //
+  // A heading marked `data-unnumbered` (or the first heading when the page
+  // sets `tocSkipFirst`) is listed but not numbered — for preambles that
+  // are not really section one.
+  // ---------------------------------------------------------------
+
+  const H2_PATTERN = /<h2([^>]*)>([\s\S]*?)<\/h2>/g;
+
+  function parseHeadings(content, skipFirst) {
+    const headings = [];
+    let index = 0;
+    let counter = 0;
+
+    String(content).replace(H2_PATTERN, (match, attrs, inner) => {
+      const idMatch = attrs.match(/id="([^"]+)"/);
+      const unnumbered =
+        /data-unnumbered/.test(attrs) || (skipFirst && index === 0);
+      if (!unnumbered) counter += 1;
+
+      headings.push({
+        id: idMatch ? idMatch[1] : "",
+        text: inner.replace(/<[^>]+>/g, "").trim(),
+        number: unnumbered ? null : String(counter).padStart(2, "0"),
+      });
+      index += 1;
+      return match;
+    });
+
+    return headings;
+  }
+
+  /** Inject the computed "Section NN" label into each heading. */
+  eleventyConfig.addFilter("legalSections", function (content) {
+    const skipFirst = this.ctx?.tocSkipFirst ?? false;
+    const headings = parseHeadings(content, skipFirst);
+    let i = 0;
+
+    return String(content).replace(H2_PATTERN, (match, attrs, inner) => {
+      const heading = headings[i++];
+      if (!heading || !heading.number) return match;
+      return `<h2${attrs}><span class="num">Section ${heading.number}</span>${inner}</h2>`;
+    });
+  });
+
+  /** Build the contents list from the same headings. */
+  eleventyConfig.addFilter("legalToc", function (content) {
+    const skipFirst = this.ctx?.tocSkipFirst ?? false;
+    const headings = parseHeadings(content, skipFirst).filter((h) => h.id);
+    if (headings.length === 0) return "";
+
+    const items = headings
+      .map((h) => {
+        const num = h.number
+          ? `<span class="toc-num">${h.number}</span>`
+          : `<span class="toc-num" aria-hidden="true">·</span>`;
+        return `<li>${num}<a href="#${h.id}">${h.text}</a></li>`;
+      })
+      .join("");
+
+    return `<ol>${items}</ol>`;
+  });
+
+  // ---------------------------------------------------------------
   // Dates
   // ---------------------------------------------------------------
   eleventyConfig.addFilter("year", () => String(new Date().getFullYear()));
@@ -68,6 +138,22 @@ export default function (eleventyConfig) {
       day: "numeric",
       timeZone: "UTC",
     });
+  });
+
+  // ---------------------------------------------------------------
+  // Shortcodes for prose blocks
+  //
+  // These exist so legal bodies stay plain markdown. The CMS edits those
+  // fields in raw mode, so shortcode syntax survives round-tripping where
+  // literal HTML would risk being reformatted.
+  // ---------------------------------------------------------------
+
+  eleventyConfig.addPairedShortcode("callout", (content) => {
+    return `<div class="callout">${md.render(content.trim())}</div>`;
+  });
+
+  eleventyConfig.addPairedShortcode("emergency", (content) => {
+    return `<div class="emergency" role="note">${md.render(content.trim())}</div>`;
   });
 
   // ---------------------------------------------------------------

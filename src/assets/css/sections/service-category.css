@@ -126,7 +126,6 @@
 .category-link-card {
   background: var(--page-bg);
   border: 1px solid var(--line);
-  border-top: 3px solid var(--gold);
   border-radius: 2px;
   padding: 34px 30px;
   display: flex;

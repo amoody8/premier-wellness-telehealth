@@ -166,9 +166,12 @@
   font-size: 15.5px;
 }
 
-.prose .callout strong {
-  display: block;
-  margin-bottom: 6px;
+.prose .callout p {
+  margin-bottom: 8px;
+}
+
+.prose .callout p:last-child {
+  margin-bottom: 0;
 }
 
 .prose .emergency {
@@ -181,13 +184,17 @@
   color: #5C1F14;
 }
 
+.prose .emergency p {
+  margin-bottom: 8px;
+}
+
+.prose .emergency p:last-child {
+  margin-bottom: 0;
+}
+
 .prose .emergency strong {
-  display: block;
-  margin-bottom: 6px;
   color: #7A2818;
   letter-spacing: .04em;
-  text-transform: uppercase;
-  font-size: 13px;
 }
 
 /* ---- Tables -------------------------------------------------------
