@@ -77,7 +77,7 @@ We do not currently use advertising or social-media tracking pixels on this webs
 
 Depending on where you live, you may have rights with respect to your personal information — including the right to know what we collect, request a copy, request correction, or request deletion. To exercise any of these rights, contact us using the information at the bottom of this page.
 
-Residents of certain states (including Florida, California, and Washington) may have additional rights under state privacy laws. We honor verifiable consumer requests from residents of those states to the extent required by law.
+Residents of certain states may have additional rights under state privacy laws. We honor verifiable consumer requests from residents of those states to the extent required by law.
 
 ## Children’s Privacy
 

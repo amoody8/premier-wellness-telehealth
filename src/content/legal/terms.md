@@ -36,7 +36,7 @@ The Website and our telehealth services are not for emergency care. Do not use t
 To receive care from Premier Wellness Telehealth, you must:
 
 - Be at least 18 years of age
-- Be physically located in Florida, Arizona, or Washington at the time of your visit
+- Be physically located in {{ derived.statesLongOr }} at the time of your visit
 - Provide accurate and complete information during scheduling and intake
 
 We reserve the right to decline service in situations where telehealth is not clinically appropriate or where state regulations require in-person evaluation.

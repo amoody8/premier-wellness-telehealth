@@ -1,0 +1,703 @@
+# =====================================================================
+# Sveltia CMS — Premier Wellness Telehealth
+#
+# Field labels and hints are written for a non-technical editor. When
+# adding a field, say what it does in plain language and where it shows
+# up on the site.
+#
+# IMPORTANT: never add a field that could collect patient health
+# information. This website is deliberately outside HIPAA scope because
+# it stores nothing. Intake, scheduling, and messaging belong in
+# SimplePractice, under their business associate agreement.
+# =====================================================================
+
+backend:
+  name: github
+  repo: amoody8/premier-wellness-telehealth
+  branch: main
+  # OAuth worker — lets the owner sign in without a personal access token.
+  base_url: https://pwt-cms-auth.REPLACE-ME.workers.dev
+
+# Edits publish straight to the live site; there is no staging step.
+publish_mode: simple
+
+media_folder: src/assets/uploads
+public_folder: /assets/uploads
+
+site_url: https://amoody8.github.io/premier-wellness-telehealth
+display_url: https://amoody8.github.io/premier-wellness-telehealth
+logo_url: /assets/logo.png
+
+collections:
+  # -------------------------------------------------------------------
+  # Site-wide settings
+  # -------------------------------------------------------------------
+  - name: settings
+    label: Site Settings
+    description: Details that appear across every page of the website.
+    files:
+      - name: site
+        label: Practice Details
+        file: src/_data/site.json
+        description: >-
+          Your practice name, contact details, hours, states, and provider
+          information. Changing something here updates it everywhere on the
+          site at once.
+        fields:
+          - name: name
+            label: Practice Name
+            widget: string
+            hint: Shown in the header, footer, and browser tab.
+
+          - name: legalName
+            label: Legal Business Name
+            widget: string
+            hint: The full legal name, used in copyright and legal documents.
+
+          - name: tagline
+            label: Tagline
+            widget: string
+            hint: Your main tagline, shown in the browser tab on the homepage.
+
+          - name: taglineShort
+            label: Short Tagline
+            widget: string
+            hint: The shorter version that appears under the logo in the footer.
+
+          - name: description
+            label: Site Description
+            widget: text
+            hint: >-
+              One or two sentences describing the practice. Used by Google and
+              shown when someone shares a link to your site.
+
+          - name: email
+            label: Contact Email
+            widget: string
+            hint: >-
+              Appears in the header, footer, and booking pop-up. Changing it
+              here updates every place at once.
+
+          - name: mailingAddress
+            label: Mailing Address
+            widget: text
+            required: false
+            hint: >-
+              Optional. Required on your legal pages before publishing them.
+              Leave blank until you have a business address to list.
+
+          - name: ctaLabel
+            label: Button Text
+            widget: string
+            hint: Text on every scheduling button, e.g. "Schedule Appointment".
+
+          - name: minimumAge
+            label: Minimum Patient Age
+            widget: number
+            value_type: int
+            hint: The youngest age you accept. Shown as "adults 18+".
+
+          - name: booking
+            label: Scheduling Links
+            widget: object
+            hint: >-
+              Links out to SimplePractice. While these are blank, scheduling
+              buttons open a pop-up with your email and hours instead.
+            fields:
+              - name: url
+                label: Booking Page URL
+                widget: string
+                required: false
+                hint: >-
+                  Your SimplePractice booking link. Once filled in, every
+                  scheduling button sends patients straight there.
+              - name: evisitUrl
+                label: E-Visit URL
+                widget: string
+                required: false
+                hint: Where patients start an online e-visit.
+              - name: note
+                label: Pop-up Message
+                widget: text
+                hint: Shown in the scheduling pop-up when no booking link is set.
+
+          - name: hours
+            label: Office Hours
+            widget: object
+            hint: >-
+              Set your hours once here. The site writes them correctly in the
+              footer, the booking pop-up, and the data Google reads.
+            fields:
+              - name: days
+                label: Days Open
+                widget: list
+                field: { name: day, label: Day, widget: string }
+                hint: >-
+                  One day per line, spelled out, in order — for example
+                  Tuesday, Wednesday, Thursday.
+              - name: opens
+                label: Opening Time
+                widget: string
+                hint: 24-hour format, e.g. 09:00 for 9 AM.
+              - name: closes
+                label: Closing Time
+                widget: string
+                hint: 24-hour format, e.g. 17:00 for 5 PM.
+              - name: note
+                label: Hours Note
+                widget: string
+                required: false
+                hint: e.g. "Other hours by appointment".
+
+          - name: states
+            label: States Where You Are Licensed
+            widget: list
+            label_singular: State
+            summary: "{{fields.name}} ({{fields.abbr}})"
+            hint: >-
+              IMPORTANT — this is a legal statement about where you are
+              licensed to practice. Only list states where your license is
+              active. Updating this list changes every mention on the site.
+            fields:
+              - name: name
+                label: State Name
+                widget: string
+                hint: Spelled out, e.g. Florida.
+              - name: abbr
+                label: Abbreviation
+                widget: string
+                hint: Two letters, e.g. FL.
+
+          - name: provider
+            label: Provider Information
+            widget: object
+            fields:
+              - name: name
+                label: Full Name
+                widget: string
+              - name: shortName
+                label: Short Name
+                widget: string
+                hint: Shorter form used in headings, e.g. "L. Moody".
+              - name: credentials
+                label: Credentials
+                widget: string
+                hint: e.g. "DNP, APRN-C". Keep these visible so patients understand your role.
+              - name: jobTitle
+                label: Job Title
+                widget: string
+                hint: e.g. "Nurse Practitioner".
+              - name: role
+                label: Role Description
+                widget: string
+                hint: Shown under your name, e.g. "Founder & Nurse Practitioner".
+              - name: yearsExperience
+                label: Years of Experience
+                widget: number
+                value_type: int
+                hint: A single number. Remember to update this each year.
+
+          - name: disclaimer
+            label: Footer Disclaimer
+            widget: text
+            hint: The legal disclaimer at the bottom of every page.
+
+          # Technical settings — rarely changed.
+          - { name: url, label: Website Address, widget: hidden }
+          - { name: domain, label: Domain, widget: hidden }
+          - { name: logo, label: Logo Path, widget: hidden }
+          - { name: favicon, label: Favicon Path, widget: hidden }
+          - { name: wordmark, label: Wordmark, widget: hidden }
+          - { name: brand, label: Brand Lines, widget: hidden }
+
+      # -----------------------------------------------------------------
+      - name: pricing
+        label: Pricing
+        file: src/_data/pricing.json
+        description: Visit fees, the cancellation policy, and payment notes.
+        fields:
+          - name: intro
+            label: Pricing Introduction
+            widget: text
+            hint: The paragraph at the top of the pricing page.
+
+          - name: visits
+            label: Visit Types & Fees
+            widget: list
+            label_singular: Visit Type
+            summary: "{{fields.name}} — ${{fields.amount}}"
+            hint: Add, remove, or reorder visit types. The page adjusts automatically.
+            fields:
+              - name: name
+                label: Visit Name
+                widget: string
+              - name: amount
+                label: Price
+                widget: number
+                value_type: int
+                hint: Numbers only — no dollar sign. The site adds it.
+              - name: unit
+                label: Price Unit
+                widget: string
+                hint: Shown under the price, e.g. "per visit".
+              - name: description
+                label: Description
+                widget: text
+                hint: One or two sentences about what this visit covers.
+
+          - name: cancellation
+            label: Cancellation Policy
+            widget: object
+            hint: >-
+              Used on the pricing page, in the FAQ, and on the legal pages —
+              set once here.
+            fields:
+              - name: noticeHours
+                label: Notice Required (hours)
+                widget: number
+                value_type: int
+                hint: How much notice before a fee applies, e.g. 24.
+              - name: fee
+                label: Late Cancellation Fee
+                widget: number
+                value_type: int
+                hint: Numbers only, e.g. 50.
+
+          - name: notes
+            label: Payment Notes
+            widget: list
+            field: { name: note, label: Note, widget: text }
+            hint: Bullet points shown under the prices.
+
+      # -----------------------------------------------------------------
+      - name: navigation
+        label: Menus
+        file: src/_data/nav.json
+        description: The links in the top menu and the footer.
+        fields:
+          - name: primary
+            label: Top Menu
+            widget: list
+            label_singular: Menu Link
+            summary: "{{fields.label}} → {{fields.url}}"
+            hint: >-
+              Only link to pages that exist, or visitors will hit an error
+              page.
+            fields:
+              - { name: label, label: Link Text, widget: string }
+              - name: url
+                label: Address
+                widget: string
+                hint: Start and end with a slash, e.g. /pricing/
+          - name: footer
+            label: Footer Links
+            widget: list
+            label_singular: Footer Link
+            summary: "{{fields.label}} → {{fields.url}}"
+            fields:
+              - { name: label, label: Link Text, widget: string }
+              - { name: url, label: Address, widget: string }
+
+      # -----------------------------------------------------------------
+      # The data file is a plain list, so this collection edits it as a
+      # root-level list rather than wrapping it in an object.
+      - name: policies
+        label: Policy Document List
+        file: src/_data/policies.json
+        description: >-
+          The list shown on the Legal & Privacy page. Documents without a
+          link are marked "In preparation".
+        fields:
+          - name: policies
+            label: Policies
+            widget: list
+            label_singular: Policy
+            summary: "{{fields.title}}"
+            root: true
+            fields:
+              - { name: title, label: Policy Name, widget: string }
+              - name: url
+                label: Link
+                widget: string
+                required: false
+                hint: >-
+                  Leave blank until the document is written. Blank shows as
+                  "In preparation" instead of a broken link.
+              - name: status
+                label: Status
+                widget: select
+                options: ["available", "pending"]
+              - { name: summary, label: Short Description, widget: text, required: false }
+
+  # -------------------------------------------------------------------
+  # Homepage
+  # -------------------------------------------------------------------
+  - name: homepage
+    label: Homepage
+    files:
+      - name: home
+        label: Homepage Content
+        file: src/index.njk
+        description: Every section of the homepage, top to bottom.
+        fields:
+          - name: hero
+            label: Top Section
+            widget: object
+            fields:
+              - name: eyebrow
+                label: Small Label
+                widget: string
+                hint: The small gold text above the headline.
+              - name: headline
+                label: Main Headline
+                widget: string
+                hint: >-
+                  Put *asterisks* around one word to make it gold and italic —
+                  for example: Healthcare that takes time to *listen*.
+              - name: lede
+                label: Introduction
+                widget: text
+                hint: The paragraph under the headline.
+              - name: secondaryCta
+                label: Second Button
+                widget: object
+                fields:
+                  - { name: label, label: Button Text, widget: string }
+                  - { name: url, label: Button Link, widget: string }
+              - name: image
+                label: Photo
+                widget: image
+                required: false
+                hint: >-
+                  A tall photo works best. Leave empty to show your logo
+                  instead.
+              - name: imageAlt
+                label: Photo Description
+                widget: string
+                required: false
+                hint: >-
+                  Describe the photo for people using screen readers, e.g.
+                  "A woman having a video visit at her kitchen table."
+
+          - name: trustItems
+            label: Highlights
+            widget: list
+            label_singular: Highlight
+            summary: "{{fields.heading}}"
+            hint: The three credentials shown below the top section.
+            fields:
+              - name: icon
+                label: Icon
+                widget: select
+                options:
+                  - award
+                  - layers
+                  - heart
+                  - shield
+                  - shield-check
+                  - star
+                  - users
+                  - clock
+                  - map-pin
+                  - file-text
+              - { name: heading, label: Title, widget: string }
+              - { name: body, label: Description, widget: text }
+
+          - name: services
+            label: Services Section
+            widget: object
+            fields:
+              - { name: eyebrow, label: Small Label, widget: string }
+              - name: headline
+                label: Heading
+                widget: string
+                hint: Wrap one word in *asterisks* for the gold italic accent.
+              - { name: sub, label: Introduction, widget: text, required: false }
+              - { name: ctaLabel, label: Button Text, widget: string }
+
+          - name: founder
+            label: Provider Section
+            widget: object
+            fields:
+              - { name: eyebrow, label: Small Label, widget: string }
+              - name: headline
+                label: Heading
+                widget: string
+                hint: Wrap one word in *asterisks* for the gold italic accent.
+              - name: body
+                label: Biography
+                widget: text
+                hint: Leave a blank line between paragraphs.
+              - name: image
+                label: Your Photo
+                widget: image
+                required: false
+                hint: Leave empty to show your logo until you have a headshot.
+              - { name: imageAlt, label: Photo Description, widget: string, required: false }
+
+          - name: testimonial
+            label: Patient Quote
+            widget: object
+            required: false
+            hint: >-
+              Only publish a patient quote when you have that patient's written
+              consent on file. Leave the quote blank to hide this section.
+            fields:
+              - { name: body, label: Quote, widget: text, required: false }
+              - name: attribution
+                label: Attributed To
+                widget: string
+                required: false
+                hint: >-
+                  Do not use a patient's full name or any detail that could
+                  identify them. "A Patient" is the safe choice.
+
+          - name: visitTypes
+            label: Visit Types Section
+            widget: object
+            fields:
+              - { name: eyebrow, label: Small Label, widget: string }
+              - name: headline
+                label: Heading
+                widget: string
+                hint: Wrap one word in *asterisks* for the gold italic accent.
+              - { name: sub, label: Introduction, widget: text, required: false }
+              - name: options
+                label: Visit Options
+                widget: list
+                label_singular: Option
+                summary: "{{fields.title}}"
+                fields:
+                  - name: icon
+                    label: Icon
+                    widget: select
+                    options: [video, clipboard-list, calendar, clock, file-text, stethoscope]
+                  - { name: title, label: Title, widget: string }
+                  - { name: body, label: Description, widget: text }
+                  - name: bestFor
+                    label: Best For
+                    widget: list
+                    field: { name: point, label: Point, widget: string }
+                    required: false
+
+          - name: ctaStrip
+            label: Bottom Banner
+            widget: object
+            fields:
+              - name: text
+                label: Banner Text
+                widget: string
+                hint: Wrap one word in *asterisks* for the gold italic accent.
+
+          - { name: layout, label: Layout, widget: hidden }
+          - { name: permalink, label: Address, widget: hidden }
+          - { name: eleventyNavigation, label: Navigation, widget: hidden }
+          - { name: body, label: Body, widget: hidden, required: false }
+
+  # -------------------------------------------------------------------
+  # Service categories
+  # -------------------------------------------------------------------
+  - name: services
+    label: Services
+    label_singular: Service Category
+    folder: src/content/services
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}}"
+    sortable_fields: [order, title]
+    description: >-
+      Each category gets its own page and a tile on the homepage. Add or
+      remove categories freely — the layout adjusts.
+    fields:
+      - name: title
+        label: Category Name
+        widget: string
+        hint: Shown on the tile and as the page heading.
+
+      - name: order
+        label: Display Order
+        widget: number
+        value_type: int
+        hint: Lower numbers appear first.
+
+      - name: icon
+        label: Icon
+        widget: select
+        options:
+          - thermometer
+          - shield
+          - shield-check
+          - activity
+          - users
+          - scale
+          - heart
+          - stethoscope
+          - flask
+          - pill
+          - droplet
+          - lungs
+          - crosshair
+          - sun
+          - file-text
+          - clipboard-list
+
+      - name: summary
+        label: Short Summary
+        widget: text
+        hint: One sentence, shown on the services list page.
+
+      - name: intro
+        label: Introduction
+        widget: text
+        hint: The opening paragraph on this category's page.
+
+      - name: groups
+        label: Condition Groups
+        widget: list
+        label_singular: Group
+        summary: "{{fields.title}}"
+        hint: Each group becomes a card listing the conditions you treat.
+        fields:
+          - { name: title, label: Group Name, widget: string }
+          - name: icon
+            label: Icon
+            widget: select
+            options:
+              - lungs
+              - droplet
+              - sun
+              - activity
+              - crosshair
+              - heart
+              - shield-check
+              - flask
+              - pill
+              - calendar
+              - file-text
+              - clipboard-list
+              - scale
+              - users
+          - { name: body, label: Description, widget: text, required: false }
+          - name: items
+            label: Conditions
+            widget: list
+            field: { name: item, label: Condition, widget: string }
+            hint: One condition per line.
+
+      - name: clinicalNote
+        label: Clinical Limitations
+        widget: text
+        required: false
+        hint: >-
+          Important limits or safety information for this category. Shown in a
+          separate box, apart from the marketing copy.
+
+      - { name: body, label: Extra Content, widget: markdown, required: false }
+
+  # -------------------------------------------------------------------
+  # FAQ
+  # -------------------------------------------------------------------
+  - name: faq
+    label: FAQ
+    label_singular: Question
+    folder: src/content/faq
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: question
+    summary: "{{question}}"
+    sortable_fields: [order, question]
+    description: Questions and answers on the FAQ page.
+    fields:
+      - { name: question, label: Question, widget: string }
+      - name: order
+        label: Display Order
+        widget: number
+        value_type: int
+        hint: Lower numbers appear first.
+      - name: body
+        label: Answer
+        widget: markdown
+        modes: [raw]
+        hint: >-
+          Use **two asterisks** around text to bold it, and start a line with a
+          dash for a bullet point.
+
+  # -------------------------------------------------------------------
+  # Legal documents
+  # -------------------------------------------------------------------
+  - name: legal
+    label: Legal Documents
+    label_singular: Document
+    folder: src/content/legal
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}}"
+    description: >-
+      Your HIPAA notice, privacy policy, and terms of service. Have changes
+      reviewed by a healthcare attorney before turning off the draft notice.
+    fields:
+      - { name: title, label: Document Title, widget: string }
+      - name: eyebrow
+        label: Small Label
+        widget: string
+        hint: The short label above the page heading, e.g. "HIPAA".
+      - name: heading
+        label: Page Heading
+        widget: string
+        hint: Wrap one word in *asterisks* for the gold italic accent.
+      - name: description
+        label: Search Description
+        widget: text
+        hint: One sentence describing this document, used by search engines.
+      - name: order
+        label: Display Order
+        widget: number
+        value_type: int
+
+      - name: draft
+        label: Show "Draft — attorney review required" notice
+        widget: boolean
+        default: true
+        hint: >-
+          Leave this ON until a healthcare attorney licensed in your states has
+          reviewed this document. Turn it off only after that review.
+
+      - name: effectiveDate
+        label: Effective Date
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: true
+        required: false
+        hint: The date this version takes effect. Leave blank until published.
+
+      - name: lastUpdated
+        label: Last Updated
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: true
+        required: false
+
+      - name: tocSkipFirst
+        label: First section is an introduction
+        widget: boolean
+        required: false
+        default: false
+        hint: >-
+          Turn on when the first heading is an introduction rather than a
+          numbered section. Section numbers and the contents list are generated
+          automatically, so they always match.
+
+      - name: body
+        label: Document Text
+        widget: markdown
+        modes: [raw]
+        hint: >-
+          Start a section with "## " followed by its title — numbering is added
+          for you. Do not type section numbers by hand.

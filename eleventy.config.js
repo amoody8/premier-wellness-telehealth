@@ -128,6 +128,17 @@ export default function (eleventyConfig) {
   // ---------------------------------------------------------------
   eleventyConfig.addFilter("year", () => String(new Date().getFullYear()));
 
+  eleventyConfig.addFilter("startsWith", (value, prefix) =>
+    String(value ?? "").startsWith(prefix),
+  );
+
+  eleventyConfig.addFilter("isoDate", (value) => {
+    const d = value instanceof Date ? value : new Date(value);
+    return Number.isNaN(d.getTime())
+      ? new Date().toISOString()
+      : d.toISOString();
+  });
+
   eleventyConfig.addFilter("readableDate", (value) => {
     if (!value) return "";
     const d = value instanceof Date ? value : new Date(value);

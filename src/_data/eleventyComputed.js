@@ -66,6 +66,7 @@ export default {
       // --- States: one list, several renderings --------------------
       statesShort: stateAbbrs.join(" · "),
       statesLong: joinWithAnd(stateNames),
+      statesLongOr: joinWithAnd(stateNames, "or"),
       statesAmp:
         stateNames.length > 1
           ? `${stateNames.slice(0, -1).join(", ")} & ${stateNames[stateNames.length - 1]}`
