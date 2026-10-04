@@ -1,0 +1,37 @@
+{% from "macros/icon.njk" import icon %}
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="foot-brand">
+      <img src="{{ site.logo }}" alt="{{ site.name }}" width="64" height="64" loading="lazy" />
+      <span class="name">{{ site.name }}</span>
+      <span class="tag">{{ site.taglineShort }}</span>
+    </div>
+
+    <div class="foot-contact">
+      <a href="mailto:{{ site.email }}">
+        {{ icon("mail", icons, 14) }}
+        {{ site.email }}
+      </a>
+      <span>
+        {{ icon("clock", icons, 14) }}
+        {{ derived.hoursShort }}
+      </span>
+      <span>
+        {{ icon("map-pin", icons, 14) }}
+        {{ derived.statesShort }}
+      </span>
+    </div>
+
+    <p class="foot-disclaimer">
+      Virtual care for adults {{ site.minimumAge }}+ in {{ derived.statesLong }}. {{ site.disclaimer }}
+    </p>
+
+    <div class="foot-links">
+      {%- for item in nav.footer %}
+      <a href="{{ item.url }}">{{ item.label }}</a>
+      {%- endfor %}
+    </div>
+
+    <div class="foot-legal">© {{ derived.currentYear }} {{ site.legalName }} · All rights reserved.</div>
+  </div>
+</footer>

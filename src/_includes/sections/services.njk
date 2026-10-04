@@ -1,0 +1,29 @@
+{% from "macros/icon.njk" import icon %}
+{#
+  Service category overview.
+
+  Tiles come from the serviceCategories collection, so adding or
+  removing a category in the CMS is safe — the grid is count-agnostic.
+#}
+<section class="services section--dark" id="services">
+  <div class="container">
+    <div class="services-head">
+      <div class="eyebrow eyebrow--centered">{{ services.eyebrow }}</div>
+      <h2 class="section-heading">{{ services.headline | inlineMarkdown | safe }}</h2>
+      {% if services.sub %}<p class="section-sub">{{ services.sub }}</p>{% endif %}
+    </div>
+
+    <div class="services-grid">
+      {%- for category in collections.serviceCategories %}
+      <a href="{{ category.url }}" class="service-tile">
+        <span class="service-tile-icon">{{ icon(category.data.icon, icons, 32, 1.6) }}</span>
+        <span class="service-tile-label">{{ category.data.title }}</span>
+      </a>
+      {%- endfor %}
+    </div>
+
+    <div class="services-cta">
+      <a href="/services/" class="btn btn-gold-outline">{{ services.ctaLabel }}</a>
+    </div>
+  </div>
+</section>

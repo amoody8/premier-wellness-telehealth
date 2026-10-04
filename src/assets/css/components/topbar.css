@@ -1,0 +1,77 @@
+/* ===================================================================
+   Top bar — dark navy strip above the main nav
+   =================================================================== */
+
+.topbar {
+  background: var(--navy-deep);
+  color: #F0E6CC;
+  font-size: 12px;
+  letter-spacing: .06em;
+  border-bottom: 1px solid rgba(212, 185, 120, .14);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px var(--container-pad);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  gap: 24px;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: 500;
+}
+
+.topbar-left a {
+  color: var(--gold-warm);
+}
+
+.topbar-left a:hover {
+  color: #fff;
+}
+
+.topbar-left svg {
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Wordmark. The gold italic middle word comes from inline <em>. */
+.topbar-word {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: .28em;
+  color: #F0E6CC;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.topbar-word em {
+  font-style: italic;
+  color: var(--gold-warm);
+  font-weight: 400;
+  letter-spacing: .14em;
+  margin: 0 4px;
+}
+
+@media (max-width: 960px) {
+  .topbar-word {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar-inner {
+    padding: 10px 20px;
+  }
+
+  .topbar-left {
+    font-size: 11px;
+    gap: 12px;
+  }
+}

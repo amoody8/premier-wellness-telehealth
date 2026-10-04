@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://premierwellnesstelehealth.com/sitemap.xml

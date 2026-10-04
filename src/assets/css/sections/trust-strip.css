@@ -1,0 +1,60 @@
+/* ===================================================================
+   Trust strip — credential highlights below the hero
+   =================================================================== */
+
+.trust-strip {
+  background: var(--cream-warm);
+  padding: 48px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 56px;
+  align-items: start;
+}
+
+.trust-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.trust-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+}
+
+.trust-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.trust-item h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--navy-deep);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.trust-item p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+@media (max-width: 960px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

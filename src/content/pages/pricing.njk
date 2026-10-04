@@ -1,0 +1,72 @@
+---
+layout: layouts/base.njk
+permalink: /pricing/
+title: Pricing
+description: Transparent self-pay pricing for virtual visits. New patient $115, follow-up $85, lab review $65, medication refill $55.
+---
+<main id="main">
+  <header class="page-banner">
+    <div class="container">
+      <div class="eyebrow">Self-Pay Pricing</div>
+      <h1>Transparent <em>pricing</em>, no surprises.</h1>
+      <p class="lede">{{ pricing.intro }}</p>
+    </div>
+  </header>
+
+  {% include "partials/wave-divider.njk" %}
+
+  <section class="pricing">
+    <div class="container">
+      <div class="pricing-grid">
+        {%- for visit in pricing.visits %}
+        <article class="price-card">
+          <h3>{{ visit.name }}</h3>
+          <div class="price-amount">${{ visit.amount }}</div>
+          <div class="price-unit">{{ visit.unit }}</div>
+          <p>{{ visit.description }}</p>
+        </article>
+        {%- endfor %}
+      </div>
+
+      <div class="pricing-notes">
+        <h4>What to know</h4>
+        <ul>
+          {%- for note in pricing.notes %}
+          <li>{{ note }}</li>
+          {%- endfor %}
+          <li>{{ derived.cancellationPolicy }}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit-types">
+    <div class="container">
+      <div class="visit-types-head">
+        <div class="eyebrow eyebrow--centered">Payment</div>
+        <h2 class="section-heading">How payment <em>works</em></h2>
+      </div>
+
+      <div class="visit-grid">
+        <article class="visit-card">
+          <h3>Payment at time of service</h3>
+          <p>
+            Payment is due at the time of your visit. We do not bill or accept
+            health insurance, which keeps pricing straightforward and avoids
+            insurance authorization requirements.
+          </p>
+        </article>
+        <article class="visit-card">
+          <h3>Using your HSA or FSA</h3>
+          <p>
+            Many patients use HSA or FSA funds for visits. You may request
+            documentation of your visit for your personal records; reimbursement by
+            an insurance plan is not guaranteed.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {% include "sections/cta-strip.njk" %}
+</main>

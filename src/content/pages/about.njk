@@ -1,0 +1,111 @@
+---
+layout: layouts/base.njk
+permalink: /about/
+title: About
+description: Premier Wellness Telehealth provides compassionate, HIPAA-compliant virtual care for adults across Florida, Virginia, and Washington.
+---
+{% from "macros/icon.njk" import icon %}
+<main id="main">
+  <header class="page-banner">
+    <div class="container">
+      <div class="eyebrow">About Us</div>
+      <h1>Healthcare that takes time to <em>listen</em>.</h1>
+      <p class="lede">
+        Premier Wellness Telehealth provides compassionate, HIPAA-compliant virtual
+        care for adults {{ site.minimumAge }}+ across {{ derived.statesLong }} —
+        convenient, personalized care from the comfort and privacy of your home.
+      </p>
+    </div>
+  </header>
+
+  {% include "partials/wave-divider.njk" %}
+
+  <section class="founder">
+    <div class="container founder-grid">
+      <div class="founder-photo founder-photo--placeholder">
+        <img src="{{ site.logo }}" alt="" width="180" height="180" loading="lazy" />
+        <span class="ph-note">Provider photo coming soon</span>
+      </div>
+
+      <div class="founder-copy">
+        <div class="eyebrow">About Your Provider</div>
+        <h2>{{ site.provider.name }}, <em>{{ site.provider.credentials }}</em></h2>
+        <div class="role">{{ site.provider.role }}</div>
+
+        <p>
+          {{ site.provider.name }}, {{ site.provider.credentials }}, is a
+          board-certified nurse practitioner and the founder of {{ site.name }}.
+          With approximately {{ site.provider.yearsExperience }} years of experience
+          as a nurse practitioner, she has cared for adults across a variety of
+          clinical settings, including primary care, preventive health, chronic
+          condition support, and comprehensive wellness assessments.
+        </p>
+        <p>
+          She founded {{ site.name }} to provide adults with convenient access to
+          thoughtful, personalized care without the pressure and rushed experience
+          that can sometimes occur in traditional healthcare settings.
+        </p>
+        <p>
+          Her approach is centered on listening carefully, explaining
+          recommendations clearly, and involving patients in decisions about their
+          health.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">{{ icon("award", icons, 36, 1.5) }}</div>
+        <div>
+          <h4>{{ site.provider.yearsExperience }} Years of Experience</h4>
+          <p>Caring for adults across primary care, preventive health, and chronic condition management.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">{{ icon("layers", icons, 36, 1.5) }}</div>
+        <div>
+          <h4>Doctor of Nursing Practice</h4>
+          <p>{{ site.provider.credentials }} — board-certified nurse practitioner with advanced clinical training.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">{{ icon("map-pin", icons, 36, 1.5) }}</div>
+        <div>
+          <h4>Licensed in {{ derived.stateAbbrs | join(", ") }}</h4>
+          <p>Serving eligible adult patients located in {{ derived.statesLong }} at the time of their visit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit-types">
+    <div class="container">
+      <div class="visit-types-head">
+        <div class="eyebrow eyebrow--centered">How We Work</div>
+        <h2 class="section-heading">What you can <em>expect</em></h2>
+      </div>
+
+      <div class="visit-grid">
+        <article class="visit-card">
+          <span class="visit-card-icon">{{ icon("clock", icons, 26, 1.6) }}</span>
+          <h3>Unhurried visits</h3>
+          <p>Time to describe what's going on, ask questions, and understand the plan before the visit ends.</p>
+        </article>
+        <article class="visit-card">
+          <span class="visit-card-icon">{{ icon("users", icons, 26, 1.6) }}</span>
+          <h3>One consistent provider</h3>
+          <p>You see the same nurse practitioner each visit — someone who knows your history.</p>
+        </article>
+        <article class="visit-card">
+          <span class="visit-card-icon">{{ icon("file-text", icons, 26, 1.6) }}</span>
+          <h3>Transparent self-pay pricing</h3>
+          <p>Fees are published before you book. No insurance authorizations, no surprise billing.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {% include "sections/cta-strip.njk" %}
+</main>

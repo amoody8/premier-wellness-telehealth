@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+---
+<main id="main">
+  <header class="page-banner">
+    <div class="container">
+      {% if eyebrow %}<div class="eyebrow">{{ eyebrow }}</div>{% endif %}
+      <h1>{{ heading | inlineMarkdown | safe }}</h1>
+      {% if lede %}<p class="lede">{{ lede | inlineMarkdown | safe }}</p>{% endif %}
+    </div>
+  </header>
+
+  {% include "partials/wave-divider.njk" %}
+
+  {{ content | safe }}
+</main>

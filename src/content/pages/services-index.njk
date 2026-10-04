@@ -1,0 +1,59 @@
+---
+layout: layouts/base.njk
+permalink: /services/
+title: Services
+description: Comprehensive adult telehealth — acute and same-day care, primary and preventive care, chronic condition management, women's health, and medical weight management.
+---
+{% from "macros/icon.njk" import icon %}
+<main id="main">
+  <header class="page-banner">
+    <div class="container">
+      <div class="eyebrow">What We Offer</div>
+      <h1>Services <em>offered</em></h1>
+      <p class="lede">
+        Comprehensive virtual care for adults {{ site.minimumAge }}+ located in
+        {{ derived.statesLong }}. Every visit is with {{ derived.providerFull }}.
+      </p>
+    </div>
+  </header>
+
+  {% include "partials/wave-divider.njk" %}
+
+  <section class="category-wrap">
+    <div class="container">
+      <div class="category-list">
+        {%- for category in collections.serviceCategories %}
+        <a href="{{ category.url }}" class="category-link-card">
+          <h3>{{ category.data.title }}</h3>
+          <p>{{ category.data.summary }}</p>
+          <span class="more">
+            Explore {{ icon("arrow-right", icons, 14, 2.5) }}
+          </span>
+        </a>
+        {%- endfor %}
+      </div>
+
+      <div class="clinical-note">
+        <strong>When telehealth isn't the right fit</strong>
+        Telehealth is not appropriate for every medical concern. Some conditions
+        require an in-person examination, laboratory testing, imaging, specialist
+        evaluation, or emergency care. If a virtual visit shows that a different
+        level of care is needed, we will tell you and help you find the appropriate
+        next step. Controlled substances are not prescribed.
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-cta">
+    <div class="container">
+      <div class="emergency-banner">
+        <strong>Medical emergency</strong>
+        If you are experiencing a medical emergency or potentially life-threatening
+        symptoms, call 911 or go to the nearest emergency department. Do not use this
+        website or an online visit to seek emergency care.
+      </div>
+    </div>
+  </section>
+
+  {% include "sections/cta-strip.njk" %}
+</main>

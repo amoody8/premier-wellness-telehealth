@@ -1,0 +1,5 @@
+{
+  "layout": "layouts/legal.njk",
+  "permalink": "/legal/{{ page.fileSlug }}/",
+  "tags": "legalDocs"
+}

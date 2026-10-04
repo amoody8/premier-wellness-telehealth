@@ -1,0 +1,41 @@
+{#
+  Provider introduction.
+
+  The portrait falls back to the practice logo until a professional
+  headshot is available. The testimonial renders only when present —
+  written patient consent must be on file before one is published.
+#}
+<section class="founder" id="about">
+  <div class="container founder-grid">
+    {% if founder.image %}
+    <div class="founder-photo">
+      <img src="{{ founder.image }}" alt="{{ founder.imageAlt }}" width="600" height="750" loading="lazy" />
+    </div>
+    {% else %}
+    <div class="founder-photo founder-photo--placeholder">
+      <img src="{{ site.logo }}" alt="" width="180" height="180" loading="lazy" />
+      <span class="ph-note">Provider photo coming soon</span>
+    </div>
+    {% endif %}
+
+    <div class="founder-copy">
+      <div class="eyebrow">{{ founder.eyebrow }}</div>
+      <h2>{{ founder.headline | inlineMarkdown | safe }}</h2>
+      <div class="role">{{ site.provider.role }}</div>
+
+      {{ founder.body | markdown | safe }}
+
+      <a href="/about/" class="btn btn-gold-outline">Read Full Bio</a>
+
+      {% if testimonial and testimonial.body %}
+      <figure class="founder-quote">
+        <div class="avatar" aria-hidden="true">&ldquo;</div>
+        <blockquote class="founder-quote-body">
+          {{ testimonial.body }}
+          <cite>— {{ testimonial.attribution }}</cite>
+        </blockquote>
+      </figure>
+      {% endif %}
+    </div>
+  </div>
+</section>

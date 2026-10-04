@@ -1,0 +1,60 @@
+---
+layout: layouts/base.njk
+ogType: article
+---
+{% from "macros/icon.njk" import icon %}
+<main id="main">
+  <header class="page-banner">
+    <div class="container">
+      <div class="eyebrow">{{ eyebrow }}</div>
+      <h1>{{ heading | inlineMarkdown | safe }}</h1>
+      <div class="updated">
+        Effective date: <strong>{% if effectiveDate %}{{ effectiveDate | readableDate }}{% else %}To be set on publication{% endif %}</strong>
+        &nbsp;·&nbsp;
+        Last updated: {% if lastUpdated %}{{ lastUpdated | readableDate }}{% else %}Not yet published{% endif %}
+      </div>
+    </div>
+  </header>
+
+  {% include "partials/wave-divider.njk" %}
+
+  <section class="prose-wrap">
+    <div class="container">
+      <div class="prose-grid">
+        <aside class="toc" aria-label="On this page">
+          <h4>On this page</h4>
+          {{ content | legalToc | safe }}
+        </aside>
+
+        <article class="prose">
+          {% if draft %}
+          <div class="draft-warning" role="note">
+            <span class="ico">{{ icon("alert-triangle", icons, 28) }}</span>
+            <div class="body">
+              <strong>Draft template — attorney review required</strong>
+              <p>
+                This document is a starting point only. Before publishing, have it
+                reviewed by a healthcare attorney licensed in {{ derived.statesLong }}.
+                It is not legal advice and is not a substitute for tailored counsel.
+              </p>
+            </div>
+          </div>
+          {% endif %}
+
+          {{ content | legalSections | safe }}
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-cta">
+    <div class="container">
+      <h3>Questions?</h3>
+      <p>If anything here is unclear, please reach out — we're happy to walk through it with you.</p>
+      <div class="btn-row">
+        <a href="/legal/" class="btn btn-outline">All Policies</a>
+        <a href="mailto:{{ site.email }}" class="btn btn-primary">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,179 @@
+---
+layout: layouts/base.njk
+permalink: /legal/
+title: Legal, Privacy & Compliance
+description: Privacy, telehealth, self-pay, prescribing, emergency care, and website-use information for Premier Wellness Telehealth.
+---
+<main id="main">
+  <header class="page-banner">
+    <div class="container">
+      <div class="eyebrow">Legal, Privacy &amp; Compliance</div>
+      <h1>Your privacy. Your care. Our <em>commitment</em>.</h1>
+      <p class="lede">
+        {{ site.name }} is committed to providing professional, secure, and
+        transparent virtual healthcare. This page explains important information
+        about privacy, telehealth services, payment, prescribing, emergency care,
+        and use of this website.
+      </p>
+    </div>
+  </header>
+
+  {% include "partials/wave-divider.njk" %}
+
+  <section class="legal-hub">
+    <div class="container">
+      <div class="legal-intro">
+        Please review the applicable policies before receiving care. Each policy
+        below links to the complete document; this page is an overview, not the
+        policy itself.
+      </div>
+
+      <section class="legal-section" id="privacy">
+        <h2><span class="num">Section 01</span>Privacy &amp; Protected Health Information</h2>
+        <p>
+          {{ site.name }} respects the privacy of your health information and uses
+          safeguards designed to protect information handled in connection with your
+          care. Medical information should be submitted only through the secure
+          systems and communication methods designated by the practice.
+        </p>
+        <ul>
+          <li>Do not submit sensitive medical information through public website fields unless the form is specifically identified as a secure patient-care form.</li>
+          <li>Clinical records, intake information, messages, and other protected health information are handled through the practice's approved healthcare technology and record systems.</li>
+          <li>The Notice of Privacy Practices explains how protected health information may be used and disclosed and describes applicable patient rights.</li>
+        </ul>
+        <a href="/legal/hipaa/" class="btn btn-outline">View Notice of Privacy Practices</a>
+      </section>
+
+      <section class="legal-section" id="telehealth">
+        <h2><span class="num">Section 02</span>Telehealth Services &amp; Consent</h2>
+        <p>
+          {{ site.name }} provides virtual healthcare to eligible adult patients who
+          are physically located in a state where the treating provider is authorized
+          to practice at the time care is delivered. Telehealth may include scheduled
+          video visits and, for selected conditions, asynchronous online visits.
+        </p>
+        <ul>
+          <li>Telehealth is not appropriate for every medical concern.</li>
+          <li>A provider may recommend an in-person examination, laboratory or diagnostic testing, specialist evaluation, urgent care, or emergency care when clinically appropriate.</li>
+          <li>Patients may be required to verify their identity and physical location at the time of care.</li>
+          <li>Online visits require completion of requested clinical information. Submission of a questionnaire does not guarantee treatment, a diagnosis, or a prescription.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section" id="self-pay">
+        <h2><span class="num">Section 03</span>Self-Pay Services &amp; Financial Responsibility</h2>
+        <p>
+          {{ site.name }} operates as a self-pay practice. Fees are displayed before
+          booking, and patients are responsible for charges associated with the
+          services they select.
+        </p>
+        <ul>
+          <li>{{ site.name }} does not bill health insurance for routine self-pay services.</li>
+          <li>Insurance coverage or reimbursement, if independently sought by a patient, is determined by the patient's health plan.</li>
+          <li>Laboratory testing, imaging, pharmacy charges, medications, or outside services may involve separate fees unless specifically stated as included.</li>
+          <li>{{ derived.cancellationPolicy }}</li>
+        </ul>
+        <a href="/pricing/" class="btn btn-outline">View Pricing</a>
+      </section>
+
+      <section class="legal-section" id="prescriptions">
+        <h2><span class="num">Section 04</span>Prescriptions &amp; Medication Management</h2>
+        <p>
+          Medication may be prescribed, continued, adjusted, or declined based on the
+          provider's clinical judgment, applicable law, patient safety, and the
+          information available during the evaluation.
+        </p>
+        <ul>
+          <li>An appointment or online visit does not guarantee that a medication will be prescribed.</li>
+          <li>Some medications or medical conditions may require an in-person examination, laboratory monitoring, prior medical records, or specialty care.</li>
+          <li>{{ site.name }} cannot guarantee pharmacy inventory, medication availability, insurance coverage, formulary approval, or pharmacy fulfillment.</li>
+          <li>The practice does not prescribe medications that fall outside its clinical scope or prescribing policies. Controlled substances are not prescribed.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section" id="weight-management">
+        <h2><span class="num">Section 05</span>Medical Weight Management</h2>
+        <p>
+          {{ site.name }} offers evidence-based medical management of overweight and
+          obesity as one component of comprehensive adult healthcare. The practice is
+          not a rapid-weight-loss or medication-dispensing clinic.
+        </p>
+        <ul>
+          <li>Treatment is individualized and based on medical history, clinical assessment, treatment goals, risks, and appropriate monitoring.</li>
+          <li>Prescription therapy, including GLP-1 or dual GIP/GLP-1 medications, may be considered when clinically appropriate.</li>
+          <li>Booking a consultation does not guarantee eligibility for a particular medication.</li>
+          <li>Medication availability, insurance coverage, prior authorization decisions, and pharmacy fulfillment are not guaranteed.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section" id="emergencies">
+        <h2><span class="num">Section 06</span>Emergencies &amp; Urgent Medical Needs</h2>
+        <div class="emergency-banner">
+          <strong>Emergency notice</strong>
+          {{ site.name }} does not provide emergency medical services. If you are
+          experiencing a medical emergency or potentially life-threatening symptoms,
+          call 911 or go to the nearest emergency department. Do not use the website,
+          patient portal, messaging system, or an online visit to seek emergency care.
+        </div>
+      </section>
+
+      <section class="legal-section" id="disclaimer">
+        <h2><span class="num">Section 07</span>Website Information &amp; Medical Disclaimer</h2>
+        <p>
+          Information provided on this website is for general educational and
+          informational purposes and is not a substitute for individualized medical
+          evaluation, diagnosis, or treatment. Viewing the website, submitting a
+          general inquiry, or reading educational content does not by itself establish
+          a provider-patient relationship.
+        </p>
+        <ul>
+          <li>Medical decisions should be based on an appropriate clinical evaluation.</li>
+          <li>Do not delay seeking professional or emergency medical care because of information found on this website.</li>
+          <li>Website content may be updated as clinical services, laws, technology, or practice policies change.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section" id="accessibility">
+        <h2><span class="num">Section 08</span>Accessibility &amp; Nondiscrimination</h2>
+        <p>
+          {{ site.name }} is committed to respectful and accessible care. If you need
+          reasonable communication assistance, or have difficulty accessing website
+          content or virtual-care services, please contact us and we will help.
+        </p>
+        <a href="mailto:{{ site.email }}" class="btn btn-outline">Contact Us for Assistance</a>
+      </section>
+
+      <section class="legal-section" id="documents">
+        <h2><span class="num">Section 09</span>Policies &amp; Important Documents</h2>
+        <p>Policies marked as in preparation are being drafted and reviewed before publication.</p>
+        <div class="policy-grid">
+          {%- for policy in policies %}
+          {%- if policy.url %}
+          <a href="{{ policy.url }}" class="policy-card">
+            <span class="title">{{ policy.title }}</span>
+            <span class="status status--available">Available</span>
+          </a>
+          {%- else %}
+          <div class="policy-card policy-card--pending">
+            <span class="title">{{ policy.title }}</span>
+            <span class="status status--pending">In preparation</span>
+          </div>
+          {%- endif %}
+          {%- endfor %}
+        </div>
+      </section>
+
+      <section class="legal-section" id="contact">
+        <h2><span class="num">Section 10</span>Contact Information</h2>
+        <p>
+          Questions about these policies may be directed to
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+          Office hours are {{ derived.hoursLong }}.
+        </p>
+        {% if site.mailingAddress %}
+        <p>{{ site.mailingAddress }}</p>
+        {% endif %}
+      </section>
+    </div>
+  </section>
+</main>

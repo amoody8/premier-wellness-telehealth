@@ -1,0 +1,12 @@
+{% from "macros/icon.njk" import icon %}
+<section class="cta-strip">
+  <div class="container cta-inner">
+    <span class="cta-icon">{{ icon("calendar", icons, 26, 1.6) }}</span>
+    <p class="cta-text">{{ (ctaStrip.text if ctaStrip else "Ready to take the *next step* in your health?") | inlineMarkdown | safe }}</p>
+    {% if site.booking.url %}
+    <a class="btn btn-gold" href="{{ site.booking.url }}" target="_blank" rel="noopener">{{ site.ctaLabel }}</a>
+    {% else %}
+    <button class="btn btn-gold" type="button" data-open-booking>{{ site.ctaLabel }}</button>
+    {% endif %}
+  </div>
+</section>

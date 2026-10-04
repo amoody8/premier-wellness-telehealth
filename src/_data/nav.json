@@ -1,0 +1,15 @@
+{
+  "primary": [
+    { "label": "About", "url": "/about/" },
+    { "label": "Services", "url": "/services/" },
+    { "label": "Pricing", "url": "/pricing/" },
+    { "label": "E-Visits", "url": "/e-visits/" },
+    { "label": "FAQ", "url": "/faq/" }
+  ],
+  "footer": [
+    { "label": "Legal & Privacy", "url": "/legal/" },
+    { "label": "Privacy Policy", "url": "/legal/privacy/" },
+    { "label": "Terms of Service", "url": "/legal/terms/" },
+    { "label": "HIPAA Notice", "url": "/legal/hipaa/" }
+  ]
+}
