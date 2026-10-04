@@ -1,0 +1,37 @@
+{% from "macros/icon.njk" import icon %}
+{#
+  Booking modal — contact details only.
+
+  This never contains a form. The site collects zero PHI; scheduling
+  and intake happen inside SimplePractice under their BAA. If a booking
+  URL is configured in site.json, the CTAs link straight out and this
+  modal is only a fallback.
+#}
+<div class="modal-bg" id="bookModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bookModalTitle">
+    <button class="close" type="button" data-close-booking aria-label="Close">&times;</button>
+    <img src="{{ site.logo }}" alt="" width="56" height="56" />
+    <h3 id="bookModalTitle">Schedule Your Visit</h3>
+    <p>{{ site.booking.note }}</p>
+
+    <div class="info-row">
+      {{ icon("mail", icons, 20) }}
+      <div>
+        <div class="lbl">Email</div>
+        <div class="val">{{ site.email }}</div>
+      </div>
+    </div>
+
+    <div class="info-row">
+      {{ icon("clock", icons, 20) }}
+      <div>
+        <div class="lbl">Hours</div>
+        <div class="val">{{ derived.hoursLong }}</div>
+      </div>
+    </div>
+
+    <div class="modal-cta">
+      <a class="btn btn-primary" href="mailto:{{ site.email }}">Email Us</a>
+    </div>
+  </div>
+</div>

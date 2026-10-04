@@ -1,0 +1,60 @@
+{
+  "name": "Premier Wellness Telehealth",
+  "legalName": "Premier Wellness Telehealth, LLC",
+  "tagline": "Healthcare That Takes Time to Listen.",
+  "taglineShort": "Compassionate Care · Personalized for You",
+  "description": "Compassionate, HIPAA-compliant virtual care for adults 18+ across Florida, Virginia, and Washington. Same-day visits, chronic condition care, preventive wellness, women's health, and online e-visits.",
+
+  "url": "https://amoody8.github.io/premier-wellness-telehealth",
+  "domain": "premierwellnesstelehealth.com",
+
+  "email": "premierwellnesstelehealthllc@gmail.com",
+  "mailingAddress": "",
+
+  "wordmark": {
+    "pre": "Premier",
+    "em": "Wellness",
+    "post": "Telehealth"
+  },
+  "brand": {
+    "line1": "Premier Wellness",
+    "line2": "Telehealth"
+  },
+
+  "ctaLabel": "Schedule Appointment",
+
+  "booking": {
+    "url": "",
+    "evisitUrl": "",
+    "note": "Online scheduling is being connected. In the meantime, reach out by email and we'll get you booked."
+  },
+
+  "hours": {
+    "days": ["Tuesday", "Wednesday", "Thursday"],
+    "opens": "09:00",
+    "closes": "17:00",
+    "note": "Other hours by appointment"
+  },
+
+  "states": [
+    { "name": "Florida", "abbr": "FL" },
+    { "name": "Virginia", "abbr": "VA" },
+    { "name": "Washington", "abbr": "WA" }
+  ],
+
+  "provider": {
+    "name": "Lissette Moody",
+    "shortName": "L. Moody",
+    "credentials": "DNP, APRN-C",
+    "jobTitle": "Nurse Practitioner",
+    "role": "Founder & Nurse Practitioner",
+    "yearsExperience": 14
+  },
+
+  "minimumAge": 18,
+
+  "logo": "/assets/logo.png",
+  "favicon": "/assets/favicon.png",
+
+  "disclaimer": "Services are subject to clinical appropriateness, provider licensure, and applicable state and federal requirements. Premier Wellness Telehealth does not provide emergency medical care."
+}

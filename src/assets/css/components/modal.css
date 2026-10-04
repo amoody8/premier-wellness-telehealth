@@ -1,0 +1,118 @@
+/* ===================================================================
+   Booking modal
+
+   Contains contact details only — never a form. This site collects
+   zero PHI; scheduling and intake happen in SimplePractice under
+   their BAA.
+   =================================================================== */
+
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 40, 69, .6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.modal-bg.open {
+  display: flex;
+}
+
+.modal {
+  background: var(--page-bg);
+  max-width: 480px;
+  width: 100%;
+  padding: 44px 40px;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  border-top: 3px solid var(--gold);
+}
+
+.modal .close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 1;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: background-color .2s, color .2s;
+}
+
+.modal .close:hover {
+  background: var(--cream-warm);
+  color: var(--navy-deep);
+}
+
+.modal img {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+}
+
+.modal h3 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  color: var(--navy-deep);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.modal p {
+  color: var(--muted);
+  font-size: 14.5px;
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.modal .info-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  background: var(--cream-warm);
+  border-radius: 3px;
+  text-align: left;
+}
+
+.modal .info-row svg {
+  color: var(--gold);
+}
+
+.modal .lbl {
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.modal .val {
+  font-size: 14px;
+  color: var(--navy-deep);
+  font-weight: 500;
+  margin-top: 2px;
+  word-break: break-word;
+}
+
+.modal .modal-cta {
+  margin-top: 20px;
+}
+
+@media (max-width: 560px) {
+  .modal {
+    padding: 36px 24px;
+  }
+}

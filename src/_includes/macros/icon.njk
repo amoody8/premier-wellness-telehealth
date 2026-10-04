@@ -1,0 +1,17 @@
+{#
+  icon(name, icons, size, strokeWidth)
+
+  Renders a named glyph from the icon registry (src/_data/icons.js).
+  Unknown names render nothing rather than breaking the page — a CMS
+  entry with a stale icon name should never take the site down.
+
+  Usage:
+    {% from "macros/icon.njk" import icon %}
+    {{ icon("mail", icons, 16) }}
+#}
+{% macro icon(name, icons, size=24, strokeWidth=2) %}
+{%- set glyph = icons[name] -%}
+{%- if glyph -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{{ strokeWidth }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{{ glyph | safe }}</svg>
+{%- endif -%}
+{% endmacro %}

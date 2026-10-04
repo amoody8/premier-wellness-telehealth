@@ -1,0 +1,5 @@
+{
+  "layout": "layouts/service-category.njk",
+  "permalink": "/services/{{ page.fileSlug }}/",
+  "tags": "serviceCategories"
+}

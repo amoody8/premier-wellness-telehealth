@@ -1,0 +1,112 @@
+/* ===================================================================
+   Footer — dark navy, centered
+   =================================================================== */
+
+.site-footer {
+  background: var(--navy-deep);
+  color: #F0E6CC;
+  padding: 72px 0 40px;
+  text-align: center;
+  border-top: 3px solid var(--gold);
+}
+
+.foot-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 44px;
+}
+
+.foot-brand img {
+  width: 64px;
+  height: 64px;
+}
+
+.foot-brand .name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: #F5EBCF;
+  font-weight: 500;
+  letter-spacing: .04em;
+}
+
+.foot-brand .tag {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold-warm);
+  font-weight: 500;
+}
+
+.foot-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(212, 185, 120, .14);
+  border-bottom: 1px solid rgba(212, 185, 120, .14);
+}
+
+.foot-contact a,
+.foot-contact span {
+  color: var(--gold-warm);
+  font-size: 14px;
+  letter-spacing: .02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.foot-contact a:hover {
+  color: #fff;
+}
+
+.foot-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.foot-links a {
+  color: rgba(245, 235, 207, .7);
+}
+
+.foot-links a:hover {
+  color: #fff;
+}
+
+/* Practice disclaimer required on every page */
+.foot-disclaimer {
+  font-size: 12px;
+  color: rgba(245, 235, 207, .55);
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0 auto 20px;
+}
+
+.foot-legal {
+  font-size: 12px;
+  color: rgba(245, 235, 207, .55);
+  letter-spacing: .02em;
+}
+
+.foot-legal a {
+  color: rgba(245, 235, 207, .7);
+}
+
+@media (max-width: 720px) {
+  .foot-contact {
+    gap: 20px;
+    flex-direction: column;
+  }
+}

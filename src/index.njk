@@ -1,0 +1,92 @@
+---
+layout: layouts/base.njk
+permalink: /
+eleventyNavigation:
+  key: Home
+
+hero:
+  eyebrow: Compassionate Telehealth Care
+  headline: Healthcare that takes time to *listen*.
+  lede: >-
+    Compassionate, evidence-based virtual care for adults — from same-day concerns
+    to ongoing chronic condition management. Thoughtful, unhurried care from the
+    comfort and privacy of your home.
+  secondaryCta:
+    label: View Services
+    url: /services/
+  image: ""
+  imageAlt: ""
+
+trustItems:
+  - icon: award
+    heading: 14 Years of Experience
+    body: Caring for adults across primary care, preventive health, and chronic condition management.
+  - icon: layers
+    heading: Doctor of Nursing Practice
+    body: DNP · APRN-C — board-certified nurse practitioner with advanced clinical training.
+  - icon: heart
+    heading: Whole-Person Approach
+    body: Listening carefully, explaining clearly, and involving you in decisions about your health.
+
+services:
+  eyebrow: What We Offer
+  headline: Services *offered*
+  sub: >-
+    Comprehensive adult telehealth — acute concerns, ongoing chronic care,
+    preventive services, women's health, and medical weight management.
+  ctaLabel: See All Services
+
+founder:
+  eyebrow: Meet Your Provider
+  headline: L. Moody, *DNP*, APRN-C
+  body: >-
+    Dr. Lissette Moody is a board-certified nurse practitioner and the founder of
+    Premier Wellness Telehealth. With approximately 14 years of experience, she has
+    cared for adults across a variety of clinical settings, including primary care,
+    preventive health, chronic condition support, and comprehensive wellness assessments.
+
+
+    She founded the practice to give adults convenient access to thoughtful,
+    personalized care — without the rushed experience that can happen in traditional
+    healthcare settings.
+  image: ""
+  imageAlt: ""
+
+testimonial:
+  body: Dr. Moody takes the time to listen. In her care I never felt rushed — I felt heard.
+  attribution: A Patient
+
+visitTypes:
+  eyebrow: Getting Started
+  headline: Which type of visit do I *need*?
+  sub: Two ways to be seen. Pick the one that fits your concern.
+  options:
+    - icon: video
+      title: Video Visit
+      body: >-
+        A scheduled, real-time conversation with your provider.
+      bestFor:
+        - New concerns that benefit from discussion
+        - Chronic condition follow-up
+        - Medication management
+        - Preventive and wellness care
+    - icon: clipboard-list
+      title: Online E-Visit
+      body: >-
+        A secure medical questionnaire reviewed by your provider, without a
+        scheduled appointment.
+      bestFor:
+        - Select straightforward, uncomplicated concerns
+        - When a real-time conversation isn't needed
+        - Reviewed and answered during office hours
+
+ctaStrip:
+  text: Ready to take the *next step* in your health?
+---
+
+{% include "sections/hero.njk" %}
+{% include "sections/trust-strip.njk" %}
+{% include "sections/services.njk" %}
+{% include "sections/founder.njk" %}
+{% include "sections/visit-types.njk" %}
+{% include "sections/cta-strip.njk" %}

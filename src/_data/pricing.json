@@ -1,0 +1,39 @@
+{
+  "intro": "Transparent self-pay pricing with no insurance authorizations and no surprise billing. Payment is due at the time of service.",
+  "visits": [
+    {
+      "name": "New Patient Visit",
+      "amount": 115,
+      "unit": "per visit",
+      "description": "Your first comprehensive visit — history, assessment, and a care plan built around you."
+    },
+    {
+      "name": "Follow-Up Visit",
+      "amount": 85,
+      "unit": "per visit",
+      "description": "Ongoing care, chronic condition follow-up, and treatment adjustments."
+    },
+    {
+      "name": "Lab Review Visit",
+      "amount": 65,
+      "unit": "per visit",
+      "description": "Review recent laboratory results together and plan appropriate next steps."
+    },
+    {
+      "name": "Medication Refill Visit",
+      "amount": 55,
+      "unit": "per visit",
+      "description": "Medication review and refills when safe and clinically appropriate."
+    }
+  ],
+  "cancellation": {
+    "noticeHours": 24,
+    "fee": 50
+  },
+  "notes": [
+    "Premier Wellness Telehealth is a self-pay practice and does not bill or accept health insurance.",
+    "Laboratory testing, imaging, medications, and services provided by outside facilities are not included in the visit fee.",
+    "Patients may request documentation of their visit for personal records; reimbursement by an insurance plan is not guaranteed.",
+    "Controlled substances are not prescribed."
+  ]
+}

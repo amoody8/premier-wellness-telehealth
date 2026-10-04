@@ -1,0 +1,106 @@
+/* ===================================================================
+   Visit types — "Which type of visit do I need?"
+   Video visit vs. online e-visit, side by side.
+   =================================================================== */
+
+.visit-types {
+  background: var(--page-bg);
+  padding: 104px 0;
+}
+
+.visit-types-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.visit-types-head .section-sub {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 620px;
+  margin: 18px auto 0;
+}
+
+.visit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+.visit-card {
+  background: var(--cream-warm);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  border-radius: 2px;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.visit-card-icon {
+  width: 56px;
+  height: 56px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.visit-card-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.visit-card h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--navy-deep);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.visit-card p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.visit-card ul {
+  margin: 16px 0 0 20px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.visit-card li {
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+.visit-card li::marker {
+  color: var(--gold);
+}
+
+.visit-card .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.visit-card-foot {
+  margin-top: 28px;
+}
+
+@media (max-width: 720px) {
+  .visit-types {
+    padding: 72px 0;
+  }
+
+  .visit-card {
+    padding: 32px 24px;
+  }
+}

@@ -1,0 +1,34 @@
+{% from "macros/icon.njk" import icon %}
+{#
+  "Which type of visit do I need?"
+
+  Video visits and online e-visits are presented as visibly distinct
+  options so patients can tell which one fits. The e-visit questionnaire
+  itself lives in SimplePractice — this page only describes and links.
+#}
+<section class="visit-types" id="visit-types">
+  <div class="container">
+    <div class="visit-types-head">
+      <div class="eyebrow eyebrow--centered">{{ visitTypes.eyebrow }}</div>
+      <h2 class="section-heading">{{ visitTypes.headline | inlineMarkdown | safe }}</h2>
+      {% if visitTypes.sub %}<p class="section-sub">{{ visitTypes.sub }}</p>{% endif %}
+    </div>
+
+    <div class="visit-grid">
+      {%- for option in visitTypes.options %}
+      <article class="visit-card">
+        <span class="visit-card-icon">{{ icon(option.icon, icons, 26, 1.6) }}</span>
+        <h3>{{ option.title }}</h3>
+        <p>{{ option.body }}</p>
+        {% if option.bestFor %}
+        <ul>
+          {%- for point in option.bestFor %}
+          <li>{{ point }}</li>
+          {%- endfor %}
+        </ul>
+        {% endif %}
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

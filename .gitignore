@@ -1,3 +1,7 @@
+# Eleventy build output
+_site/
+.cache/
+
 # Internal AI collaboration notes — kept locally, not pushed
 CLAUDE.md
 
