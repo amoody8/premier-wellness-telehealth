@@ -23,7 +23,7 @@ description: Comprehensive adult telehealth — acute and same-day care, primary
     <div class="container">
       <div class="category-list">
         {%- for category in collections.serviceCategories %}
-        <a href="{{ category.url }}" class="category-link-card">
+        <a href="{{ category.url | url }}" class="category-link-card">
           <h3>{{ category.data.title }}</h3>
           <p>{{ category.data.summary }}</p>
           <span class="more">

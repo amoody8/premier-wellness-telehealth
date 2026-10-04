@@ -15,7 +15,7 @@
 
     <div class="services-grid">
       {%- for category in collections.serviceCategories %}
-      <a href="{{ category.url }}" class="service-tile">
+      <a href="{{ category.url | url }}" class="service-tile">
         <span class="service-tile-icon">{{ icon(category.data.icon, icons, 32, 1.6) }}</span>
         <span class="service-tile-label">{{ category.data.title }}</span>
       </a>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="services-cta">
-      <a href="/services/" class="btn btn-gold-outline">{{ services.ctaLabel }}</a>
+      <a href="{{ "/services/" | url }}" class="btn btn-gold-outline">{{ services.ctaLabel }}</a>
     </div>
   </div>
 </section>

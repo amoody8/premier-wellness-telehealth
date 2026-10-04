@@ -22,11 +22,13 @@ backend:
 publish_mode: simple
 
 media_folder: src/assets/uploads
-public_folder: /assets/uploads
+# Must include the GitHub Pages subpath — this is written into content
+# when an image is uploaded. Update it alongside pathPrefix.
+public_folder: /premier-wellness-telehealth/assets/uploads
 
 site_url: https://amoody8.github.io/premier-wellness-telehealth
 display_url: https://amoody8.github.io/premier-wellness-telehealth
-logo_url: /assets/logo.png
+logo_url: /premier-wellness-telehealth/assets/logo.png
 
 collections:
   # -------------------------------------------------------------------

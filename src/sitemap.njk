@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
 {%- for item in collections.all %}
   {%- if item.url and not (item.url | startsWith("/admin")) %}
   <url>
-    <loc>{{ site.url }}{{ item.url }}</loc>
+    <loc>{{ item.url | url | absolute(site.origin) }}</loc>
     <lastmod>{{ item.date | isoDate }}</lastmod>
   </url>
   {%- endif %}

@@ -13,7 +13,7 @@ lastUpdated: ""
 
 Premier Wellness Telehealth, LLC (“**Premier Wellness**,” “**we**,” or “**us**”) respects your privacy. This Privacy Policy describes what information we collect through this website (**premierwellnesstelehealth.com**), how we use it, and the choices you have.
 
-This policy applies only to information collected through our public website. It does **not** cover information you provide once you become a patient and use our scheduling and clinical platform — that information is handled under our [Notice of Privacy Practices (HIPAA)](/legal/hipaa/) and the privacy practices of our electronic medical record provider.
+This policy applies only to information collected through our public website. It does **not** cover information you provide once you become a patient and use our scheduling and clinical platform — that information is handled under our [Notice of Privacy Practices (HIPAA)]({{ "/legal/hipaa/" | url }}) and the privacy practices of our electronic medical record provider.
 
 ## Information We Collect
 
@@ -63,7 +63,7 @@ The marketing website you are reading does not collect any health information. O
 
 ## Protected Health Information
 
-Protected Health Information (PHI) is handled separately from website data under federal HIPAA rules. For details on how we use and protect your PHI, please read our [Notice of Privacy Practices](/legal/hipaa/).
+Protected Health Information (PHI) is handled separately from website data under federal HIPAA rules. For details on how we use and protect your PHI, please read our [Notice of Privacy Practices]({{ "/legal/hipaa/" | url }}).
 
 ## Cookies and Analytics
 

@@ -18,7 +18,7 @@
           {{ icon("arrow-right", icons, 14, 2.5) }}
         </button>
         {% endif %}
-        <a href="{{ hero.secondaryCta.url }}" class="btn btn-outline">{{ hero.secondaryCta.label }}</a>
+        <a href="{{ hero.secondaryCta.url | url }}" class="btn btn-outline">{{ hero.secondaryCta.label }}</a>
       </div>
 
       <div class="hero-trust">
@@ -33,7 +33,7 @@
     </div>
     {% else %}
     <div class="hero-photo hero-photo--placeholder">
-      <img src="{{ site.logo }}" alt="" width="200" height="200" />
+      <img src="{{ site.logo | url }}" alt="" width="200" height="200" />
     </div>
     {% endif %}
   </div>

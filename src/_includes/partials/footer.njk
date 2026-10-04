@@ -2,7 +2,7 @@
 <footer class="site-footer" id="contact">
   <div class="container">
     <div class="foot-brand">
-      <img src="{{ site.logo }}" alt="{{ site.name }}" width="64" height="64" loading="lazy" />
+      <img src="{{ site.logo | url }}" alt="{{ site.name }}" width="64" height="64" loading="lazy" />
       <span class="name">{{ site.name }}</span>
       <span class="tag">{{ site.taglineShort }}</span>
     </div>
@@ -28,7 +28,7 @@
 
     <div class="foot-links">
       {%- for item in nav.footer %}
-      <a href="{{ item.url }}">{{ item.label }}</a>
+      <a href="{{ item.url | url }}">{{ item.label }}</a>
       {%- endfor %}
     </div>
 

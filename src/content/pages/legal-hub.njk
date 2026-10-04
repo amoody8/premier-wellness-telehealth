@@ -41,7 +41,7 @@ description: Privacy, telehealth, self-pay, prescribing, emergency care, and web
           <li>Clinical records, intake information, messages, and other protected health information are handled through the practice's approved healthcare technology and record systems.</li>
           <li>The Notice of Privacy Practices explains how protected health information may be used and disclosed and describes applicable patient rights.</li>
         </ul>
-        <a href="/legal/hipaa/" class="btn btn-outline">View Notice of Privacy Practices</a>
+        <a href="{{ "/legal/hipaa/" | url }}" class="btn btn-outline">View Notice of Privacy Practices</a>
       </section>
 
       <section class="legal-section" id="telehealth">
@@ -73,7 +73,7 @@ description: Privacy, telehealth, self-pay, prescribing, emergency care, and web
           <li>Laboratory testing, imaging, pharmacy charges, medications, or outside services may involve separate fees unless specifically stated as included.</li>
           <li>{{ derived.cancellationPolicy }}</li>
         </ul>
-        <a href="/pricing/" class="btn btn-outline">View Pricing</a>
+        <a href="{{ "/pricing/" | url }}" class="btn btn-outline">View Pricing</a>
       </section>
 
       <section class="legal-section" id="prescriptions">
@@ -149,7 +149,7 @@ description: Privacy, telehealth, self-pay, prescribing, emergency care, and web
         <div class="policy-grid">
           {%- for policy in policies %}
           {%- if policy.url %}
-          <a href="{{ policy.url }}" class="policy-card">
+          <a href="{{ policy.url | url }}" class="policy-card">
             <span class="title">{{ policy.title }}</span>
             <span class="status status--available">Available</span>
           </a>

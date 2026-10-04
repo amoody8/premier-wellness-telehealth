@@ -10,7 +10,7 @@
 <div class="modal-bg" id="bookModal" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bookModalTitle">
     <button class="close" type="button" data-close-booking aria-label="Close">&times;</button>
-    <img src="{{ site.logo }}" alt="" width="56" height="56" />
+    <img src="{{ site.logo | url }}" alt="" width="56" height="56" />
     <h3 id="bookModalTitle">Schedule Your Visit</h3>
     <p>{{ site.booking.note }}</p>
 

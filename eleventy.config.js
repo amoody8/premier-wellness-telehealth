@@ -132,6 +132,18 @@ export default function (eleventyConfig) {
     String(value ?? "").startsWith(prefix),
   );
 
+  /**
+   * Build an absolute URL for metadata (canonical, Open Graph, sitemap).
+   *
+   * Takes an already-prefixed path — pipe through `url` first — and joins it
+   * to the origin without doubling slashes.
+   */
+  eleventyConfig.addFilter("absolute", (path, origin) => {
+    const base = String(origin ?? "").replace(/\/+$/, "");
+    const rest = String(path ?? "");
+    return `${base}${rest.startsWith("/") ? "" : "/"}${rest}`;
+  });
+
   eleventyConfig.addFilter("isoDate", (value) => {
     const d = value instanceof Date ? value : new Date(value);
     return Number.isNaN(d.getTime())
@@ -198,5 +210,13 @@ export default function (eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     templateFormats: ["njk", "md", "html"],
+
+    // GitHub Pages serves this project from a subdirectory, not the domain
+    // root, so every internal link and asset path must carry this prefix.
+    // Pass internal paths through the `url` filter — a bare "/assets/..."
+    // resolves against the domain root and 404s.
+    //
+    // When a custom domain is added, set this back to "/".
+    pathPrefix: process.env.PATH_PREFIX ?? "/premier-wellness-telehealth/",
   };
 }

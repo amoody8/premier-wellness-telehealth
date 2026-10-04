@@ -14,4 +14,4 @@ Additional testing, laboratory services, imaging, medications, or services provi
 by outside facilities are not included in the visit fee.
 {{ derived.cancellationPolicy }}
 
-See [full pricing details](/pricing/).
+See [full pricing details]({{ "/pricing/" | url }}).

@@ -45,7 +45,7 @@ layout: layouts/base.njk
       <h3>Ready to be <em>seen</em>?</h3>
       <p>Schedule a visit and we'll take the time to understand what's going on.</p>
       <div class="btn-row">
-        <a href="/services/" class="btn btn-outline">All Services</a>
+        <a href="{{ "/services/" | url }}" class="btn btn-outline">All Services</a>
         {% if site.booking.url %}
         <a class="btn btn-primary" href="{{ site.booking.url }}" target="_blank" rel="noopener">{{ site.ctaLabel }}</a>
         {% else %}

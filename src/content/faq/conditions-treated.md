@@ -19,4 +19,4 @@ including evidence-based prescription therapy for eligible patients.
 
 Some conditions require laboratory testing, an in-person examination, imaging,
 specialist care, or a higher level of care, and therefore may not be appropriate
-for virtual management. [See all services](/services/).
+for virtual management. [See all services]({{ "/services/" | url }}).

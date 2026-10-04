@@ -13,7 +13,7 @@
     </div>
     {% else %}
     <div class="founder-photo founder-photo--placeholder">
-      <img src="{{ site.logo }}" alt="" width="180" height="180" loading="lazy" />
+      <img src="{{ site.logo | url }}" alt="" width="180" height="180" loading="lazy" />
       <span class="ph-note">Provider photo coming soon</span>
     </div>
     {% endif %}
@@ -25,7 +25,7 @@
 
       {{ founder.body | markdown | safe }}
 
-      <a href="/about/" class="btn btn-gold-outline">Read Full Bio</a>
+      <a href="{{ "/about/" | url }}" class="btn btn-gold-outline">Read Full Bio</a>
 
       {% if testimonial and testimonial.body %}
       <figure class="founder-quote">

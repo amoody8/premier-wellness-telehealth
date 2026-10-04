@@ -4,6 +4,6 @@ eleventyExcludeFromCollections: true
 ---
 User-agent: *
 Allow: /
-Disallow: /admin/
+Disallow: {{ "/admin/" | url }}
 
-Sitemap: {{ site.url }}/sitemap.xml
+Sitemap: {{ "/sitemap.xml" | url | absolute(site.origin) }}
