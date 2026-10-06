@@ -28,7 +28,7 @@ public_folder: /premier-wellness-telehealth/assets/uploads
 
 site_url: https://amoody8.github.io/premier-wellness-telehealth
 display_url: https://amoody8.github.io/premier-wellness-telehealth
-logo_url: /premier-wellness-telehealth/assets/logo.png
+logo_url: /premier-wellness-telehealth/assets/logo.svg
 
 collections:
   # -------------------------------------------------------------------

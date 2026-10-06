@@ -53,8 +53,10 @@
 
   "minimumAge": 18,
 
-  "logo": "/assets/logo.png",
+  "logo": "/assets/logo.svg",
+  "logoRaster": "/assets/logo-mark.png",
   "favicon": "/assets/favicon.png",
+  "appleTouchIcon": "/assets/apple-touch-icon.png",
 
   "disclaimer": "Services are subject to clinical appropriateness, provider licensure, and applicable state and federal requirements. Premier Wellness Telehealth does not provide emergency medical care."
 }

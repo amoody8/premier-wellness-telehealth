@@ -8,6 +8,8 @@
  * hand-typed into a template or a content file.
  */
 
+const PATH_PREFIX = process.env.PATH_PREFIX ?? "/premier-wellness-telehealth/";
+
 const DAY_ABBR = {
   Sunday: "Sun",
   Monday: "Mon",
@@ -100,8 +102,9 @@ export default {
       "@type": "MedicalBusiness",
       name: site.legalName,
       description: site.description,
-      image: `${site.url}${site.logo}`,
-      url: site.url,
+      // These bypass the `url` filter, so the path prefix is applied here.
+      image: `${site.origin}${PATH_PREFIX}${site.logoRaster.replace(/^\//, "")}`,
+      url: `${site.origin}${PATH_PREFIX}`,
       email: site.email,
       priceRange: "$$",
       medicalSpecialty: ["PrimaryCare", "Geriatric"],

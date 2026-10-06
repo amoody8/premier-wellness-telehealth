@@ -12,20 +12,20 @@
 <meta name="theme-color" content="#122845" />
 
 <link rel="icon" type="image/png" href="{{ site.favicon | url }}" />
-<link rel="apple-touch-icon" href="{{ site.favicon | url }}" />
+<link rel="apple-touch-icon" href="{{ site.appleTouchIcon | url }}" />
 
 <meta property="og:type" content="{{ ogType or 'website' }}" />
 <meta property="og:site_name" content="{{ site.name }}" />
 <meta property="og:title" content="{% if title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }}{% endif %}" />
 <meta property="og:description" content="{{ description or site.description }}" />
-<meta property="og:image" content="{{ site.logo | url | absolute(site.origin) }}" />
+<meta property="og:image" content="{{ site.logoRaster | url | absolute(site.origin) }}" />
 <meta property="og:url" content="{{ page.url | url | absolute(site.origin) }}" />
 <meta property="og:locale" content="en_US" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{% if title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }}{% endif %}" />
 <meta name="twitter:description" content="{{ description or site.description }}" />
-<meta name="twitter:image" content="{{ site.logo | url | absolute(site.origin) }}" />
+<meta name="twitter:image" content="{{ site.logoRaster | url | absolute(site.origin) }}" />
 
 <script type="application/ld+json">
 {{ jsonLd | safe }}
