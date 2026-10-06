@@ -16,7 +16,7 @@ backend:
   repo: amoody8/premier-wellness-telehealth
   branch: main
   # OAuth worker — lets the owner sign in without a personal access token.
-  base_url: https://pwt-cms-auth.REPLACE-ME.workers.dev
+  base_url: https://pwt-cms-auth.pwt-cms-auth.workers.dev
 
 # Edits publish straight to the live site; there is no staging step.
 publish_mode: simple
