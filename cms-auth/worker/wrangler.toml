@@ -1,0 +1,7 @@
+name = "pwt-cms-auth"
+main = "src/index.js"
+compatibility_date = "2023-03-24"
+
+[vars]
+# Only this site may use the worker to sign in.
+ALLOWED_DOMAINS = "amoody8.github.io"

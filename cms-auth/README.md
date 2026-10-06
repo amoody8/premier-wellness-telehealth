@@ -18,12 +18,18 @@ for a worker entirely, is on hold.
 
 ### 1. Deploy the worker
 
-    git clone https://github.com/sveltia/sveltia-cms-auth.git
-    cd sveltia-cms-auth
-    npx wrangler login
+The worker source is vendored at `cms-auth/worker/` (see VENDORED.md).
+
+    cd cms-auth/worker
+    npx wrangler login      # first time only
     npx wrangler deploy
 
-Note the URL it prints, e.g. `https://sveltia-cms-auth.<account>.workers.dev`.
+Cloudflare requires a **verified email address** before it will publish a
+Worker. If the deploy fails with error 10034, verify the address on your
+Cloudflare account and run `npx wrangler deploy` again.
+
+Note the URL it prints — it combines the worker name with your workers.dev
+subdomain, e.g. `https://pwt-cms-auth.pwt-cms-auth.workers.dev`.
 
 ### 2. Register a GitHub OAuth app
 
