@@ -17,5 +17,16 @@
   before committing the new version.
 -->
 <script src="https://unpkg.com/@sveltia/cms@0.228.0/dist/sveltia-cms.js"></script>
+<script>
+  // Style the preview pane to match the site.
+  //
+  // Sveltia's preview renders a generic view of the field values, so
+  // without this the editor sees plain system-font text and cannot judge
+  // how a change will look. preview.css carries over the typefaces, the
+  // palette, and the gold italic accent in headings.
+  if (window.CMS) {
+    CMS.registerPreviewStyle("./preview.css");
+  }
+</script>
 </body>
 </html>
