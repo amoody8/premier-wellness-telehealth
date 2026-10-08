@@ -1,17 +1,20 @@
 {
   "name": "premier-wellness-telehealth",
   "version": "1.0.0",
-  "description": "Premier Wellness Telehealth — marketing site (Eleventy + Sveltia CMS)",
+  "description": "Premier Wellness Telehealth \u2014 marketing site (Eleventy + Sveltia CMS)",
   "license": "UNLICENSED",
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "eleventy --serve",
-    "build": "eleventy",
+    "start": "tinacms dev -c \"eleventy --serve\"",
+    "build": "tinacms build && eleventy",
+    "build:site": "eleventy",
     "clean": "rm -rf _site"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6",
-    "markdown-it-anchor": "9.2.0"
+    "@tinacms/cli": "^4.0.1",
+    "markdown-it-anchor": "9.2.0",
+    "tinacms": "^3.14.3"
   }
 }
