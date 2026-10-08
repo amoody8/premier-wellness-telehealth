@@ -6,7 +6,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "tinacms dev -c \"eleventy --serve\"",
+    "start": "PATH_PREFIX=/ tinacms dev -c \"PATH_PREFIX=/ eleventy --serve\"",
     "build": "tinacms build && eleventy",
     "build:site": "eleventy",
     "clean": "rm -rf _site"

@@ -33,10 +33,17 @@ export default defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
   token: process.env.TINA_TOKEN || null,
 
+  // GitHub Pages serves the site from a subdirectory, so preview routes
+  // need that prefix in production. Locally `npm start` sets PATH_PREFIX=/
+  // and the dev server runs at the root, so the prefix must be empty or
+  // Tina will point the preview pane at a path that does not exist.
+  //
+  // When a custom domain is added, this collapses to "" everywhere.
   build: {
     outputFolder: "admin",
     publicFolder: "_site",
-    basePath: "premier-wellness-telehealth",
+    basePath: (process.env.PATH_PREFIX ?? "/premier-wellness-telehealth/")
+      .replace(/^\/|\/$/g, ""),
   },
 
   media: {
@@ -60,6 +67,8 @@ export default defineConfig({
       ui: {
         allowedActions: { create: false, delete: false },
         global: true,
+        // Tells the editor which page to show in the preview pane.
+        router: () => "/",
       },
       fields: [
         {
@@ -270,7 +279,11 @@ export default defineConfig({
       path: "src/_data",
       format: "json",
       match: { include: "pricing" },
-      ui: { allowedActions: { create: false, delete: false }, global: true },
+      ui: {
+        allowedActions: { create: false, delete: false },
+        global: true,
+        router: () => "/pricing/",
+      },
       fields: [
         {
           type: "string",
@@ -345,7 +358,11 @@ export default defineConfig({
       path: "src/_data",
       format: "json",
       match: { include: "nav" },
-      ui: { allowedActions: { create: false, delete: false }, global: true },
+      ui: {
+        allowedActions: { create: false, delete: false },
+        global: true,
+        router: () => "/",
+      },
       fields: [
         {
           type: "object",
@@ -382,6 +399,9 @@ export default defineConfig({
       path: "src/content/services",
       format: "md",
       match: { exclude: "services" }, // skip the Eleventy directory-data file
+      ui: {
+        router: ({ document }) => `/services/${document._sys.filename}/`,
+      },
       fields: [
         { type: "string", name: "title", label: "Category Name", isTitle: true, required: true,
           description: "Shown on the tile and as the page heading." },
@@ -421,6 +441,10 @@ export default defineConfig({
       path: "src/content/faq",
       format: "md",
       match: { exclude: "faq" },
+      ui: {
+        // Every question renders on the one FAQ page.
+        router: () => "/faq/",
+      },
       fields: [
         { type: "string", name: "question", label: "Question", isTitle: true, required: true },
         { type: "number", name: "order", label: "Display Order", description: "Lower numbers appear first." },
@@ -447,7 +471,10 @@ export default defineConfig({
       path: "src/content/legal",
       format: "md",
       match: { exclude: "legal" },
-      ui: { allowedActions: { create: false, delete: false } },
+      ui: {
+        allowedActions: { create: false, delete: false },
+        router: ({ document }) => `/legal/${document._sys.filename}/`,
+      },
       fields: [
         { type: "string", name: "title", label: "Document Title", isTitle: true, required: true },
         { type: "string", name: "eyebrow", label: "Small Label",
