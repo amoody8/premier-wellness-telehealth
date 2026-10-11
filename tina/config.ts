@@ -41,9 +41,12 @@ export default defineConfig({
     publicFolder: "public",
   },
 
+  // Media library browses public/assets, so the existing brand files
+  // (logo, favicon, icons) appear alongside anything newly uploaded.
+  // Scoping it to uploads/ would have hidden them from the picker.
   media: {
     tina: {
-      mediaRoot: "assets/uploads",
+      mediaRoot: "assets",
       publicFolder: "public",
     },
   },
@@ -61,7 +64,6 @@ export default defineConfig({
       match: { include: "home" },
       ui: {
         allowedActions: { create: false, delete: false },
-        global: true,
         router: () => "/",
       },
       fields: [
@@ -184,7 +186,6 @@ export default defineConfig({
       match: { include: "site" },
       ui: {
         allowedActions: { create: false, delete: false },
-        global: true,
         // Tells the editor which page to show in the preview pane.
         router: () => "/",
       },
@@ -388,10 +389,36 @@ export default defineConfig({
         ]},
         { type: "string", name: "origin", label: "Site Origin (technical)" },
         { type: "string", name: "domain", label: "Domain (technical)" },
-        { type: "string", name: "logo", label: "Logo path (technical)" },
-        { type: "string", name: "logoRaster", label: "Logo PNG path (technical)" },
-        { type: "string", name: "favicon", label: "Favicon path (technical)" },
-        { type: "string", name: "appleTouchIcon", label: "Apple icon path (technical)" },
+        // Brand images. These are image pickers rather than paths so the
+        // logo can be replaced without touching code — the previous
+        // "(technical)" string fields gave no way to upload one.
+        {
+          type: "image",
+          name: "logo",
+          label: "Logo",
+          description:
+            "Shown in the header, footer, and scheduling pop-up. An SVG stays sharp at every size; a PNG works too.",
+        },
+        {
+          type: "image",
+          name: "logoRaster",
+          label: "Social Sharing Image",
+          description:
+            "Used when someone shares a link to your site. Must be a PNG or JPG — Facebook and LinkedIn do not display SVG files.",
+        },
+        {
+          type: "image",
+          name: "favicon",
+          label: "Browser Tab Icon",
+          description: "The small icon in the browser tab. A square PNG, around 64x64.",
+        },
+        {
+          type: "image",
+          name: "appleTouchIcon",
+          label: "Phone Home-Screen Icon",
+          description:
+            "Shown when someone saves the site to their phone home screen. A square PNG, around 180x180.",
+        },
       ],
     },
 
@@ -406,7 +433,6 @@ export default defineConfig({
       match: { include: "pricing" },
       ui: {
         allowedActions: { create: false, delete: false },
-        global: true,
         router: () => "/pricing/",
       },
       fields: [
@@ -485,7 +511,6 @@ export default defineConfig({
       match: { include: "nav" },
       ui: {
         allowedActions: { create: false, delete: false },
-        global: true,
         router: () => "/",
       },
       fields: [
