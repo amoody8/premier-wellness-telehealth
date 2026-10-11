@@ -1,4 +1,5 @@
-import { md, expandShortcodes } from "./markdown.js";
+import { md, expandShortcodes, resolveTokens } from "./markdown.js";
+import { derived, site } from "./derived.js";
 
 /**
  * Legal document numbering and contents list.
@@ -72,7 +73,20 @@ function buildToc(headings) {
  * from one pass over the headings.
  */
 export function renderLegalBody(source, { tocSkipFirst = false } = {}) {
-  const html = md.render(expandShortcodes(source));
+  // Legal prose carries tokens so values like the service-area list stay
+  // derived from site.json rather than hand-typed in the document.
+  const tokens = {
+    "derived.statesLong": derived.statesLong,
+    "derived.statesLongOr": derived.statesLongOr,
+    "derived.statesShort": derived.statesShort,
+    "derived.hoursLong": derived.hoursLong,
+    "derived.cancellationPolicy": derived.cancellationPolicy,
+    "site.email": site.email,
+    "site.name": site.name,
+    "site.legalName": site.legalName,
+  };
+
+  const html = md.render(expandShortcodes(resolveTokens(source, tokens)));
   const headings = parseHeadings(html, tocSkipFirst);
 
   return {

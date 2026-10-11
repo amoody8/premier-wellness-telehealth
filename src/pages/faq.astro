@@ -1,0 +1,72 @@
+---
+import Base from "../layouts/Base.astro";
+import WaveDivider from "../components/partials/WaveDivider.astro";
+import CtaStrip from "../components/sections/CtaStrip.astro";
+import { getFaqs } from "../lib/collections.js";
+import { markdown } from "../lib/markdown.js";
+import { derived, site } from "../lib/derived.js";
+
+const faqs = await getFaqs();
+
+// FAQ answers reference derived values so the states and fees can never
+// drift from site.json — the same guard the Eleventy build had.
+const tokens: Record<string, string> = {
+  "derived.statesLong": derived.statesLong,
+  "derived.cancellationPolicy": derived.cancellationPolicy,
+  "site.ctaLabel": site.ctaLabel,
+  "site.minimumAge": String(site.minimumAge),
+};
+const resolve = (body: string) =>
+  body.replace(/\{\{\s*([\w.]+)\s*(?:\|\s*url\s*)?\}\}/g, (m, key) => tokens[key] ?? m)
+      .replace(/\{\{\s*"([^"]+)"\s*\|\s*url\s*\}\}/g, "$1");
+---
+
+<Base
+  title="Frequently Asked Questions"
+  description="Clear answers about insurance, states served, pricing, booking, conditions treated, and when telehealth is not appropriate."
+>
+  <main id="main">
+    <header class="page-banner">
+      <div class="container">
+        <div class="eyebrow">Patient Resources</div>
+        <h1>Frequently asked <em>questions</em></h1>
+        <p class="lede">
+          Clear answers to help you know what to expect before scheduling a
+          virtual visit.
+        </p>
+      </div>
+    </header>
+
+    <WaveDivider />
+
+    <section class="faq">
+      <div class="container">
+        <div class="faq-list">
+          {
+            faqs.map((item: any) => (
+              <details class="faq-item">
+                <summary>
+                  {item.data.question}
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </summary>
+                <div class="faq-body" set:html={markdown(resolve(item.body))} />
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-cta">
+      <div class="container">
+        <div class="emergency-banner">
+          <strong>Medical emergency</strong>
+          If you are experiencing a medical emergency or potentially life-threatening
+          symptoms, call 911 or go to the nearest emergency department.
+        </div>
+      </div>
+    </section>
+
+    <CtaStrip />
+  </main>
+</Base>

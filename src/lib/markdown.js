@@ -40,6 +40,33 @@ export function markdown(value) {
 }
 
 /**
+ * Resolve the template tokens left in content from the Eleventy build.
+ *
+ * Content files carry `{{ derived.statesLongOr }}` and
+ * `{{ "/legal/hipaa/" | url }}`. Eleventy resolved these at render time;
+ * Astro does not, so without this a visitor would see the raw token on
+ * the page — which a word-for-word diff against production caught on the
+ * terms and privacy pages.
+ *
+ * Keeping the tokens is deliberate: the states in the terms must stay
+ * derived from site.json rather than hand-typed, which is what let a
+ * stray "Arizona" survive there previously.
+ */
+export function resolveTokens(source, tokens = {}) {
+  if (!source) return "";
+
+  return (
+    String(source)
+      // {{ "/legal/hipaa/" | url }} -> /legal/hipaa/
+      .replace(/\{\{\s*"([^"]+)"\s*\|\s*url\s*\}\}/g, "$1")
+      // {{ derived.statesLongOr }} -> Florida, Virginia, or Washington
+      .replace(/\{\{\s*([\w.]+)\s*\}\}/g, (match, key) =>
+        key in tokens ? tokens[key] : match,
+      )
+  );
+}
+
+/**
  * Paired shortcodes used inside legal prose.
  *
  * Authors write `{% callout %}...{% endcallout %}` in markdown. Expanding
