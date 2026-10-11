@@ -1,0 +1,58 @@
+---
+import { site } from "../../lib/derived.js";
+import { inlineMarkdown, markdown } from "../../lib/markdown.js";
+
+/**
+ * Provider introduction.
+ *
+ * The portrait falls back to the practice logo until a professional
+ * headshot exists. The testimonial renders only when present — written
+ * patient consent must be on file before one is published.
+ */
+interface Props {
+  founder: any;
+  testimonial?: any;
+  tinaPrefix?: (field: string) => string | undefined;
+}
+const { founder, testimonial, tinaPrefix } = Astro.props;
+const tf = (f: string) => (tinaPrefix ? tinaPrefix(f) : undefined);
+---
+
+<section class="founder" id="about">
+  <div class="container founder-grid">
+    {
+      founder.image ? (
+        <div class="founder-photo">
+          <img src={founder.image} alt={founder.imageAlt} width="600" height="750" loading="lazy" />
+        </div>
+      ) : (
+        <div class="founder-photo founder-photo--placeholder">
+          <img src={site.logo} alt="" width="180" height="180" loading="lazy" />
+          <span class="ph-note">Provider photo coming soon</span>
+        </div>
+      )
+    }
+
+    <div class="founder-copy">
+      <div class="eyebrow">{founder.eyebrow}</div>
+      <h2 data-tina-field={tf("founder.headline")} set:html={inlineMarkdown(founder.headline)} />
+      <div class="role">{site.provider.role}</div>
+
+      <div data-tina-field={tf("founder.body")} set:html={markdown(founder.body)} />
+
+      <a href="/about/" class="btn btn-gold-outline">Read Full Bio</a>
+
+      {
+        testimonial?.body && (
+          <figure class="founder-quote">
+            <div class="avatar" aria-hidden="true">&ldquo;</div>
+            <blockquote class="founder-quote-body">
+              <span data-tina-field={tf("testimonial.body")}>{testimonial.body}</span>
+              <cite>— {testimonial.attribution}</cite>
+            </blockquote>
+          </figure>
+        )
+      }
+    </div>
+  </div>
+</section>

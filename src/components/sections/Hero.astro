@@ -1,0 +1,58 @@
+---
+import Icon from "../Icon.astro";
+import { site, derived } from "../../lib/derived.js";
+import { inlineMarkdown } from "../../lib/markdown.js";
+
+interface Props {
+  hero: any;
+  tinaPrefix?: (field: string) => string | undefined;
+}
+const { hero, tinaPrefix } = Astro.props;
+const tf = (f: string) => (tinaPrefix ? tinaPrefix(f) : undefined);
+---
+
+<header class="hero" id="main">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      {hero.eyebrow && <div class="eyebrow" data-tina-field={tf("hero.eyebrow")}>{hero.eyebrow}</div>}
+      <h1 data-tina-field={tf("hero.headline")} set:html={inlineMarkdown(hero.headline)} />
+      <p class="hero-lede" data-tina-field={tf("hero.lede")}>{hero.lede}</p>
+
+      <div class="hero-ctas">
+        {
+          site.booking.url ? (
+            <a class="btn btn-primary" href={site.booking.url} target="_blank" rel="noopener">
+              {site.ctaLabel}
+              <Icon name="arrow-right" size={14} strokeWidth={2.5} />
+            </a>
+          ) : (
+            <button class="btn btn-primary" type="button" data-open-booking>
+              {site.ctaLabel}
+              <Icon name="arrow-right" size={14} strokeWidth={2.5} />
+            </button>
+          )
+        }
+        <a href={hero.secondaryCta?.url} class="btn btn-outline">{hero.secondaryCta?.label}</a>
+      </div>
+
+      <div class="hero-trust">
+        <span class="badge"><Icon name="shield-check" size={16} /></span>
+        <span>
+          Serving {derived.statesAmp} · HIPAA-compliant care for adults {site.minimumAge}+
+        </span>
+      </div>
+    </div>
+
+    {
+      hero.image ? (
+        <div class="hero-photo">
+          <img src={hero.image} alt={hero.imageAlt} width="800" height="960" />
+        </div>
+      ) : (
+        <div class="hero-photo hero-photo--placeholder">
+          <img src={site.logo} alt="" width="200" height="200" />
+        </div>
+      )
+    }
+  </div>
+</header>

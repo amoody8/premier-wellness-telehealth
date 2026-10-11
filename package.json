@@ -1,7 +1,7 @@
 {
   "name": "premier-wellness-telehealth",
   "version": "1.0.0",
-  "description": "Premier Wellness Telehealth \u2014 marketing site (Eleventy + Sveltia CMS)",
+  "description": "Premier Wellness Telehealth — marketing site (Eleventy + Sveltia CMS)",
   "license": "UNLICENSED",
   "private": true,
   "type": "module",
@@ -23,6 +23,7 @@
     "@astrojs/netlify": "8.2.9",
     "@astrojs/node": "11.1.7",
     "@tinacms/astro": "0.7.1",
-    "astro": "7.3.8"
+    "astro": "7.3.8",
+    "gray-matter": "^4.0.3"
   }
 }

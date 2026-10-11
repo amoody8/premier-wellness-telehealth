@@ -51,6 +51,129 @@ export default defineConfig({
   schema: {
     collections: [
     // ---------------------------------------------------------------
+    // Homepage
+    // ---------------------------------------------------------------
+    {
+      name: "home",
+      label: "Homepage",
+      path: "src/_data",
+      format: "json",
+      match: { include: "home" },
+      ui: {
+        allowedActions: { create: false, delete: false },
+        global: true,
+        router: () => "/",
+      },
+      fields: [
+        {
+          type: "object",
+          name: "hero",
+          label: "Top Section",
+          fields: [
+            { type: "string", name: "eyebrow", label: "Small Label",
+              description: "The small gold text above the headline." },
+            { type: "string", name: "headline", label: "Main Headline",
+              description: ACCENT_HINT },
+            { type: "string", name: "lede", label: "Introduction",
+              ui: { component: "textarea" },
+              description: "The paragraph under the headline." },
+            {
+              type: "object", name: "secondaryCta", label: "Second Button",
+              fields: [
+                { type: "string", name: "label", label: "Button Text" },
+                { type: "string", name: "url", label: "Button Link" },
+              ],
+            },
+            { type: "image", name: "image", label: "Photo",
+              description: "A tall photo works best. Leave empty to show your logo instead." },
+            { type: "string", name: "imageAlt", label: "Photo Description",
+              description: "Describe the photo for people using screen readers." },
+          ],
+        },
+        {
+          type: "object",
+          name: "trustItems",
+          label: "Highlights",
+          list: true,
+          ui: { itemProps: (item) => ({ label: item?.heading ?? "Highlight" }) },
+          description: "The three credentials shown below the top section.",
+          fields: [
+            { type: "string", name: "icon", label: "Icon", options: ICON_OPTIONS },
+            { type: "string", name: "heading", label: "Title" },
+            { type: "string", name: "body", label: "Description", ui: { component: "textarea" } },
+          ],
+        },
+        {
+          type: "object",
+          name: "services",
+          label: "Services Section",
+          fields: [
+            { type: "string", name: "eyebrow", label: "Small Label" },
+            { type: "string", name: "headline", label: "Heading", description: ACCENT_HINT },
+            { type: "string", name: "sub", label: "Introduction", ui: { component: "textarea" } },
+            { type: "string", name: "ctaLabel", label: "Button Text" },
+          ],
+        },
+        {
+          type: "object",
+          name: "founder",
+          label: "Provider Section",
+          fields: [
+            { type: "string", name: "eyebrow", label: "Small Label" },
+            { type: "string", name: "headline", label: "Heading", description: ACCENT_HINT },
+            { type: "string", name: "body", label: "Biography",
+              ui: { component: "textarea" },
+              description: "Leave a blank line between paragraphs." },
+            { type: "image", name: "image", label: "Your Photo",
+              description: "Leave empty to show your logo until you have a headshot." },
+            { type: "string", name: "imageAlt", label: "Photo Description" },
+          ],
+        },
+        {
+          type: "object",
+          name: "testimonial",
+          label: "Patient Quote",
+          description:
+            "Only publish a patient quote when you have that patient's written consent on file. Leave the quote blank to hide this section.",
+          fields: [
+            { type: "string", name: "body", label: "Quote", ui: { component: "textarea" } },
+            { type: "string", name: "attribution", label: "Attributed To",
+              description:
+                'Do not use a patient\u2019s full name or any detail that could identify them. "A Patient" is the safe choice.' },
+          ],
+        },
+        {
+          type: "object",
+          name: "visitTypes",
+          label: "Visit Types Section",
+          fields: [
+            { type: "string", name: "eyebrow", label: "Small Label" },
+            { type: "string", name: "headline", label: "Heading", description: ACCENT_HINT },
+            { type: "string", name: "sub", label: "Introduction", ui: { component: "textarea" } },
+            {
+              type: "object", name: "options", label: "Visit Options", list: true,
+              ui: { itemProps: (item) => ({ label: item?.title ?? "Option" }) },
+              fields: [
+                { type: "string", name: "icon", label: "Icon", options: ICON_OPTIONS },
+                { type: "string", name: "title", label: "Title" },
+                { type: "string", name: "body", label: "Description", ui: { component: "textarea" } },
+                { type: "string", name: "bestFor", label: "Best For", list: true },
+              ],
+            },
+          ],
+        },
+        {
+          type: "object",
+          name: "ctaStrip",
+          label: "Bottom Banner",
+          fields: [
+            { type: "string", name: "text", label: "Banner Text", description: ACCENT_HINT },
+          ],
+        },
+      ],
+    },
+
+    // ---------------------------------------------------------------
     // Practice details — the single source of truth for the whole site
     // ---------------------------------------------------------------
     {
