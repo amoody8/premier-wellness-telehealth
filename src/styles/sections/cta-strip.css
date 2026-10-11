@@ -1,0 +1,55 @@
+/* ===================================================================
+   CTA strip — scheduling prompt
+   =================================================================== */
+
+.cta-strip {
+  background: var(--cream-deep);
+  padding: 56px 0;
+  border-top: 1px solid var(--line);
+}
+
+.cta-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+
+.cta-icon {
+  width: 56px;
+  height: 56px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.cta-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.cta-text {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--navy-deep);
+  line-height: 1.2;
+}
+
+.cta-text em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+@media (max-width: 960px) {
+  .cta-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+    justify-items: center;
+  }
+}

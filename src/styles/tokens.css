@@ -1,0 +1,43 @@
+/* ===================================================================
+   Design tokens — Premier Wellness Telehealth
+   Navy + gold + cream. Never introduce purple, pink, or teal.
+   =================================================================== */
+
+:root {
+  /* Brand */
+  --navy: #1F3A5F;
+  --navy-deep: #122845;
+  --navy-soft: #2B4E7A;
+  --gold: #B08D3E;
+  --gold-soft: #C9A95C;
+  --gold-warm: #D4B978;
+  --cream: #FAF6EB;
+  --cream-warm: #F3EEDF;
+  --cream-deep: #EDE4CE;
+
+  /* Text */
+  --ink: #1A2330;
+  --muted: #5A6878;
+
+  /* Lines */
+  --line: #E6DFCB;
+  --line-dark: rgba(212, 185, 120, .22);
+
+  /* Page ground */
+  --page-bg: #FFFCF5;
+
+  /* Elevation */
+  --shadow: 0 10px 40px -12px rgba(31, 58, 95, .18);
+  --shadow-lg: 0 30px 80px -20px rgba(18, 40, 69, .35);
+
+  /* Type */
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Layout */
+  --container-max: 1240px;
+  --container-pad: 32px;
+
+  /* Sticky nav height — anchors offset by this so targets clear the header */
+  --nav-offset: 96px;
+}

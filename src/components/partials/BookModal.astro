@@ -1,0 +1,47 @@
+---
+import Icon from "../Icon.astro";
+import { site, derived } from "../../lib/derived.js";
+
+/**
+ * Booking modal — contact details only.
+ *
+ * This never contains a form. The site collects zero PHI; scheduling and
+ * intake happen inside SimplePractice under their BAA. If a booking URL
+ * is set in site.json, the CTAs link straight out and this is only a
+ * fallback.
+ *
+ * The modal is opened by JavaScript, so Tina cannot make it click-to-edit
+ * on the page. Its text comes from Site Settings instead, where she can
+ * edit it in the sidebar form.
+ */
+const heading = site.booking.heading || "Schedule Your Visit";
+---
+
+<div class="modal-bg" id="bookModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bookModalTitle">
+    <button class="close" type="button" data-close-booking aria-label="Close">&times;</button>
+    <img src={site.logo} alt="" width="56" height="56" />
+    <h3 id="bookModalTitle">{heading}</h3>
+    <p>{site.booking.note}</p>
+
+    <div class="info-row">
+      <Icon name="mail" size={20} />
+      <div>
+        <div class="lbl">Email</div>
+        <div class="val">{site.email}</div>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <Icon name="clock" size={20} />
+      <div>
+        <div class="lbl">Hours</div>
+        <div class="val">{derived.hoursLong}</div>
+      </div>
+    </div>
+
+    <div class="modal-cta">
+      <a class="btn btn-primary" href={`mailto:${site.email}`}>Email Us</a>
+    </div>
+  </div>
+</div>

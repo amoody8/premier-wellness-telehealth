@@ -27,3 +27,8 @@ tina/__generated__/
 !tina/__generated__/_graphql.json
 !tina/__generated__/_lookup.json
 !tina/__generated__/_schema.json
+
+# Astro
+dist/
+.astro/
+.netlify/

@@ -1,0 +1,26 @@
+---
+import Icon from "../Icon.astro";
+import { site } from "../../lib/derived.js";
+import { inlineMarkdown } from "../../lib/markdown.js";
+
+interface Props { text?: string }
+const { text = "Ready to take the *next step* in your health?" } = Astro.props;
+---
+
+<section class="cta-strip">
+  <div class="container cta-inner">
+    <span class="cta-icon"><Icon name="calendar" size={26} strokeWidth={1.6} /></span>
+    <p class="cta-text" set:html={inlineMarkdown(text)} />
+    {
+      site.booking.url ? (
+        <a class="btn btn-gold" href={site.booking.url} target="_blank" rel="noopener">
+          {site.ctaLabel}
+        </a>
+      ) : (
+        <button class="btn btn-gold" type="button" data-open-booking>
+          {site.ctaLabel}
+        </button>
+      )
+    }
+  </div>
+</section>

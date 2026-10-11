@@ -13,8 +13,8 @@ import { defineConfig } from "tinacms";
  * business associate agreement.
  *
  * Collections mirror the existing content files exactly. Tina must not
- * reshape them — the Eleventy templates and eleventyComputed.js read
- * these structures directly.
+ * reshape them — the Astro components and src/lib/derived.js read these
+ * structures directly.
  */
 
 const ICON_OPTIONS = [
@@ -33,23 +33,18 @@ export default defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
   token: process.env.TINA_TOKEN || null,
 
-  // GitHub Pages serves the site from a subdirectory, so preview routes
-  // need that prefix in production. Locally `npm start` sets PATH_PREFIX=/
-  // and the dev server runs at the root, so the prefix must be empty or
-  // Tina will point the preview pane at a path that does not exist.
-  //
-  // When a custom domain is added, this collapses to "" everywhere.
+  // Astro serves the admin from public/ and the site from the root, so
+  // no path prefix is involved — unlike the GitHub Pages setup this
+  // replaced, where the subdirectory caused three separate bugs.
   build: {
     outputFolder: "admin",
-    publicFolder: "_site",
-    basePath: (process.env.PATH_PREFIX ?? "/premier-wellness-telehealth/")
-      .replace(/^\/|\/$/g, ""),
+    publicFolder: "public",
   },
 
   media: {
     tina: {
       mediaRoot: "assets/uploads",
-      publicFolder: "src",
+      publicFolder: "public",
     },
   },
 
@@ -149,6 +144,13 @@ export default defineConfig({
               name: "evisitUrl",
               label: "E-Visit URL",
               description: "Where patients start an online e-visit.",
+            },
+            {
+              type: "string",
+              name: "heading",
+              label: "Pop-up Heading",
+              description:
+                'Title of the scheduling pop-up, e.g. "Schedule Your Visit". The pop-up is opened by a button, so it cannot be clicked on the page \u2014 edit it here.',
             },
             {
               type: "string",

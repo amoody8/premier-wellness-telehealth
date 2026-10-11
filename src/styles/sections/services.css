@@ -1,0 +1,143 @@
+/* ===================================================================
+   Services — dark navy band with a tile grid
+
+   COUNT-AGNOSTIC BY DESIGN.
+   The original markup hard-coded `repeat(7, 1fr)` plus six nth-child
+   rules to draw dividers, so adding or removing a tile broke the
+   layout. Dividers are now the grid gap showing a background through
+   it, which works at any tile count and any column count. Do not
+   reintroduce nth-child borders here.
+   =================================================================== */
+
+.services {
+  background: var(--navy-deep);
+  color: #F5EBCF;
+  padding: 112px 0 104px;
+  position: relative;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top, rgba(212, 185, 120, .06), transparent 60%);
+  pointer-events: none;
+}
+
+.services-head {
+  text-align: center;
+  margin-bottom: 72px;
+  position: relative;
+}
+
+.services-head .section-sub {
+  color: rgba(245, 235, 207, .72);
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 620px;
+  margin: 18px auto 0;
+}
+
+/* The gap is the divider: a 1px grid gap lets the container's
+   background show between tiles, and each tile paints its own. */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1px;
+  background: var(--line-dark);
+  border: 1px solid var(--line-dark);
+  margin-bottom: 56px;
+  position: relative;
+}
+
+.service-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 14px;
+  color: #F5EBCF;
+  text-decoration: none;
+  background: var(--navy-deep);
+  transition: transform .3s, background-color .3s;
+}
+
+.service-tile:hover {
+  transform: translateY(-4px);
+  background: var(--navy);
+}
+
+.service-tile:hover .service-tile-icon {
+  background: var(--gold);
+  color: var(--navy-deep);
+  border-color: var(--gold);
+}
+
+.service-tile-icon {
+  width: 72px;
+  height: 72px;
+  border: 1.5px solid var(--gold-warm);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-warm);
+  margin-bottom: 20px;
+  transition: background-color .3s, color .3s, border-color .3s;
+}
+
+.service-tile-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.service-tile-label {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #F5EBCF;
+  max-width: 160px;
+}
+
+.service-tile-note {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(245, 235, 207, .6);
+  margin-top: 8px;
+  line-height: 1.5;
+  max-width: 170px;
+}
+
+.services-cta {
+  text-align: center;
+  position: relative;
+}
+
+@media (max-width: 720px) {
+  .services {
+    padding: 80px 0 72px;
+  }
+
+  .services-head {
+    margin-bottom: 48px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .service-tile {
+    padding: 26px 12px;
+  }
+
+  .service-tile-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .service-tile-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+}

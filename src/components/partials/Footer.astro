@@ -1,0 +1,42 @@
+---
+import Icon from "../Icon.astro";
+import { site, derived } from "../../lib/derived.js";
+import nav from "../../_data/nav.json";
+---
+
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="foot-brand">
+      <img src={site.logo} alt={site.name} width="64" height="64" loading="lazy" />
+      <span class="name">{site.name}</span>
+      <span class="tag">{site.taglineShort}</span>
+    </div>
+
+    <div class="foot-contact">
+      <a href={`mailto:${site.email}`}>
+        <Icon name="mail" size={14} />
+        {site.email}
+      </a>
+      <span>
+        <Icon name="clock" size={14} />
+        {derived.hoursShort}
+      </span>
+      <span>
+        <Icon name="map-pin" size={14} />
+        {derived.statesShort}
+      </span>
+    </div>
+
+    <p class="foot-disclaimer">
+      Virtual care for adults {site.minimumAge}+ in {derived.statesLong}. {site.disclaimer}
+    </p>
+
+    <div class="foot-links">
+      {nav.footer.map((item) => <a href={item.url}>{item.label}</a>)}
+    </div>
+
+    <div class="foot-legal">
+      © {derived.currentYear} {site.legalName} · All rights reserved.
+    </div>
+  </div>
+</footer>
