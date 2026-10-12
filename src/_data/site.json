@@ -58,8 +58,8 @@
   },
   "origin": "https://premier-wellness-telehealth.netlify.app",
   "domain": "premierwellnesstelehealth.com",
-  "logo": "/assets/logo-mark.png",
-  "logoRaster": "/assets/logo-mark.png",
+  "logo": "/assets/pwt-logo-mark.png",
+  "logoRaster": "/assets/pwt-logo-mark.png",
   "favicon": "/assets/favicon.png",
   "appleTouchIcon": "/assets/apple-touch-icon.png"
 }
