@@ -2,7 +2,7 @@
   "name": "Premier Wellness Telehealth",
   "legalName": "Premier Wellness Telehealth, LLC",
   "tagline": "Healthcare That Takes Time to Listen.",
-  "taglineShort": "Compassionate Care · Personalized for You",
+  "taglineShort": "Compassionate Care \u00b7 Personalized for You",
   "description": "Compassionate, HIPAA-compliant virtual care for adults 18+ across Florida, Virginia, and Washington. Same-day visits, chronic condition care, preventive wellness, women's health, and online e-visits.",
   "email": "premierwellnesstelehealthllc@gmail.com",
   "mailingAddress": "",
@@ -56,7 +56,7 @@
     "line1": "Premier Wellness",
     "line2": "Telehealth"
   },
-  "origin": "https://amoody8.github.io",
+  "origin": "https://premier-wellness-telehealth.netlify.app",
   "domain": "premierwellnesstelehealth.com",
   "logo": "/assets/logo-mark.png",
   "logoRaster": "/assets/logo-mark.png",

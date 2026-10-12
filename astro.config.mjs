@@ -19,7 +19,13 @@ import tina from "@tinacms/astro/integration";
 const isDev = process.env.NODE_ENV !== "production" && !process.env.NETLIFY;
 
 export default defineConfig({
-  site: process.env.SITE_URL || "https://premierwellnesstelehealth.netlify.app",
+  // Netlify sets URL to the deploy's own address, so branch and preview
+  // deploys emit canonical/OG URLs pointing at themselves rather than at
+  // production. SITE_URL overrides it once a custom domain exists.
+  site:
+    process.env.SITE_URL ||
+    process.env.URL ||
+    "https://premier-wellness-telehealth.netlify.app",
   output: "server",
   adapter: isDev ? node({ mode: "standalone" }) : netlify(),
   integrations: [tina()],

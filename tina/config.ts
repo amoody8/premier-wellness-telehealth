@@ -30,7 +30,13 @@ const ACCENT_HINT =
 
 export default defineConfig({
   branch: process.env.TINA_BRANCH || "main",
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
+
+  // TinaCloud project. The client ID is public — it identifies the
+  // project in browser requests. The token is a secret and lives only in
+  // the Netlify environment, never in the repo.
+  clientId:
+    process.env.NEXT_PUBLIC_TINA_CLIENT_ID ||
+    "e276d6c3-e9e8-4dce-99b0-8ddff11ef512",
   token: process.env.TINA_TOKEN || null,
 
   // Astro serves the admin from public/ and the site from the root, so
