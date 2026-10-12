@@ -10,3 +10,46 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# ---------------------------------------------------------------------
+# Domain aliases
+#
+# Netlify serves the same content on every domain assigned to a site —
+# aliases do NOT redirect on their own. Left alone, the site would answer
+# on three domains at once, which splits SEO across duplicate content and
+# shows patients an address that doesn't match the practice's name.
+#
+# These rules send the short domains to the canonical one. `force = true`
+# makes the redirect win over the matching page that also exists there.
+#
+# Commented out until the domains are bought and assigned in Netlify —
+# redirect rules for domains the site does not own are inert, but leaving
+# them active would be misleading to read.
+#
+# Astro emits canonical and Open Graph URLs from SITE_URL, so set that
+# environment variable to the primary domain at the same time.
+# ---------------------------------------------------------------------
+
+# [[redirects]]
+#   from = "https://gopwt.com/*"
+#   to = "https://premierwellnesstelehealth.com/:splat"
+#   status = 301
+#   force = true
+
+# [[redirects]]
+#   from = "https://www.gopwt.com/*"
+#   to = "https://premierwellnesstelehealth.com/:splat"
+#   status = 301
+#   force = true
+
+# [[redirects]]
+#   from = "https://mypwt.com/*"
+#   to = "https://premierwellnesstelehealth.com/:splat"
+#   status = 301
+#   force = true
+
+# [[redirects]]
+#   from = "https://www.mypwt.com/*"
+#   to = "https://premierwellnesstelehealth.com/:splat"
+#   status = 301
+#   force = true
