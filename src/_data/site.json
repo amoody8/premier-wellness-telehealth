@@ -2,22 +2,12 @@
   "name": "Premier Wellness Telehealth",
   "legalName": "Premier Wellness Telehealth, LLC",
   "tagline": "Healthcare That Takes Time to Listen.",
-  "taglineShort": "Compassionate Care \u00b7 Personalized for You",
+  "taglineShort": "Compassionate Care · Personalized for You",
   "description": "Compassionate, HIPAA-compliant virtual care for adults 18+ across Florida, Virginia, and Washington. Same-day visits, chronic condition care, preventive wellness, women's health, and online e-visits.",
-  "origin": "https://amoody8.github.io",
-  "domain": "premierwellnesstelehealth.com",
   "email": "premierwellnesstelehealthllc@gmail.com",
   "mailingAddress": "",
-  "wordmark": {
-    "pre": "Premier",
-    "em": "Wellness",
-    "post": "Telehealth"
-  },
-  "brand": {
-    "line1": "Premier Wellness",
-    "line2": "Telehealth"
-  },
   "ctaLabel": "Schedule Appointment",
+  "minimumAge": 18,
   "booking": {
     "url": "",
     "evisitUrl": "",
@@ -56,10 +46,20 @@
     "role": "Founder & Nurse Practitioner",
     "yearsExperience": 14
   },
-  "minimumAge": 18,
-  "logo": "/assets/logo.svg",
+  "disclaimer": "Services are subject to clinical appropriateness, provider licensure, and applicable state and federal requirements. Premier Wellness Telehealth does not provide emergency medical care.",
+  "wordmark": {
+    "pre": "Premier",
+    "em": "Wellness",
+    "post": "Telehealth"
+  },
+  "brand": {
+    "line1": "Premier Wellness",
+    "line2": "Telehealth"
+  },
+  "origin": "https://amoody8.github.io",
+  "domain": "premierwellnesstelehealth.com",
+  "logo": "/assets/logo-mark.png",
   "logoRaster": "/assets/logo-mark.png",
   "favicon": "/assets/favicon.png",
-  "appleTouchIcon": "/assets/apple-touch-icon.png",
-  "disclaimer": "Services are subject to clinical appropriateness, provider licensure, and applicable state and federal requirements. Premier Wellness Telehealth does not provide emergency medical care."
+  "appleTouchIcon": "/assets/apple-touch-icon.png"
 }

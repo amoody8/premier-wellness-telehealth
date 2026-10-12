@@ -186,8 +186,9 @@ export default defineConfig({
       match: { include: "site" },
       ui: {
         allowedActions: { create: false, delete: false },
-        // Tells the editor which page to show in the preview pane.
-        router: () => "/",
+        // No router: these are site-wide settings with no single page to
+        // preview. Giving them the homepage's "/" made the editor open
+        // the homepage form instead of this one.
       },
       fields: [
         {
@@ -511,7 +512,7 @@ export default defineConfig({
       match: { include: "nav" },
       ui: {
         allowedActions: { create: false, delete: false },
-        router: () => "/",
+        // No router — see Practice Details above.
       },
       fields: [
         {
@@ -535,6 +536,122 @@ export default defineConfig({
           fields: [
             { type: "string", name: "label", label: "Link Text" },
             { type: "string", name: "url", label: "Address" },
+          ],
+        },
+      ],
+    },
+
+    // ---------------------------------------------------------------
+    // Interior pages
+    // ---------------------------------------------------------------
+    {
+      name: "about",
+      label: "About Page",
+      path: "src/_data",
+      format: "json",
+      match: { include: "about" },
+      ui: { allowedActions: { create: false, delete: false }, router: () => "/about/" },
+      fields: [
+        { type: "string", name: "eyebrow", label: "Small Label" },
+        { type: "string", name: "headline", label: "Page Heading", description: ACCENT_HINT },
+        { type: "string", name: "lede", label: "Introduction", ui: { component: "textarea" } },
+        { type: "string", name: "providerEyebrow", label: "Provider Section Label" },
+        { type: "string", name: "bio", label: "Provider Biography", ui: { component: "textarea" },
+          description: "Leave a blank line between paragraphs." },
+        {
+          type: "object", name: "credentials", label: "Credentials", list: true,
+          ui: { itemProps: (i) => ({ label: i?.heading ?? "Credential" }) },
+          fields: [
+            { type: "string", name: "icon", label: "Icon", options: ICON_OPTIONS },
+            { type: "string", name: "heading", label: "Title" },
+            { type: "string", name: "body", label: "Description", ui: { component: "textarea" } },
+          ],
+        },
+        { type: "string", name: "expectEyebrow", label: "Expectations Label" },
+        { type: "string", name: "expectHeadline", label: "Expectations Heading", description: ACCENT_HINT },
+        {
+          type: "object", name: "expectations", label: "What To Expect", list: true,
+          ui: { itemProps: (i) => ({ label: i?.title ?? "Item" }) },
+          fields: [
+            { type: "string", name: "icon", label: "Icon", options: ICON_OPTIONS },
+            { type: "string", name: "title", label: "Title" },
+            { type: "string", name: "body", label: "Description", ui: { component: "textarea" } },
+          ],
+        },
+      ],
+    },
+
+    {
+      name: "evisits",
+      label: "E-Visits Page",
+      path: "src/_data",
+      format: "json",
+      match: { include: "evisits" },
+      ui: { allowedActions: { create: false, delete: false }, router: () => "/e-visits/" },
+      fields: [
+        { type: "string", name: "eyebrow", label: "Small Label" },
+        { type: "string", name: "headline", label: "Page Heading", description: ACCENT_HINT },
+        { type: "string", name: "lede", label: "Introduction", ui: { component: "textarea" } },
+        { type: "string", name: "intro", label: "How It Works Summary", ui: { component: "textarea" },
+          description:
+            "Describes the e-visit process. The questionnaire itself lives in SimplePractice \u2014 never add one to this website." },
+        {
+          type: "object", name: "groups", label: "Information Cards", list: true,
+          ui: { itemProps: (i) => ({ label: i?.title ?? "Card" }) },
+          fields: [
+            { type: "string", name: "icon", label: "Icon", options: ICON_OPTIONS },
+            { type: "string", name: "title", label: "Card Title" },
+            { type: "string", name: "items", label: "Points", list: true },
+          ],
+        },
+        { type: "string", name: "clinicalNote", label: "Important Clinical Note",
+          ui: { component: "textarea" } },
+        { type: "string", name: "ctaLabel", label: "Button Text (when e-visit link is set)" },
+        { type: "string", name: "ctaFallbackLabel", label: "Button Text (no link yet)" },
+        { type: "string", name: "emergencyNotice", label: "Emergency Notice",
+          ui: { component: "textarea" } },
+      ],
+    },
+
+    {
+      name: "legalhub",
+      label: "Legal Hub Page",
+      path: "src/_data",
+      format: "json",
+      match: { include: "legalhub" },
+      ui: { allowedActions: { create: false, delete: false }, router: () => "/legal/" },
+      fields: [
+        { type: "string", name: "eyebrow", label: "Small Label" },
+        { type: "string", name: "headline", label: "Page Heading", description: ACCENT_HINT },
+        { type: "string", name: "lede", label: "Introduction", ui: { component: "textarea" } },
+        { type: "string", name: "intro", label: "Opening Note", ui: { component: "textarea" } },
+        {
+          type: "string", name: "body", label: "Page Sections",
+          ui: { component: "textarea" },
+          description:
+            'Start a section with "## " followed by its title \u2014 numbering is added for you. Do not type section numbers by hand.',
+        },
+      ],
+    },
+
+    {
+      name: "policies",
+      label: "Policy Documents",
+      path: "src/_data",
+      format: "json",
+      match: { include: "policies" },
+      ui: { allowedActions: { create: false, delete: false }, router: () => "/legal/" },
+      fields: [
+        {
+          type: "object", name: "policies", label: "Policies", list: true,
+          ui: { itemProps: (i) => ({ label: i?.title ?? "Policy" }) },
+          fields: [
+            { type: "string", name: "title", label: "Policy Name" },
+            { type: "string", name: "url", label: "Link",
+              description:
+                'Leave blank until the document is written. Blank shows as "In preparation" instead of a broken link.' },
+            { type: "string", name: "status", label: "Status", options: ["available", "pending"] },
+            { type: "string", name: "summary", label: "Short Description", ui: { component: "textarea" } },
           ],
         },
       ],
