@@ -25,7 +25,7 @@ export default defineConfig({
   site:
     process.env.SITE_URL ||
     process.env.URL ||
-    "https://premier-wellness-telehealth.netlify.app",
+    "https://premierwellnesstelehealth.com",
   output: "server",
   adapter: isDev ? node({ mode: "standalone" }) : netlify(),
   integrations: [tina()],
