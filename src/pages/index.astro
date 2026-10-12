@@ -1,0 +1,31 @@
+---
+import { requestWithMetadata, tinaField } from "@tinacms/astro";
+import client from "../../tina/__generated__/client";
+import Base from "../layouts/Base.astro";
+import Hero from "../components/sections/Hero.astro";
+import TrustStrip from "../components/sections/TrustStrip.astro";
+import Services from "../components/sections/Services.astro";
+import Founder from "../components/sections/Founder.astro";
+import VisitTypes from "../components/sections/VisitTypes.astro";
+import CtaStrip from "../components/sections/CtaStrip.astro";
+import { getServiceCategories } from "../lib/collections.js";
+
+const result = await requestWithMetadata(
+  client.queries.home({ relativePath: "home.json" }),
+);
+const home = result.data.home;
+
+// One helper so each section can mark its own fields click-to-editable.
+const tf = (field: string) => tinaField(home, field as any);
+
+const categories = await getServiceCategories();
+---
+
+<Base>
+  <Hero hero={home.hero} tinaPrefix={tf} />
+  <TrustStrip items={home.trustItems} tinaPrefix={tf} />
+  <Services services={home.services} categories={categories} tinaPrefix={tf} />
+  <Founder founder={home.founder} testimonial={home.testimonial} tinaPrefix={tf} />
+  <VisitTypes visitTypes={home.visitTypes} tinaPrefix={tf} />
+  <CtaStrip text={home.ctaStrip?.text} />
+</Base>

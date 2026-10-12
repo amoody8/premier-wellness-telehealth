@@ -1,0 +1,36 @@
+---
+import Icon from "../Icon.astro";
+import { site } from "../../lib/derived.js";
+---
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span>
+        <Icon name="mail" size={12} strokeWidth={2.2} />
+        <a href={`mailto:${site.email}`}>Contact us</a>
+      </span>
+    </div>
+    <div class="topbar-word">
+      {site.wordmark.pre} <em>{site.wordmark.em}</em> {site.wordmark.post}
+    </div>
+    <div class="topbar-right">
+      {
+        site.booking.url ? (
+          <a
+            class="btn-small"
+            href={site.booking.url}
+            target="_blank"
+            rel="noopener"
+          >
+            {site.ctaLabel}
+          </a>
+        ) : (
+          <button class="btn-small" type="button" data-open-booking>
+            {site.ctaLabel}
+          </button>
+        )
+      }
+    </div>
+  </div>
+</div>

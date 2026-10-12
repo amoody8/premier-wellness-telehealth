@@ -1,0 +1,144 @@
+/* ===================================================================
+   Legal hub — index of policy documents
+   =================================================================== */
+
+.legal-hub {
+  background: var(--cream-warm);
+  padding: 72px 0 104px;
+}
+
+.legal-intro {
+  background: var(--page-bg);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 4px 4px 0;
+  padding: 28px 32px;
+  max-width: 820px;
+  margin: 0 auto 48px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.legal-section {
+  max-width: 820px;
+  margin: 0 auto 32px;
+  background: var(--page-bg);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 34px 36px;
+}
+
+.legal-section h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--navy-deep);
+  line-height: 1.2;
+  margin-bottom: 14px;
+  scroll-margin-top: var(--nav-offset);
+}
+
+.legal-section h2 .num {
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.legal-section p {
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.legal-section ul {
+  margin: 10px 0 16px 22px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.legal-section li {
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+.legal-section li::marker {
+  color: var(--gold);
+}
+
+.legal-section strong {
+  color: var(--navy-deep);
+}
+
+/* Policy document index */
+.policy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.policy-card {
+  background: var(--cream-warm);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color .25s, transform .25s;
+}
+
+a.policy-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.policy-card .title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--navy-deep);
+  line-height: 1.25;
+}
+
+.policy-card .status {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.policy-card .status--available {
+  background: rgba(176, 141, 62, .14);
+  color: #7A6128;
+}
+
+.policy-card .status--pending {
+  background: #FFF4D6;
+  color: #8B5E1A;
+}
+
+.policy-card--pending {
+  opacity: .82;
+}
+
+@media (max-width: 720px) {
+  .legal-hub {
+    padding: 56px 0 72px;
+  }
+
+  .legal-section {
+    padding: 26px 22px;
+  }
+}

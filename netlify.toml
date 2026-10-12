@@ -1,0 +1,12 @@
+# Netlify build. The Astro config switches to @astrojs/netlify when
+# NETLIFY is set, so this needs no adapter flag.
+#
+# `tinacms build` must run first: it generates the GraphQL client the
+# pages import, and the admin UI into public/admin.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"

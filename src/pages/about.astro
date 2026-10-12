@@ -1,0 +1,96 @@
+---
+import { requestWithMetadata, tinaField } from "@tinacms/astro";
+import client from "../../tina/__generated__/client";
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import WaveDivider from "../components/partials/WaveDivider.astro";
+import CtaStrip from "../components/sections/CtaStrip.astro";
+import { site } from "../lib/derived.js";
+import { inlineMarkdown, markdown } from "../lib/markdown.js";
+
+const result = await requestWithMetadata(
+  client.queries.about({ relativePath: "about.json" }),
+);
+const about = result.data.about;
+const tf = (field: string) => tinaField(about, field as any);
+---
+
+<Base
+  title="About"
+  description="Premier Wellness Telehealth provides compassionate, HIPAA-compliant virtual care for adults across Florida, Virginia, and Washington."
+>
+  <main id="main">
+    <header class="page-banner">
+      <div class="container">
+        <div class="eyebrow">{about.eyebrow}</div>
+        <h1 data-tina-field={tf("headline")} set:html={inlineMarkdown(about.headline)} />
+        <p class="lede" data-tina-field={tf("lede")}>{about.lede}</p>
+      </div>
+    </header>
+
+    <WaveDivider />
+
+    <section class="founder">
+      <div class="container founder-grid">
+        <div class="founder-photo founder-photo--placeholder">
+          <img src={site.logo} alt="" width="180" height="180" loading="lazy" />
+          <span class="ph-note">Provider photo coming soon</span>
+        </div>
+
+        <div class="founder-copy">
+          <div class="eyebrow">{about.providerEyebrow}</div>
+          <h2>{site.provider.name}, <em>{site.provider.credentials}</em></h2>
+          <div class="role">{site.provider.role}</div>
+          <div data-tina-field={tf("bio")} set:html={markdown(about.bio)} />
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-grid">
+        {
+          about.credentials?.map((item: any, i: number) => (
+            <div class="trust-item">
+              <div class="trust-icon">
+                <Icon name={item?.icon} size={36} strokeWidth={1.5} />
+              </div>
+              <div>
+                <h4 data-tina-field={tf(`credentials.${i}.heading`)}>{item?.heading}</h4>
+                <p data-tina-field={tf(`credentials.${i}.body`)}>{item?.body}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="visit-types">
+      <div class="container">
+        <div class="visit-types-head">
+          <div class="eyebrow eyebrow--centered">{about.expectEyebrow}</div>
+          <h2
+            class="section-heading"
+            data-tina-field={tf("expectHeadline")}
+            set:html={inlineMarkdown(about.expectHeadline)}
+          />
+        </div>
+
+        <div class="visit-grid">
+          {
+            about.expectations?.map((item: any, i: number) => (
+              <article class="visit-card">
+                <span class="visit-card-icon">
+                  <Icon name={item?.icon} size={26} strokeWidth={1.6} />
+                </span>
+                <h3 data-tina-field={tf(`expectations.${i}.title`)}>{item?.title}</h3>
+                <p data-tina-field={tf(`expectations.${i}.body`)}>{item?.body}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <CtaStrip />
+  </main>
+</Base>

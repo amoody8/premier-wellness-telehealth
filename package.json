@@ -6,12 +6,24 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "eleventy --serve",
-    "build": "eleventy",
-    "clean": "rm -rf _site"
+    "start": "npm run tina & npm run astro:dev",
+    "tina": "tinacms dev",
+    "astro:dev": "astro dev",
+    "build": "tinacms build && astro build",
+    "preview": "astro preview",
+    "clean": "rm -rf dist .astro"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6",
-    "markdown-it-anchor": "9.2.0"
+    "@tinacms/cli": "4.0.1",
+    "markdown-it-anchor": "9.2.0",
+    "tinacms": "3.14.3"
+  },
+  "dependencies": {
+    "@astrojs/netlify": "8.2.9",
+    "@astrojs/node": "11.1.7",
+    "@tinacms/astro": "0.7.1",
+    "astro": "7.3.8",
+    "gray-matter": "^4.0.3"
   }
 }

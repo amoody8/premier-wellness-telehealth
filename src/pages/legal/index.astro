@@ -1,0 +1,68 @@
+---
+import { requestWithMetadata, tinaField } from "@tinacms/astro";
+import client from "../../../tina/__generated__/client";
+import Base from "../../layouts/Base.astro";
+import WaveDivider from "../../components/partials/WaveDivider.astro";
+import { renderLegalBody } from "../../lib/legal.js";
+import { inlineMarkdown } from "../../lib/markdown.js";
+import policies from "../../_data/policies.json";
+
+const result = await requestWithMetadata(
+  client.queries.legalhub({ relativePath: "legalhub.json" }),
+);
+const hub = result.data.legalhub;
+const tf = (field: string) => tinaField(hub, field as any);
+
+// Reuses the legal renderer, so section numbers and the contents list
+// are generated from the headings rather than typed by hand.
+const { body } = renderLegalBody(hub.body ?? "");
+---
+
+<Base
+  title="Legal, Privacy & Compliance"
+  description="Privacy, telehealth, self-pay, prescribing, emergency care, and website-use information for Premier Wellness Telehealth."
+>
+  <main id="main">
+    <header class="page-banner">
+      <div class="container">
+        <div class="eyebrow">{hub.eyebrow}</div>
+        <h1 data-tina-field={tf("headline")} set:html={inlineMarkdown(hub.headline)} />
+        <p class="lede" data-tina-field={tf("lede")}>{hub.lede}</p>
+      </div>
+    </header>
+
+    <WaveDivider />
+
+    <section class="legal-hub">
+      <div class="container">
+        <div class="legal-intro" data-tina-field={tf("intro")}>{hub.intro}</div>
+
+        <div class="legal-section" data-tina-field={tf("body")}>
+          <Fragment set:html={body} />
+        </div>
+
+        <div class="legal-section" id="documents">
+          <h2>Policy Documents</h2>
+          <p>Policies marked as in preparation are being drafted and reviewed before publication.</p>
+          <div class="policy-grid">
+            {
+              policies.policies.map((policy: any) =>
+                policy.url ? (
+                  <a href={policy.url} class="policy-card">
+                    <span class="title">{policy.title}</span>
+                    <span class="status status--available">Available</span>
+                  </a>
+                ) : (
+                  <div class="policy-card policy-card--pending">
+                    <span class="title">{policy.title}</span>
+                    <span class="status status--pending">In preparation</span>
+                  </div>
+                ),
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

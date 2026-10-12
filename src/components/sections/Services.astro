@@ -1,0 +1,49 @@
+---
+import Icon from "../Icon.astro";
+import { inlineMarkdown } from "../../lib/markdown.js";
+
+/**
+ * Service category overview.
+ *
+ * Tiles come from the services collection, so adding or removing a
+ * category is safe — the grid is count-agnostic by design.
+ */
+interface Props {
+  services: any;
+  categories: any[];
+  tinaPrefix?: (field: string) => string | undefined;
+}
+const { services, categories, tinaPrefix } = Astro.props;
+const tf = (f: string) => (tinaPrefix ? tinaPrefix(f) : undefined);
+---
+
+<section class="services section--dark" id="services">
+  <div class="container">
+    <div class="services-head">
+      <div class="eyebrow eyebrow--centered">{services.eyebrow}</div>
+      <h2
+        class="section-heading"
+        data-tina-field={tf("services.headline")}
+        set:html={inlineMarkdown(services.headline)}
+      />
+      {services.sub && <p class="section-sub" data-tina-field={tf("services.sub")}>{services.sub}</p>}
+    </div>
+
+    <div class="services-grid">
+      {
+        categories.map((cat: any) => (
+          <a href={`/services/${cat.slug}/`} class="service-tile">
+            <span class="service-tile-icon">
+              <Icon name={cat.data.icon} size={32} strokeWidth={1.6} />
+            </span>
+            <span class="service-tile-label">{cat.data.title}</span>
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="services-cta">
+      <a href="/services/" class="btn btn-gold-outline">{services.ctaLabel}</a>
+    </div>
+  </div>
+</section>

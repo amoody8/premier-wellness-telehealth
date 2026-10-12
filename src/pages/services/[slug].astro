@@ -1,0 +1,80 @@
+---
+import { requestWithMetadata, tinaField } from "@tinacms/astro";
+import client from "../../../tina/__generated__/client";
+import Base from "../../layouts/Base.astro";
+import Icon from "../../components/Icon.astro";
+import WaveDivider from "../../components/partials/WaveDivider.astro";
+import { site } from "../../lib/derived.js";
+
+const { slug } = Astro.params;
+
+const result = await requestWithMetadata(
+  client.queries.services({ relativePath: `${slug}.md` }),
+);
+const svc = result.data.services;
+---
+
+<Base title={svc.title} description={svc.summary} ogType="article">
+  <main id="main">
+    <header class="page-banner">
+      <div class="container">
+        <div class="eyebrow">Services</div>
+        <h1 data-tina-field={tinaField(svc, "title")}>{svc.title}</h1>
+        {svc.intro && <p class="lede" data-tina-field={tinaField(svc, "intro")}>{svc.intro}</p>}
+      </div>
+    </header>
+
+    <WaveDivider />
+
+    <section class="category-wrap">
+      <div class="container">
+        <div class="group-grid">
+          {
+            svc.groups?.map((group: any, i: number) => (
+              <article class="group-card">
+                <h3 data-tina-field={tinaField(svc, `groups.${i}.title` as any)}>
+                  <Icon name={group?.icon} size={22} strokeWidth={1.6} />
+                  {group?.title}
+                </h3>
+                {group?.body && <p>{group.body}</p>}
+                <ul>
+                  {group?.items?.map((item: string) => <li>{item}</li>)}
+                </ul>
+              </article>
+            ))
+          }
+        </div>
+
+        {
+          svc.clinicalNote && (
+            <div class="clinical-note" data-tina-field={tinaField(svc, "clinicalNote")}>
+              <strong>Important clinical information</strong>
+              {svc.clinicalNote}
+            </div>
+          )
+        }
+      </div>
+    </section>
+
+    <section class="bottom-cta">
+      <div class="container">
+        <h3>Ready to be <em>seen</em>?</h3>
+        <p>Schedule a visit and we'll take the time to understand what's going on.</p>
+        <div class="btn-row">
+          <a href="/services/" class="btn btn-outline">All Services</a>
+          {
+            site.booking.url ? (
+              <a class="btn btn-primary" href={site.booking.url} target="_blank" rel="noopener">
+                {site.ctaLabel}
+              </a>
+            ) : (
+              <button class="btn btn-primary" type="button" data-open-booking>
+                {site.ctaLabel}
+              </button>
+            )
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

@@ -1,0 +1,77 @@
+/* ===================================================================
+   Layout — container and shared section rhythm
+   =================================================================== */
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+/* Eyebrow: small gold uppercase label above a section heading.
+   `--rule-both` centers it with a rule on each side. */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  vertical-align: middle;
+  margin-right: 12px;
+}
+
+.eyebrow--centered::after {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  vertical-align: middle;
+  margin-left: 12px;
+}
+
+/* Section headings. The gold italic accent comes from inline <em>,
+   produced by the single-field markdown headline (`*word*`). */
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(38px, 4.4vw, 56px);
+  color: var(--navy-deep);
+  line-height: 1.05;
+  letter-spacing: -.005em;
+}
+
+.section-heading em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* On dark grounds the accent needs the warmer gold for contrast */
+.section--dark .section-heading {
+  color: #F5EBCF;
+}
+
+.section--dark .section-heading em {
+  color: var(--gold-warm);
+}
+
+.section--dark .eyebrow {
+  color: var(--gold-warm);
+}
+
+@media (max-width: 720px) {
+  :root {
+    --container-pad: 20px;
+  }
+}

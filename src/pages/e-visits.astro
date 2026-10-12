@@ -1,0 +1,98 @@
+---
+import { requestWithMetadata, tinaField } from "@tinacms/astro";
+import client from "../../tina/__generated__/client";
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import WaveDivider from "../components/partials/WaveDivider.astro";
+import { site } from "../lib/derived.js";
+import { inlineMarkdown } from "../lib/markdown.js";
+
+/**
+ * HIPAA BOUNDARY — do not add a questionnaire to this page.
+ *
+ * The e-visit questionnaire collects symptoms and medical history, which
+ * is PHI. It lives inside SimplePractice under their BAA. This page
+ * describes the service and links out. Adding any symptom, condition, or
+ * history field here would pull the practice into HIPAA scope and
+ * require compliant hosting, a BAA with the host, audit logging, and
+ * breach procedures.
+ */
+
+const result = await requestWithMetadata(
+  client.queries.evisits({ relativePath: "evisits.json" }),
+);
+const ev = result.data.evisits;
+const tf = (field: string) => tinaField(ev, field as any);
+---
+
+<Base
+  title="Online E-Visits"
+  description="Care for select conditions without a scheduled video appointment. Complete a secure questionnaire and your provider will review it."
+>
+  <main id="main">
+    <header class="page-banner">
+      <div class="container">
+        <div class="eyebrow">{ev.eyebrow}</div>
+        <h1 data-tina-field={tf("headline")} set:html={inlineMarkdown(ev.headline)} />
+        <p class="lede" data-tina-field={tf("lede")}>{ev.lede}</p>
+      </div>
+    </header>
+
+    <WaveDivider />
+
+    <section class="category-wrap">
+      <div class="container">
+        <div class="category-intro" data-tina-field={tf("intro")}>{ev.intro}</div>
+
+        <div class="group-grid">
+          {
+            ev.groups?.map((group: any, i: number) => (
+              <article class="group-card">
+                <h3 data-tina-field={tf(`groups.${i}.title`)}>
+                  <Icon name={group?.icon} size={22} strokeWidth={1.6} />
+                  {group?.title}
+                </h3>
+                <ul>
+                  {group?.items?.map((item: string) => <li>{item}</li>)}
+                </ul>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="clinical-note" data-tina-field={tf("clinicalNote")}>
+          <strong>Important</strong>
+          {ev.clinicalNote}
+        </div>
+
+        <div style="text-align:center; margin-top:40px">
+          {
+            site.booking.evisitUrl ? (
+              <a
+                class="btn btn-primary"
+                href={site.booking.evisitUrl}
+                target="_blank"
+                rel="noopener"
+              >
+                {ev.ctaLabel}
+              </a>
+            ) : (
+              <button class="btn btn-primary" type="button" data-open-booking>
+                {ev.ctaFallbackLabel}
+              </button>
+            )
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-cta">
+      <div class="container">
+        <div class="emergency-banner" data-tina-field={tf("emergencyNotice")}>
+          <strong>Medical emergency</strong>
+          {ev.emergencyNotice}
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

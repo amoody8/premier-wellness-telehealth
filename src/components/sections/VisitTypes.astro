@@ -1,0 +1,55 @@
+---
+import Icon from "../Icon.astro";
+import { inlineMarkdown } from "../../lib/markdown.js";
+
+/**
+ * "Which type of visit do I need?"
+ *
+ * Video visits and online e-visits are presented as visibly distinct
+ * options. The e-visit questionnaire itself lives in SimplePractice —
+ * this only describes and links.
+ */
+interface Props {
+  visitTypes: any;
+  tinaPrefix?: (field: string) => string | undefined;
+}
+const { visitTypes, tinaPrefix } = Astro.props;
+const tf = (f: string) => (tinaPrefix ? tinaPrefix(f) : undefined);
+---
+
+<section class="visit-types" id="visit-types">
+  <div class="container">
+    <div class="visit-types-head">
+      <div class="eyebrow eyebrow--centered">{visitTypes.eyebrow}</div>
+      <h2
+        class="section-heading"
+        data-tina-field={tf("visitTypes.headline")}
+        set:html={inlineMarkdown(visitTypes.headline)}
+      />
+      {visitTypes.sub && <p class="section-sub">{visitTypes.sub}</p>}
+    </div>
+
+    <div class="visit-grid">
+      {
+        visitTypes.options?.map((option: any, i: number) => (
+          <article class="visit-card">
+            <span class="visit-card-icon">
+              <Icon name={option.icon} size={26} strokeWidth={1.6} />
+            </span>
+            <h3 data-tina-field={tf(`visitTypes.options.${i}.title`)}>{option.title}</h3>
+            <p data-tina-field={tf(`visitTypes.options.${i}.body`)}>{option.body}</p>
+            {
+              option.bestFor && (
+                <ul>
+                  {option.bestFor.map((point: string) => (
+                    <li>{point}</li>
+                  ))}
+                </ul>
+              )
+            }
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

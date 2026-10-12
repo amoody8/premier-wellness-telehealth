@@ -1,0 +1,41 @@
+{
+  "eyebrow": "Online E-Visits",
+  "headline": "Care without a scheduled *appointment*.",
+  "lede": "For select conditions, you may be able to receive care without a scheduled video visit — on your time, without sitting in a waiting room.",
+  "intro": "Complete a secure online questionnaire about your symptoms and medical history. Your provider will review the information and determine whether your concern can be safely treated through an e-visit.",
+  "groups": [
+    {
+      "icon": "clipboard-list",
+      "title": "How it works",
+      "items": [
+        "Start your e-visit in our secure patient portal",
+        "Answer questions about your symptoms and history",
+        "Your provider reviews during office hours",
+        "You receive a plan, or a recommendation for the right next step"
+      ]
+    },
+    {
+      "icon": "check",
+      "title": "Good fit for",
+      "items": [
+        "Select uncomplicated, straightforward concerns",
+        "Situations that don't need real-time conversation",
+        "Follow-up questions on an established plan"
+      ]
+    },
+    {
+      "icon": "video",
+      "title": "Choose a video visit instead for",
+      "items": [
+        "New concerns that benefit from discussion",
+        "Chronic condition follow-up",
+        "Anything needing visual assessment",
+        "Preventive and wellness care"
+      ]
+    }
+  ],
+  "clinicalNote": "E-visits are available for select uncomplicated concerns. Submission of a questionnaire does not guarantee treatment, a diagnosis, or a prescription. A prescription is provided only when medically appropriate. Some conditions require a video visit, an in-person examination, testing, or a higher level of care. Controlled substances are not prescribed.",
+  "ctaLabel": "Start an E-Visit",
+  "ctaFallbackLabel": "Ask About E-Visits",
+  "emergencyNotice": "If you are experiencing a medical emergency or potentially life-threatening symptoms, call 911 or go to the nearest emergency department. Do not use the website, patient portal, messaging system, or an online visit to seek emergency care."
+}

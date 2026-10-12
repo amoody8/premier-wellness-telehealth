@@ -1,0 +1,13 @@
+---
+/**
+ * Brand wave. Decorative only — `fill` should match the background of
+ * the section immediately below it.
+ */
+interface Props { fill?: string }
+const { fill = "#F3EEDF" } = Astro.props;
+---
+
+<svg class="wave-divider" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <path d="M0,40 C240,70 480,10 720,30 C960,55 1200,15 1440,40 L1440,80 L0,80 Z" fill="#B08D3E" opacity=".22"></path>
+  <path d="M0,55 C240,75 480,25 720,50 C960,75 1200,30 1440,55 L1440,80 L0,80 Z" fill={fill}></path>
+</svg>

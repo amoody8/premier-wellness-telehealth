@@ -1,0 +1,43 @@
+{
+  "eyebrow": "About Us",
+  "headline": "Healthcare that takes time to *listen*.",
+  "lede": "Premier Wellness Telehealth provides compassionate, HIPAA-compliant virtual care for adults across Florida, Virginia, and Washington — convenient, personalized care from the comfort and privacy of your home.",
+  "providerEyebrow": "About Your Provider",
+  "bio": "Lissette Moody, DNP, APRN-C, is a board-certified nurse practitioner and the founder of Premier Wellness Telehealth. With approximately 14 years of experience as a nurse practitioner, she has cared for adults across a variety of clinical settings, including primary care, preventive health, chronic condition support, and comprehensive wellness assessments.\n\nShe founded Premier Wellness Telehealth to provide adults with convenient access to thoughtful, personalized care without the pressure and rushed experience that can sometimes occur in traditional healthcare settings.\n\nHer approach is centered on listening carefully, explaining recommendations clearly, and involving patients in decisions about their health.",
+  "credentials": [
+    {
+      "icon": "award",
+      "heading": "14 Years of Experience",
+      "body": "Caring for adults across primary care, preventive health, and chronic condition management."
+    },
+    {
+      "icon": "layers",
+      "heading": "Doctor of Nursing Practice",
+      "body": "DNP, APRN-C — board-certified nurse practitioner with advanced clinical training."
+    },
+    {
+      "icon": "map-pin",
+      "heading": "Licensed in FL, VA, WA",
+      "body": "Serving eligible adult patients located in Florida, Virginia, and Washington at the time of their visit."
+    }
+  ],
+  "expectEyebrow": "How We Work",
+  "expectHeadline": "What you can *expect*",
+  "expectations": [
+    {
+      "icon": "clock",
+      "title": "Unhurried visits",
+      "body": "Time to describe what's going on, ask questions, and understand the plan before the visit ends."
+    },
+    {
+      "icon": "users",
+      "title": "One consistent provider",
+      "body": "You see the same nurse practitioner each visit — someone who knows your history."
+    },
+    {
+      "icon": "file-text",
+      "title": "Transparent self-pay pricing",
+      "body": "Fees are published before you book. No insurance authorizations, no surprise billing."
+    }
+  ]
+}
