@@ -1,9 +1,15 @@
 name: Build and deploy to GitHub Pages
 
+# DISABLED — the site moved to Netlify with the Astro port (Oct 2026).
+#
+# Astro + TinaCMS needs SSR for the editor's live region refresh, which
+# GitHub Pages cannot do. This workflow would also fail now: `npm run
+# build` runs `tinacms build` first, which requires TinaCloud credentials
+# that are not available here.
+#
+# Kept rather than deleted until Netlify is verified. Delete this file
+# once the old Pages site is retired.
 on:
-  push:
-    branches: [main]
-  # Lets you re-run a deploy from the Actions tab without pushing.
   workflow_dispatch:
 
 permissions:
