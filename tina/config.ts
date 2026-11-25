@@ -565,6 +565,20 @@ export default defineConfig({
         { type: "string", name: "bio", label: "Provider Biography", ui: { component: "textarea" },
           description: "Leave a blank line between paragraphs." },
         {
+          type: "image",
+          name: "image",
+          label: "Provider Photo",
+          description:
+            "A portrait works best \u2014 taller than it is wide. Leave empty to show the logo instead.",
+        },
+        {
+          type: "string",
+          name: "imageAlt",
+          label: "Photo Description",
+          description:
+            "Describe the photo for people using screen readers, e.g. \"Lissette Moody, DNP, APRN-C\".",
+        },
+        {
           type: "object", name: "credentials", label: "Credentials", list: true,
           ui: { itemProps: (i) => ({ label: i?.heading ?? "Credential" }) },
           fields: [

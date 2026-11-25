@@ -32,10 +32,24 @@ const tf = (field: string) => tinaField(about, field as any);
 
     <section class="founder">
       <div class="container founder-grid">
-        <div class="founder-photo founder-photo--placeholder">
-          <img src={site.logo} alt="" width="180" height="180" loading="lazy" />
-          <span class="ph-note">Provider photo coming soon</span>
-        </div>
+        {
+          about.image ? (
+            <div class="founder-photo">
+              <img
+                src={about.image}
+                alt={about.imageAlt}
+                width="600"
+                height="750"
+                loading="lazy"
+              />
+            </div>
+          ) : (
+            <div class="founder-photo founder-photo--placeholder">
+              <img src={site.logo} alt="" width="180" height="180" loading="lazy" />
+              <span class="ph-note">Provider photo coming soon</span>
+            </div>
+          )
+        }
 
         <div class="founder-copy">
           <div class="eyebrow">{about.providerEyebrow}</div>
