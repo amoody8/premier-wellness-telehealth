@@ -1,10 +1,10 @@
 {
   "eyebrow": "About Us",
   "headline": "Healthcare that takes time to *listen*.",
-  "lede": "Premier Wellness Telehealth provides compassionate, HIPAA-compliant virtual care for adults across Florida, Virginia, and Washington \u2014 convenient, personalized care from the comfort and privacy of your home.",
+  "lede": "Premier Wellness Telehealth provides compassionate, HIPAA-compliant virtual care for adults across Florida, Virginia, and Washington — convenient, personalized care from the comfort and privacy of your home.",
   "providerEyebrow": "About Your Provider",
   "bio": "Lissette Moody, DNP, APRN-C, is a board-certified nurse practitioner and the founder of Premier Wellness Telehealth. With approximately 14 years of experience as a nurse practitioner, she has cared for adults across a variety of clinical settings, including primary care, preventive health, chronic condition support, and comprehensive wellness assessments.\n\nShe founded Premier Wellness Telehealth to provide adults with convenient access to thoughtful, personalized care without the pressure and rushed experience that can sometimes occur in traditional healthcare settings.\n\nHer approach is centered on listening carefully, explaining recommendations clearly, and involving patients in decisions about their health.",
-  "image": "",
+  "image": "/assets/IMG_4285.PNG",
   "imageAlt": "",
   "credentials": [
     {
@@ -15,7 +15,7 @@
     {
       "icon": "layers",
       "heading": "Doctor of Nursing Practice",
-      "body": "DNP, APRN-C \u2014 board-certified nurse practitioner with advanced clinical training."
+      "body": "DNP, APRN-C — board-certified nurse practitioner with advanced clinical training."
     },
     {
       "icon": "map-pin",
@@ -34,7 +34,7 @@
     {
       "icon": "users",
       "title": "One consistent provider",
-      "body": "You see the same nurse practitioner each visit \u2014 someone who knows your history."
+      "body": "You see the same nurse practitioner each visit — someone who knows your history."
     },
     {
       "icon": "file-text",
