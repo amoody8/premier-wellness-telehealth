@@ -1,13 +1,14 @@
 ---
-title: "Privacy Policy"
-eyebrow: "Privacy"
-heading: "Privacy *Policy*"
-description: "How Premier Wellness Telehealth collects, uses, and protects information through our website."
+title: Privacy Policy
+eyebrow: Privacy
+heading: Privacy *Policy*
+description: 'How Premier Wellness Telehealth collects, uses, and protects information through our website.'
 order: 2
-draft: true
-effectiveDate: ""
-lastUpdated: ""
+draft: false
+effectiveDate: ''
+lastUpdated: ''
 ---
+
 
 ## Overview
 
