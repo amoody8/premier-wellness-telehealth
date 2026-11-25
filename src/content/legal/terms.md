@@ -1,13 +1,14 @@
 ---
-title: "Terms of Service"
-eyebrow: "Terms"
-heading: "Terms of *Service*"
-description: "Terms governing your use of the Premier Wellness Telehealth website and services."
+title: Terms of Service
+eyebrow: Terms
+heading: Terms of *Service*
+description: Terms governing your use of the Premier Wellness Telehealth website and services.
 order: 3
-draft: true
-effectiveDate: ""
-lastUpdated: ""
+draft: false
+effectiveDate: ''
+lastUpdated: ''
 ---
+
 
 ## Acceptance of Terms
 
