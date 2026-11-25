@@ -1,14 +1,15 @@
 ---
-title: "HIPAA Notice of Privacy Practices"
-eyebrow: "HIPAA"
-heading: "Notice of *Privacy Practices*"
-description: "How Premier Wellness Telehealth uses and protects your health information under HIPAA."
+title: HIPAA Notice of Privacy Practices
+eyebrow: HIPAA
+heading: Notice of *Privacy Practices*
+description: How Premier Wellness Telehealth uses and protects your health information under HIPAA.
 order: 1
-draft: true
-effectiveDate: ""
-lastUpdated: ""
+draft: false
+effectiveDate: ''
+lastUpdated: ''
 tocSkipFirst: true
 ---
+
 
 ## Important Notice
 
