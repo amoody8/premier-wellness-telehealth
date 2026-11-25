@@ -97,5 +97,6 @@ We may update this Privacy Policy from time to time. When we do, we will update 
 If you have questions or requests regarding this Privacy Policy or your information, please contact us at:
 
 **Premier Wellness Telehealth, LLC** 
-Email: [premierwellnesstelehealthllc@gmail.com](mailto:premierwellnesstelehealthllc@gmail.com) 
-Mailing address: [ to be added ]
+Email: [{{ site.email }}](mailto:{{ site.email }}) 
+Mailing address:  
+{{ site.mailingAddress }}

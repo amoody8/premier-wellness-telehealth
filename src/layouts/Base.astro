@@ -10,9 +10,11 @@ interface Props {
   title?: string;
   description?: string;
   ogType?: string;
+  /** Keep a page out of search results without deleting it. */
+  noindex?: boolean;
 }
 
-const { title, description, ogType = "website" } = Astro.props;
+const { title, description, ogType = "website", noindex = false } = Astro.props;
 
 const origin = Astro.site?.origin ?? site.origin;
 const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.tagline}`;
@@ -32,7 +34,7 @@ const schema = jsonLd(origin);
     <meta name="description" content={pageDescription} />
 
     <link rel="canonical" href={canonical} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
     <meta name="theme-color" content="#122845" />
 
     <link rel="icon" type="image/png" href={site.favicon} />

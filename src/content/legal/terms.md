@@ -95,4 +95,4 @@ We may update these Terms from time to time. The “Last updated” date at the 
 For questions about these Terms, please contact:
 
 **Premier Wellness Telehealth, LLC** 
-Email: [premierwellnesstelehealthllc@gmail.com](mailto:premierwellnesstelehealthllc@gmail.com)
+Email: [{{ site.email }}](mailto:{{ site.email }})

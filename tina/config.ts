@@ -238,11 +238,38 @@ export default defineConfig({
         },
         {
           type: "string",
+          name: "phone",
+          label: "Phone Number",
+          description:
+            "Not shown on the site. Used in the business details Google reads for search results.",
+        },
+        {
+          type: "string",
+          name: "fax",
+          label: "Fax Number",
+          description: "Not shown on the site. Used in the same business details as the phone number.",
+        },
+        {
+          type: "string",
           name: "mailingAddress",
           label: "Mailing Address",
           ui: { component: "textarea" },
           description:
-            "Required on your legal pages before publishing them. Leave blank until you have a business address to list.",
+            "Appears on the legal pages, which require it. One line per line of the address.",
+        },
+        {
+          type: "object",
+          name: "address",
+          label: "Address (for search engines)",
+          description:
+            "The same address broken into parts, so Google can show it in the business panel. Keep it matching the mailing address above.",
+          fields: [
+            { type: "string", name: "street", label: "Street" },
+            { type: "string", name: "city", label: "City" },
+            { type: "string", name: "region", label: "State", description: "Two letters, e.g. FL." },
+            { type: "string", name: "postalCode", label: "ZIP Code" },
+            { type: "string", name: "country", label: "Country", description: "Two letters, e.g. US." },
+          ],
         },
         {
           type: "string",
@@ -603,7 +630,10 @@ export default defineConfig({
 
     {
       name: "evisits",
-      label: "E-Visits Page",
+      label: "E-Visits Page (hidden)",
+      // The e-visit service is on hold. The page still builds and its
+      // content is intact, but it is unlisted from the menu and sitemap.
+      // Remove this `hidden` flag when the service returns.
       path: "src/_data",
       format: "json",
       match: { include: "evisits" },

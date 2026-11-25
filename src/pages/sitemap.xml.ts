@@ -7,7 +7,9 @@ export const GET: APIRoute = async ({ site: astroSite }) => {
   const categories = await getServiceCategories();
 
   const paths = [
-    "/", "/about/", "/services/", "/pricing/", "/e-visits/", "/faq/",
+    // "/e-visits/" is intentionally omitted — the page still builds but
+    // is unlisted while the service is on hold. Re-add when it returns.
+    "/", "/about/", "/services/", "/pricing/", "/faq/",
     "/legal/", "/legal/hipaa/", "/legal/privacy/", "/legal/terms/",
     ...categories.map((c) => `/services/${c.slug}/`),
   ];

@@ -133,5 +133,6 @@ If you have questions about this Notice or wish to exercise any of your rights, 
 
 **Lissette Moody, DNP, APRN-C** 
 Privacy Officer, Premier Wellness Telehealth, LLC 
-Email: [premierwellnesstelehealthllc@gmail.com](mailto:premierwellnesstelehealthllc@gmail.com) 
-Mailing address: [ to be added ]
+Email: [{{ site.email }}](mailto:{{ site.email }}) 
+Mailing address:  
+{{ site.mailingAddress }}

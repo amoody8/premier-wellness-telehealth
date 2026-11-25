@@ -3,9 +3,11 @@
   "legalName": "Premier Wellness Telehealth, LLC",
   "tagline": "Healthcare That Takes Time to Listen.",
   "taglineShort": "Compassionate Care \u00b7 Personalized for You",
-  "description": "Compassionate, HIPAA-compliant virtual care for adults 18+ across Florida, Virginia, and Washington. Same-day visits, chronic condition care, preventive wellness, women's health, and online e-visits.",
-  "email": "premierwellnesstelehealthllc@gmail.com",
-  "mailingAddress": "",
+  "description": "Compassionate, HIPAA-compliant virtual care for adults 18+ across Florida, Virginia, and Washington. Same-day visits, chronic condition care, preventive wellness, women's health.",
+  "email": "support@premierwellnesstelehealth.com",
+  "phone": "407-917-3503",
+  "fax": "689-262-4006",
+  "mailingAddress": "Premier Wellness Telehealth\n1317 Edgewater Dr #4410\nOrlando, FL 32804",
   "ctaLabel": "Schedule Appointment",
   "minimumAge": 18,
   "booking": {
@@ -61,5 +63,12 @@
   "logo": "/assets/pwt-logo-mark.png",
   "logoRaster": "/assets/pwt-logo-mark.png",
   "favicon": "/assets/favicon.png",
-  "appleTouchIcon": "/assets/apple-touch-icon.png"
+  "appleTouchIcon": "/assets/apple-touch-icon.png",
+  "address": {
+    "street": "1317 Edgewater Dr #4410",
+    "city": "Orlando",
+    "region": "FL",
+    "postalCode": "32804",
+    "country": "US"
+  }
 }

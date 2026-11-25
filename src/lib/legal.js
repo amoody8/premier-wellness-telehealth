@@ -82,9 +82,12 @@ export function renderLegalBody(source, { tocSkipFirst = false } = {}) {
     "derived.hoursLong": derived.hoursLong,
     "derived.cancellationPolicy": derived.cancellationPolicy,
     "site.email": site.email,
-    // Blank until the practice supplies one; render nothing rather than
-    // leaving a raw token on a legal page.
-    "site.mailingAddress": site.mailingAddress || "",
+    // Markdown collapses single newlines, so the address would run onto
+    // one line. Two trailing spaces force a hard break per line.
+    // Blank until supplied; renders nothing rather than a raw token.
+    "site.mailingAddress": (site.mailingAddress || "")
+      .split("\n")
+      .join("  \n"),
     "site.name": site.name,
     "site.legalName": site.legalName,
   };

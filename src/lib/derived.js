@@ -102,6 +102,22 @@ export function jsonLd(origin) {
       image: `${base}${site.logoRaster}`,
       url: `${base}/`,
       email: site.email,
+      // Phone, fax and address are not displayed on the site, but they
+      // populate Google's business panel for a local practice.
+      ...(site.phone ? { telephone: site.phone } : {}),
+      ...(site.fax ? { faxNumber: site.fax } : {}),
+      ...(site.address?.street
+        ? {
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: site.address.street,
+              addressLocality: site.address.city,
+              addressRegion: site.address.region,
+              postalCode: site.address.postalCode,
+              addressCountry: site.address.country,
+            },
+          }
+        : {}),
       priceRange: "$$",
       medicalSpecialty: ["PrimaryCare", "Geriatric"],
       areaServed: site.states.map((s) => ({ "@type": "State", name: s.name })),
