@@ -10,6 +10,7 @@ lastUpdated: ''
 ---
 
 
+
 ## Overview
 
 Premier Wellness Telehealth, LLC (“**Premier Wellness**,” “**we**,” or “**us**”) respects your privacy. This Privacy Policy describes what information we collect through this website (**premierwellnesstelehealth.com**), how we use it, and the choices you have.
@@ -96,7 +97,6 @@ We may update this Privacy Policy from time to time. When we do, we will update 
 
 If you have questions or requests regarding this Privacy Policy or your information, please contact us at:
 
-**Premier Wellness Telehealth, LLC** 
-Email: [{{ site.email }}](mailto:{{ site.email }}) 
-Mailing address:  
+**Premier Wellness Telehealth, LLC**
 {{ site.mailingAddress }}
+[{{ site.email }}](mailto:{{ site.email }}) 
