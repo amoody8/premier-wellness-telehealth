@@ -5,6 +5,7 @@ import Base from "../layouts/Base.astro";
 import WaveDivider from "../components/partials/WaveDivider.astro";
 import CtaStrip from "../components/sections/CtaStrip.astro";
 import { derived } from "../lib/derived.js";
+import { inlineMarkdown } from "../lib/markdown.js";
 
 const result = await requestWithMetadata(
   client.queries.pricing({ relativePath: "pricing.json" }),
@@ -66,27 +67,27 @@ const pricing = result.data.pricing;
     <section class="visit-types">
       <div class="container">
         <div class="visit-types-head">
-          <div class="eyebrow eyebrow--centered">Payment</div>
-          <h2 class="section-heading">How payment <em>works</em></h2>
+          <div class="eyebrow eyebrow--centered">{pricing.paymentEyebrow}</div>
+          <h2
+            class="section-heading"
+            data-tina-field={tinaField(pricing, "paymentHeadline")}
+            set:html={inlineMarkdown(pricing.paymentHeadline)}
+          />
         </div>
 
         <div class="visit-grid">
-          <article class="visit-card">
-            <h3>Payment at time of service</h3>
-            <p>
-              Payment is due at the time of your visit. We do not bill or accept
-              health insurance, which keeps pricing straightforward and avoids
-              insurance authorization requirements.
-            </p>
-          </article>
-          <article class="visit-card">
-            <h3>Using your HSA or FSA</h3>
-            <p>
-              Many patients use HSA or FSA funds for visits. You may request
-              documentation of your visit for your personal records;
-              reimbursement by an insurance plan is not guaranteed.
-            </p>
-          </article>
+          {
+            pricing.paymentCards?.map((card: any, i: number) => (
+              <article class="visit-card">
+                <h3 data-tina-field={tinaField(pricing, `paymentCards.${i}.title` as any)}>
+                  {card?.title}
+                </h3>
+                <p data-tina-field={tinaField(pricing, `paymentCards.${i}.body` as any)}>
+                  {card?.body}
+                </p>
+              </article>
+            ))
+          }
         </div>
       </div>
     </section>

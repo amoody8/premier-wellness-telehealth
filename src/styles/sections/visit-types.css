@@ -28,6 +28,29 @@
   align-items: stretch;
 }
 
+/* A lone card stretched edge to edge reads like a mistake rather than a
+   deliberate single option. Centre it at a readable width instead, and
+   let the normal grid resume the moment a second card exists — so the
+   e-visit option returning needs no code change. */
+.visit-grid:has(> .visit-card:only-child) {
+  grid-template-columns: minmax(0, 620px);
+  justify-content: center;
+}
+
+.visit-card:only-child {
+  text-align: center;
+}
+
+.visit-card:only-child .visit-card-icon {
+  margin-inline: auto;
+}
+
+.visit-card:only-child ul {
+  display: inline-block;
+  text-align: left;
+  margin-inline: 0;
+}
+
 .visit-card {
   background: var(--cream-warm);
   border: 1px solid var(--line);

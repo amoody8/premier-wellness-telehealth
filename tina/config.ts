@@ -404,6 +404,36 @@ export default defineConfig({
           ],
         },
         {
+          type: "object",
+          name: "social",
+          label: "Social Media Links",
+          list: true,
+          ui: { itemProps: (i) => ({ label: i?.platform ?? "Account" }) },
+          description:
+            "Icons appear in the footer. Leave this empty and nothing shows \u2014 add one when an account is live.",
+          fields: [
+            {
+              type: "string",
+              name: "platform",
+              label: "Platform",
+              options: ["facebook", "instagram", "linkedin", "youtube", "tiktok"],
+            },
+            {
+              type: "string",
+              name: "url",
+              label: "Profile Link",
+              description: "The full address, starting with https://",
+            },
+            {
+              type: "string",
+              name: "label",
+              label: "Screen-Reader Label",
+              description:
+                'Optional. Describes the link for people using screen readers, e.g. "Premier Wellness Telehealth on Instagram".',
+            },
+          ],
+        },
+        {
           type: "string",
           name: "disclaimer",
           label: "Footer Disclaimer",
@@ -521,6 +551,26 @@ export default defineConfig({
               label: "Late Cancellation Fee",
               description: "Numbers only, e.g. 50.",
             },
+          ],
+        },
+        { type: "string", name: "paymentEyebrow", label: "Payment Section Label" },
+        {
+          type: "string",
+          name: "paymentHeadline",
+          label: "Payment Section Heading",
+          description: ACCENT_HINT,
+        },
+        {
+          type: "object",
+          name: "paymentCards",
+          label: "Payment Information Cards",
+          list: true,
+          ui: { itemProps: (i) => ({ label: i?.title ?? "Card" }) },
+          description:
+            "A single card is centred; two or more lay out side by side automatically.",
+          fields: [
+            { type: "string", name: "title", label: "Title" },
+            { type: "string", name: "body", label: "Description", ui: { component: "textarea" } },
           ],
         },
         {
