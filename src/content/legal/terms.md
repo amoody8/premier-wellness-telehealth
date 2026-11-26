@@ -11,6 +11,7 @@ lastUpdated: ''
 
 
 
+
 ## Acceptance of Terms
 
 These Terms of Service (“**Terms**”) govern your use of **premierwellnesstelehealth.com** (the “**Website**”), operated by Premier Wellness Telehealth, LLC (“**Premier Wellness**,” “**we**,” or “**us**”). By accessing or using the Website, you agree to be bound by these Terms. If you do not agree, please do not use the Website.
@@ -95,5 +96,5 @@ We may update these Terms from time to time. The “Last updated” date at the 
 
 For questions about these Terms, please contact:
 
-**Premier Wellness Telehealth, LLC**
+**Premier Wellness Telehealth, LLC**  
 [{{ site.email }}](mailto:{{ site.email }})
