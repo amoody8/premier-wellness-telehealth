@@ -12,6 +12,7 @@ tocSkipFirst: true
 
 
 
+
 ## Important Notice
 
 {% callout %}
@@ -132,7 +133,7 @@ Web: [hhs.gov/hipaa](https://www.hhs.gov/hipaa/)
 
 If you have questions about this Notice or wish to exercise any of your rights, please contact our Privacy Officer:
 
-**Lissette Moody, DNP, APRN-C** 
+**Lissette Moody, DNP, APRN-C**
 Privacy Officer, Premier Wellness Telehealth, LLC
 
 [{{ site.email }}](mailto:{{ site.email }}) 
