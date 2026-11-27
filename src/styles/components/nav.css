@@ -130,7 +130,10 @@ nav.main {
 
 @media (max-width: 960px) {
   .nav-inner {
-    grid-template-columns: auto 1fr auto;
+    /* Only two children remain in the grid at this width: .nav-links is
+       absolutely positioned and .nav-cta is hidden, so a three-column
+       track left the toggle in the middle 1fr instead of at the edge. */
+    grid-template-columns: auto 1fr;
     position: relative;
   }
 
@@ -153,6 +156,7 @@ nav.main {
 
   .menu-toggle {
     display: block;
+    justify-self: end;
   }
 
   nav.main .nav-cta {
