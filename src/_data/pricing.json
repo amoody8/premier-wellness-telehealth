@@ -30,6 +30,12 @@
       "amount": 125,
       "unit": "per visit ",
       "description": "Same day sick visit "
+    },
+    {
+      "name": "Medical Weight Management - Consult",
+      "amount": 225,
+      "unit": "per visit ",
+      "description": "Individualized, evidence-based weight management for eligible adults. Prescription for medication may be provided when clinically appropriate.  "
     }
   ],
   "cancellation": {
