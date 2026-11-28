@@ -31,10 +31,10 @@
       "Thursday ",
       "Friday ",
       "Saturday ",
-      ""
+      "Sunday"
     ],
-    "opens": "0700",
-    "closes": "1900",
+    "opens": "07:00",
+    "closes": "19:00",
     "note": "Other hours by appointment"
   },
   "states": [
