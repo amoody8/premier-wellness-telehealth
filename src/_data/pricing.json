@@ -24,6 +24,12 @@
       "amount": 55,
       "unit": "per visit",
       "description": "Medication review and refills when safe and clinically appropriate."
+    },
+    {
+      "name": "Same Day ",
+      "amount": 125,
+      "unit": "per visit ",
+      "description": "Same day sick visit "
     }
   ],
   "cancellation": {
