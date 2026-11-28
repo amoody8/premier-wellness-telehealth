@@ -3,9 +3,9 @@
   "visits": [
     {
       "name": "New Patient Visit",
-      "amount": 115,
+      "amount": 140,
       "unit": "per visit",
-      "description": "Your first comprehensive visit \u2014 history, assessment, and a care plan built around you."
+      "description": "Your first comprehensive visit — history, assessment, and a care plan built around you."
     },
     {
       "name": "Follow-Up Visit",
