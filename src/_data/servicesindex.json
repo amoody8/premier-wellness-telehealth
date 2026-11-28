@@ -1,0 +1,8 @@
+{
+  "eyebrow": "What We Offer",
+  "headline": "Services *offered*",
+  "lede": "Comprehensive virtual care for adults {{ minimumAge }}+ located in {{ states }}. Every visit is with {{ provider }}.",
+  "clinicalNoteTitle": "When telehealth isn't the right fit",
+  "clinicalNote": "Telehealth is not appropriate for every medical concern. Some conditions require an in-person examination, laboratory testing, imaging, specialist evaluation, or emergency care. If a virtual visit shows that a different level of care is needed, we will tell you and help you find the appropriate next step. Controlled substances are not prescribed.",
+  "emergencyNotice": "If you are experiencing a medical emergency or potentially life-threatening symptoms, call 911 or go to the nearest emergency department. Do not use this website or an online visit to seek emergency care."
+}

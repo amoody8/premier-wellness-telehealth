@@ -679,6 +679,41 @@ export default defineConfig({
     },
 
     {
+      name: "servicesindex",
+      label: "Services Page",
+      path: "src/_data",
+      format: "json",
+      match: { include: "servicesindex" },
+      ui: { allowedActions: { create: false, delete: false }, router: () => "/services/" },
+      fields: [
+        { type: "string", name: "eyebrow", label: "Small Label" },
+        { type: "string", name: "headline", label: "Page Heading", description: ACCENT_HINT },
+        {
+          type: "string",
+          name: "lede",
+          label: "Introduction",
+          ui: { component: "textarea" },
+          description:
+            "You can insert values that update themselves: {{ states }} for the full state list, {{ minimumAge }} for the age, {{ provider }} for the provider's name and credentials. Type them exactly, braces included.",
+        },
+        { type: "string", name: "clinicalNoteTitle", label: "Clinical Note Title" },
+        {
+          type: "string",
+          name: "clinicalNote",
+          label: "Clinical Note",
+          ui: { component: "textarea" },
+          description: "The box explaining when telehealth is not appropriate.",
+        },
+        {
+          type: "string",
+          name: "emergencyNotice",
+          label: "Emergency Notice",
+          ui: { component: "textarea" },
+        },
+      ],
+    },
+
+    {
       name: "evisits",
       label: "E-Visits Page (hidden)",
       // The e-visit service is on hold. The page still builds and its

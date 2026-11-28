@@ -142,3 +142,23 @@ export function jsonLd(origin) {
 }
 
 export { site, pricing };
+
+/**
+ * Values an editor can drop into any text field.
+ *
+ * Lets copy stay editable in the CMS while the states, hours and
+ * provider name remain derived from site.json — so adding a licence
+ * updates the sentence without anyone retyping it.
+ */
+export const contentTokens = {
+  "states": derived.statesLong,
+  "statesOr": derived.statesLongOr,
+  "statesShort": derived.statesShort,
+  "hours": derived.hoursLong,
+  "provider": derived.providerFull,
+  "providerShort": derived.providerShort,
+  "practice": site.name,
+  "email": site.email,
+  "minimumAge": String(site.minimumAge),
+  "cancellationPolicy": derived.cancellationPolicy,
+};
