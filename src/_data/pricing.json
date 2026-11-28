@@ -9,7 +9,7 @@
     },
     {
       "name": "Follow-Up Visit",
-      "amount": 85,
+      "amount": 90,
       "unit": "per visit",
       "description": "Ongoing care, chronic condition follow-up, and treatment adjustments."
     },
