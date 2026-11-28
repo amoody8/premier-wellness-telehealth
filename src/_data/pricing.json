@@ -26,8 +26,8 @@
       "description": "Medication review and refills when safe and clinically appropriate."
     },
     {
-      "name": "Same Day ",
-      "amount": 125,
+      "name": "Acute Visit ",
+      "amount": 130,
       "unit": "per visit ",
       "description": "Same day sick visit "
     },
