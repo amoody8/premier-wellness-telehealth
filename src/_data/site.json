@@ -25,12 +25,16 @@
   },
   "hours": {
     "days": [
-      "Tuesday",
-      "Wednesday",
-      "Thursday"
+      "Monday ",
+      "Tuesday ",
+      "Wednesday ",
+      "Thursday ",
+      "Friday ",
+      "Saturday ",
+      ""
     ],
-    "opens": "09:00",
-    "closes": "17:00",
+    "opens": "0700",
+    "closes": "1900",
     "note": "Other hours by appointment"
   },
   "states": [
